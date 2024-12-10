@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
 :root {
-    --dark-greenish: #1F2D28;
-    --medium-greenish: #283933;
-    --light-greenish: #C8D6CA;
-    --placeholder-gray: #6B7D75;
-    --button-gray: #3A4A46;
-    --hover-gray: #5A6E67;
-    --background-green: #8B9A86;
+    --dark-water: #2A363B;
+    --medium-water: #3B4C54;
+    --light-water: #4C626B;
+    --cream: #EDE3D8;
+    --light-gray: #FCFFF5;
+    --mustard: #E0A500;
     --pure-white: #FFFFFF;
     --shadow-black: rgba(0, 0, 0, 0.2);
 }
@@ -16,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: var(--background-green);
+    background-color: var(--light-water);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +23,7 @@ body {
 }
 
 .login-container {
-    background-color: var(--dark-greenish);
+    background-color: var(--dark-water);
     padding: 45px;
     border-radius: 15px;
     box-shadow: 0px 4px 15px var(--shadow-black);
@@ -36,6 +35,7 @@ body {
     font-size: 28px;
     color: var(--pure-white);
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .form-group {
@@ -45,7 +45,7 @@ body {
 
 .form-group label {
     font-size: 14px;
-    color: var(--light-greenish);
+    color: var(--cream);
     margin-bottom: 5px;
     display: block;
     white-space: nowrap;
@@ -55,25 +55,40 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    color: var(--light-greenish);
-    background-color: var(--medium-greenish);
-    border: 1px solid var(--button-gray);
+    color: var(--cream);
+    background-color: var(--medium-water);
+    border: 1px solid var(--mustard);
     border-radius: 8px;
     outline: none;
     box-sizing: border-box;
 }
 
+.form-error {
+	margin-bottom: 20px;
+	color: var(--pure-white);
+	text-decoration: underline;
+	text-decoration-color: #8E090B;
+	font-size: 14px;
+}
+
+input:-webkit-autofill {
+    background-color: var(--medium-water) !important;
+    -webkit-text-fill-color: var(--cream) !important;
+    caret-color: var(--cream);
+    border: 1px solid var(--mustard);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill:focus {
+    border: 1px solid var(--cream);
+}
+
 .form-group input::placeholder {
-    color: var(--placeholder-gray);
+    color: var(--light-gray);
 }
 
 .form-group input:focus {
-    border-color: var(--light-greenish);
-}
-
-.checkbox {
-    display: inline-flex;
-    align-items: center;
+    border-color: var(--cream);
 }
 
 .checkbox input {
@@ -81,8 +96,11 @@ body {
 }
 
 .checkbox label {
+	display: flex;
+  	align-items: center;
     font-size: 14px;
-    color: var(--light-greenish);
+    color: var(--cream);
+    justify-content: center;
 }
 
 .login-btn {
@@ -90,23 +108,24 @@ body {
     padding: 12px;
     font-size: 16px;
     color: var(--pure-white);
-    background-color: var(--button-gray);
+    background-color: var(--mustard);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 .login-btn:hover {
-    background-color: var(--hover-gray);
+    background-color: var(--light-water);
 }
 
 input[type="checkbox"] {
     appearance: none;
     width: 20px;
     height: 20px;
-    background-color: var(--dark-greenish);
-    border: 2px solid var(--light-greenish);
+    background-color: var(--dark-water);
+    border: 1px solid var(--mustard);
     border-radius: 4px;
     cursor: pointer;
     display: inline-block;
@@ -114,13 +133,17 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:hover {
-    background-color: var(--medium-greenish);
+    background-color: var(--medium-water);
 }
 
 input[type="checkbox"]:checked {
-    background-color: var(--button-gray);
-    border-color: var(--light-greenish);
+    background-color: var(--mustard);
+    border-color: var(--cream);
     position: relative;
+}
+
+input[type="checkbox"]:not(:checked) {
+    border-color: var(--mustard);
 }
 
 input[type="checkbox"]:checked::after {

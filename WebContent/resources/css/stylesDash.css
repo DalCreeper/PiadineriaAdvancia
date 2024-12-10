@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+:root {
+    --dark-water: #2A363B;
+    --medium-water: #3B4C54;
+    --light-water: #4C626B;
+    --cream: #EDE3D8;
+    --light-gray: #FCFFF5;
+    --mustard: #E0A500;
+    --pure-white: #FFFFFF;
+    --shadow-black: rgba(0, 0, 0, 0.2);
+}

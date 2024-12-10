@@ -3,5 +3,29 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>
+		Piadineria Advancia
+	</display-name>
+	<description>
+		Exercise Project on Web App Development
+
+		A piadina vendor has requested the creation of a website where
+		their employees can prepare the piadinas that will make up the
+		options for customers, starting from a set of predefined ingredients.
+	</description>
+	<!-- *************************************************************************************** -->
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<display-name>LoginServlet</display-name>
+		<description>
+			Login form to access the dashboard of the web application dedicated
+			to the employees of Piadineria Advancia.
+		</description>
+		<servlet-class>servlets.LoginServlet</servlet-class>
+	</servlet>
+	<!-- *************************************************************************************** -->
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
