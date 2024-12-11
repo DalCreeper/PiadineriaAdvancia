@@ -20,7 +20,7 @@
                 <input name="password"  type="password" id="password" placeholder="password" required>
             </div>
             <%
-		        String errorMessage = (String) request.getAttribute("errorMessage");
+		        String errorMessage = (session != null) ? (String) session.getAttribute("errorMessage") : null;
 		        if(errorMessage != null) {
 		    %>
 		        <p class="form-error"><%= errorMessage %></p>
