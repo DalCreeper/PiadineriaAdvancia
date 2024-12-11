@@ -15,6 +15,12 @@
 	</description>
 	<!-- *************************************************************************************** -->
 	<servlet>
+		<servlet-name>LoadLoginServlet</servlet-name>
+		<display-name>LoadLoginServlet</display-name>
+		<description><!-- TODO --></description>
+		<servlet-class>servlets.LoadLoginServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
 		<display-name>LoginServlet</display-name>
 		<description>
@@ -23,9 +29,33 @@
 		</description>
 		<servlet-class>servlets.LoginServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LoadDashboardServlet</servlet-name>
+		<display-name>LoadDashboardServlet</display-name>
+		<description><!-- TODO --></description>
+		<servlet-class>servlets.LoadDashboardServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DashboardServelt</servlet-name>
+		<display-name>DashboardServelt</display-name>
+		<description><!-- TODO --></description>
+		<servlet-class>servlets.DashboardServelt</servlet-class>
+	</servlet>
 	<!-- *************************************************************************************** -->
+	<servlet-mapping>
+		<servlet-name>LoadLoginServlet</servlet-name>
+		<url-pattern>/LoadLoginServlet</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadDashboardServlet</servlet-name>
+		<url-pattern>/LoadDashboardServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DashboardServelt</servlet-name>
+		<url-pattern>/DashboardServelt</url-pattern>
 	</servlet-mapping>
 </web-app>

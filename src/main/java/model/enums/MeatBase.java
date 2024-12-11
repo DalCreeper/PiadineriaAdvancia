@@ -1,5 +1,7 @@
 package model.enums;
 
+import java.util.Random;
+
 public enum MeatBase {
 	COOKED_HAM("Cooked ham"),
 	RAW_HAM("Raw ham"),
@@ -20,6 +22,11 @@ public enum MeatBase {
 	
 	public String getRaw() {
 		return raw;
+	}
+	
+	public static MeatBase random() {
+		Random rand = new Random();
+		return MeatBase.values()[rand.nextInt(MeatBase.values().length)];
 	}
 
 	public static MeatBase getEnumText(String text) {

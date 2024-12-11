@@ -1,5 +1,7 @@
 package model.enums;
 
+import java.util.Random;
+
 public enum Dough {
 	CLASSIC("Classic"),
 	CHARCOAL("Charcoal"),
@@ -16,7 +18,12 @@ public enum Dough {
 	public String getRaw() {
 		return raw;
 	}
-
+	
+	public static Dough random() {
+		Random rand = new Random();
+		return Dough.values()[rand.nextInt(Dough.values().length)];
+	}
+	
 	public static Dough getEnumText(String text) {
     	switch(text) {
 	    	case "Classic" :

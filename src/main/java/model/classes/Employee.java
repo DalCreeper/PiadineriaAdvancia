@@ -1,5 +1,7 @@
 package model.classes;
 
+import java.util.Random;
+
 public class Employee {
 	private String name;
 	private String surname;
@@ -26,6 +28,11 @@ public class Employee {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+	
+	public static Employee random() {
+		Random rand = new Random();
+		return new Employee("Nome" + rand.nextInt(10), "Cognome" + rand.nextInt(10));
 	}
 	
 	@Override

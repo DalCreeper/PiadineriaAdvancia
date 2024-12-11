@@ -1,5 +1,7 @@
 package model.enums;
 
+import java.util.Random;
+
 public enum OptionalElements {
 	MOZZARELLA("Mozzarella"),
 	GHERKINS("Gherkins"),
@@ -25,6 +27,11 @@ public enum OptionalElements {
 	
 	public String getRaw() {
 		return raw;
+	}
+	
+	public static OptionalElements random() {
+		Random rand = new Random();
+		return OptionalElements.values()[rand.nextInt(OptionalElements.values().length)];
 	}
 
 	public static OptionalElements getEnumText(String text) {

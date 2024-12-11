@@ -1,5 +1,7 @@
 package model.enums;
 
+import java.util.Random;
+
 public enum Sauces {
 	KETCHUP("Ketchup"),
 	MAYONNAISE("Mayonnaise"),
@@ -15,6 +17,11 @@ public enum Sauces {
 	
 	public String getRaw() {
 		return raw;
+	}
+	
+	public static Sauces random() {
+		Random rand = new Random();
+		return Sauces.values()[rand.nextInt(Sauces.values().length)];
 	}
 
 	public static Sauces getEnumText(String text) {
