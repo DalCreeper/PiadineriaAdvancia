@@ -5,20 +5,23 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class DashboardServelt
  */
-public class DashboardServelt extends HttpServlet {
+public class DashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String piadinas = request.getParameter("piadinas");
+		HttpSession httpSession = request.getSession(false);
 		
-		if(request.getSession(false) != null) {
+		if(httpSession != null) {
+			Object piadinas = request.getSession().getAttribute("piadinas");
+			
 			if(piadinas != null) {
 				response.sendRedirect(request.getContextPath() + "/dashboard.jsp");
 			} else {

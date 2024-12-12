@@ -1,8 +1,16 @@
 package model.classes;
 
-import java.util.Random;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Employee {
+public class Employee implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private static final Set<String> GENERATED_NAMES = new HashSet<>();
+	private static final Set<String> GENERATED_SURNAMES = new HashSet<>();
+	private static int COUNTER_NAMES = 1;
+	private static int COUNTER_SURNAMES = 1;
+	
 	private String name;
 	private String surname;
 	
@@ -31,8 +39,15 @@ public class Employee {
 	}
 	
 	public static Employee random() {
-		Random rand = new Random();
-		return new Employee("Nome" + rand.nextInt(10), "Cognome" + rand.nextInt(10));
+		String name;
+        do {
+            name = "Name " + COUNTER_NAMES++;
+        } while (!GENERATED_NAMES.add(name));
+        String surname;
+        do {
+        	surname = "Surname " + COUNTER_SURNAMES++;
+        } while (!GENERATED_SURNAMES.add(surname));
+		return new Employee(name, surname);
 	}
 	
 	@Override

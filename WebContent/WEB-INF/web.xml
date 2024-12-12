@@ -36,10 +36,10 @@
 		<servlet-class>servlets.LoadDashboardServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>DashboardServelt</servlet-name>
-		<display-name>DashboardServelt</display-name>
+		<servlet-name>DashboardServlet</servlet-name>
+		<display-name>DashboardServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.DashboardServelt</servlet-class>
+		<servlet-class>servlets.DashboardServlet</servlet-class>
 	</servlet>
 	<!-- *************************************************************************************** -->
 	<servlet-mapping>
@@ -55,7 +55,7 @@
 		<url-pattern>/LoadDashboardServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>DashboardServelt</servlet-name>
-		<url-pattern>/DashboardServelt</url-pattern>
+		<servlet-name>DashboardServlet</servlet-name>
+		<url-pattern>/DashboardServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

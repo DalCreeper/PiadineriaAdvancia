@@ -3,6 +3,7 @@ package model.enums;
 public enum ConsoleType {
 	SYSTEM("S"),
 	ERROR("E"),
+	FATAL_ERROR("F"),
 	WARNING("W"),
 	DEBUG("D");
 	
@@ -22,6 +23,8 @@ public enum ConsoleType {
 	    		return SYSTEM;
 	    	case "E" :
 	    		return ERROR;
+	    	case "F" :
+	    		return FATAL_ERROR;
 	    	case "W" :
 	    		return WARNING;
 	    	case "D" :

@@ -1,7 +1,10 @@
 package model.classes;
 
+import java.io.Serializable;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -10,7 +13,11 @@ import model.enums.MeatBase;
 import model.enums.OptionalElements;
 import model.enums.Sauces;
 
-public class Piadina {
+public class Piadina implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private static final Set<String> GENERATED_NAMES = new HashSet<>();
+	private static int COUNTER = 1;
+	
 	private String name;
 	private Dough dough;
 	private MeatBase[] meatBase;
@@ -94,7 +101,10 @@ public class Piadina {
 	private static final Random RANDOM = new Random();
 
     public static Piadina random() {
-        String name = "Piadina " + (RANDOM.nextInt(1000) + 1);
+    	String name;
+        do {
+            name = "Piadina " + COUNTER++;
+        } while (!GENERATED_NAMES.add(name));
         Dough dough = Dough.values()[RANDOM.nextInt(Dough.values().length)];
         MeatBase[] meatBase = IntStream.range(0, RANDOM.nextInt(2) + 1).mapToObj(i -> MeatBase.random()).toArray(MeatBase[]::new);
         Sauces[] sauces = IntStream.range(0, RANDOM.nextInt(2) + 1).mapToObj(i -> Sauces.random()).toArray(Sauces[]::new);
