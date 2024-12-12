@@ -9,21 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import model.utils.ConsoleUtils;
 
 /**
- * Servlet implementation class loadLoginServlet
+ * Servlet implementation class AddPiadinaActionServlet
  */
-public class LoadLoginServlet extends HttpServlet {
+public class AddPiadinaActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getSession(false) != null) {
-			ConsoleUtils.print("S", "Load login successful.");
-	        request.getRequestDispatcher("/LoadDashboardServlet").forward(request, response);
-	    } else {
-	    	ConsoleUtils.print("W", "Load login session not found.");
-	    	request.getRequestDispatcher("/LoginServlet").forward(request, response);
-	    }
+		ConsoleUtils.print("D", "Cliccato!");
 	}
 }

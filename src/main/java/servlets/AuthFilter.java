@@ -2,6 +2,9 @@ package servlets;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import model.utils.ConsoleUtils;
+
 import java.io.IOException;
 
 public class AuthFilter implements Filter {
@@ -25,6 +28,7 @@ public class AuthFilter implements Filter {
         if(session != null && token != null && token.equals(session.getAttribute("token"))) {
             chain.doFilter(request, response);
         } else {
+        	ConsoleUtils.print("E", "AuthFilter session not found.");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/loginForm.jsp");
         }
     }

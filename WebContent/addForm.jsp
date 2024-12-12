@@ -16,92 +16,123 @@
         		"@material/web/": "https://esm.run/@material/web/"
       		}
     	}
-	</script>
+</script>
 <script type="module">
     	import '@material/web/all.js';
     	import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
 
     	document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-  	</script>
+</script>
 </head>
 <body>
 	<header>
 		<h1>Add a New Piadina</h1>
 	</header>
 	<main>
-		<form id="addPiadinaForm" action="AddPiadinaServlet" method="post">
+		<form id="addPiadinaForm" action="AddPiadinaActionServlet" method="post">
 			<label for="name">Name:</label>
 			<input type="text" id="name" name="name" required>
 			
-			<label for="dough">Dough:</label>
+			<label>Dough:</label>
+			<div class="chips-container">
 			<%
-				Dough[] doughs = (Dough[]) request.getAttribute("doughs");
-				for (Dough dough : doughs) {
+				Dough[] doughs = (Dough[]) session.getAttribute("doughs");
+			 	if(doughs != null) {
+					for(Dough dough : doughs) {
 			%>
-					<md-chip-set id="dough" name="dough" required>
-						<md-filter-chip
-							label="<%=dough.getRaw()%>>"
-							onclick="toggleChipSelection(this), 1">
-						</md-filter-chip>
-					</md-chip-set>
+						<div class="chip" onclick="toggleChipSelection('dough', this, 1)">
+					        <span class="chip-label"><%=dough.getRaw()%></span>
+					    </div>
+						<!--
+						<md-chip-set class="chip-set" id="dough" name="dough" required>
+							<md-filter-chip
+								label="<%=dough.getRaw()%>"
+								onclick="toggleChipSelection(this), 1">
+								<span class="mdc-chip__icon" style="display: none;"></span>
+							</md-filter-chip>
+						</md-chip-set>
+						-->
 			<%
+					}
 				}
 			%>
-
-			<label for="meat">Meat Base (max 2):</label>
+			</div>
+			<label>Meat Base (max 2):</label>
+			<div class="chips-container">
 			<%
-				MeatBase[] mBases = (MeatBase[]) request.getAttribute("mBases");
-				for (MeatBase mBase : mBases) {
+				MeatBase[] mBases = (MeatBase[]) session.getAttribute("mBases");
+				if(mBases != null) {
+					for(MeatBase mBase : mBases) {
 			%>
-					<md-chip-set id="mBase" name="mBase" required>
-						<md-filter-chip
-							label="<%=mBase.getRaw()%>>"
-							onclick="toggleChipSelection(this), 2">
-						</md-filter-chip>
-					</md-chip-set>
+						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)">
+					        <span class="chip-label"><%=mBase.getRaw()%></span>
+					    </div>
+					    <!--
+						<md-chip-set class="chip-set" id="mBase" name="mBase" required>
+							<md-filter-chip
+								label="<%=mBase.getRaw()%>"
+								onclick="toggleChipSelection(this), 2">
+							</md-filter-chip>
+						</md-chip-set>
+						-->
 			<%
+					}
 				}
 			%>
-
-			<label for="sauces">Sauces (max 2):</label>
+			</div>
+			<label>Sauces (max 2):</label>
+			<div class="chips-container">
 			<%
-				Sauces[] sauces = (Sauces[]) request.getAttribute("sauces");
-				for (Sauces sauce : sauces) {
+				Sauces[] sauces = (Sauces[]) session.getAttribute("sauces");
+				if(sauces != null) {
+					for(Sauces sauce : sauces) {
 			%>
-					<md-chip-set id="sauce" name="sauce" required>
-						<md-filter-chip
-							label="<%=sauce.getRaw()%>>"
-							onclick="toggleChipSelection(this), 2">
-						</md-filter-chip>
-					</md-chip-set>
+						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)">
+					        <span class="chip-label"><%=sauce.getRaw()%></span>
+					    </div>
+						<!--
+						<md-chip-set class="chip-set" id="sauce" name="sauce" required>
+							<md-filter-chip
+								label="<%=sauce.getRaw()%>"
+								onclick="toggleChipSelection(this), 2">
+							</md-filter-chip>
+						</md-chip-set>
+						-->
 			<%
+					}
 				}
 			%>
-
-			<label for="optional">Optional Elements (max 3):</label>
+			</div>
+			<label>Optional Elements (max 3):</label>
+			<div class="chips-container">
 			<%
-				OptionalElements[] oElements = (OptionalElements[]) request.getAttribute("sauces");
-				for (OptionalElements oElement : oElements) {
+				OptionalElements[] oElements = (OptionalElements[]) session.getAttribute("oElements");
+				if(oElements != null) {
+					for(OptionalElements oElement : oElements) {
 			%>
-					<md-chip-set id="oElement" name="oElement" required>
-						<md-filter-chip
-							label="<%=oElement.getRaw()%>>"
-							onclick="toggleChipSelection(this), 3">
-						</md-filter-chip>
-					</md-chip-set>
+						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)">
+					        <span class="chip-label"><%=oElement.getRaw()%></span>
+					    </div>
+						<!--
+						<md-chip-set class="chip-set" id="oElement" name="oElement" required>
+							<md-filter-chip
+								label="<%=oElement.getRaw()%>"
+								onclick="toggleChipSelection(this), 3">
+							</md-filter-chip>
+						</md-chip-set>
+						-->
 			<%
+					}
 				}
 			%>
-
+			</div>
 			<label for="price">Price:</label>
 			<input type="number" id="price" name="price" step="0.01" required>
-			
 			<label for="addedBy">Added By:</label>
 			<input type="text" id="addedBy" name="addedBy" required>
-
 			<button type="submit">Add Piadina</button>
 		</form>
 	</main>
-	<script src="scriptAdd.js"></script>
+	<script src="resources/js/scriptAdd.js"></script>
 </body>
 </html>

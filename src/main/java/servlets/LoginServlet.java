@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
         	ConsoleUtils.print("S", "Login successful for user", username);
         	request.getRequestDispatcher("/LoadDashboardServlet").forward(request, response);
         } else {
-        	ConsoleUtils.print("S", "Login failed for user", username);
+        	ConsoleUtils.print("W", "Login failed for user", username);
             httpSession.setAttribute("errorMessage", "Invalid username or password!");
             response.sendRedirect(request.getContextPath() + "/loginForm.jsp");
         }

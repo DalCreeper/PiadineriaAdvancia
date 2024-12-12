@@ -62,3 +62,37 @@ button {
 button:hover {
     background-color: var(--dark-water);
 }
+
+.chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+.chip-set {
+    display: inline-block; 
+}
+
+.chip {
+    background-color: #EDE3D8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+    border: 1px solid var(--dark-water);
+    color: black;
+}
+
+.chip:hover {
+	/*background-clip: border-box;*/
+}
+
+.chip.selected {
+    background-color: var(--dark-water);
+    color: white;
+}
+

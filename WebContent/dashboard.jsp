@@ -23,7 +23,7 @@
 		<h1>Menu Management - Piadineria Advancia</h1>
 		<%
 			String user = (session != null) ? (String) session.getAttribute("user") : null;
-			if (user != null) {
+			if(user != null) {
 		%>
 		<h3>
 			Welcome, <%=user%>!
@@ -52,8 +52,8 @@
 					<tbody id="menuTableBody">
 						<%
 							Piadina[] piadinas = (Piadina[]) session.getAttribute("piadinas");
-							if (piadinas != null) {
-								for (Piadina piadina : piadinas) {
+							if(piadinas != null) {
+								for(Piadina piadina : piadinas) {
 						%>
 									<tr>
 										<td class="col"><%=piadina.getName()%></td>
@@ -80,13 +80,14 @@
 					</tbody>
 				</table>
 			</div>
-			<button class="align-middle" id="addPiadinaBtn">Add Piadina</button>
+			<form action="LoadAddPiadinaServlet" method="post">
+				<button class="align-middle" id="addPiadinaBtn">Add Piadina</button>
+			</form>
 		</section>
 	</main>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
-	<script src="resources/js/scriptDash.js"></script>
 </body>
 </html>

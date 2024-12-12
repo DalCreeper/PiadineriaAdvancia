@@ -10,9 +10,9 @@ import javax.servlet.http.HttpSession;
 import model.utils.ConsoleUtils;
 
 /**
- * Servlet implementation class DashboardServelt
+ * Servlet implementation class AddPiadinaServlet
  */
-public class DashboardServlet extends HttpServlet {
+public class AddPiadinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -22,17 +22,20 @@ public class DashboardServlet extends HttpServlet {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession != null) {
-			Object piadinas = request.getSession().getAttribute("piadinas");
+			Object doughs = httpSession.getAttribute("doughs");
+			Object mBases = httpSession.getAttribute("mBases");
+			Object sauces = httpSession.getAttribute("sauces");
+			Object oElements = httpSession.getAttribute("oElements");
 			
-			if(piadinas != null) {
-				ConsoleUtils.print("S", "Dashboard opening successful.");
-				response.sendRedirect(request.getContextPath() + "/dashboard.jsp");
+			if(doughs != null && mBases != null && sauces != null && oElements != null) {
+				ConsoleUtils.print("S", "AddPiadina opening successful.");
+				response.sendRedirect(request.getContextPath() + "/addForm.jsp");
 			} else {
-				ConsoleUtils.print("W", "Dashboard opening failed.");
-				request.getRequestDispatcher("/LoadDashboardServlet").forward(request, response);
+				ConsoleUtils.print("W", "AddPiadina opening failed.");
+				request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
 			}
 		} else {
-			ConsoleUtils.print("E", "Dashboard session not found.");
+			ConsoleUtils.print("E", "AddPiadina session not found.");
 			request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
 		}
 	}

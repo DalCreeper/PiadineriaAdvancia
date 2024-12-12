@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.classes.Piadina;
+import model.utils.ConsoleUtils;
 
 /**
  * Servlet implementation class LoadDashboardServlet
@@ -27,12 +28,15 @@ public class LoadDashboardServlet extends HttpServlet {
 			
 			if(user != null) {
 				httpSession.setAttribute("piadinas", piadinasTemp);
+				ConsoleUtils.print("S", "Load dashboard successful.");
 		        request.getRequestDispatcher("/DashboardServlet").forward(request, response);
 		    } else {
 		    	httpSession.invalidate();
+		    	ConsoleUtils.print("W", "Load dashboard failed.");
 		    	request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
 		    }
 		} else {
+			ConsoleUtils.print("E", "Load dashboard session not found.");
 			request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
 		}
 	}

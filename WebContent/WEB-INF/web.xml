@@ -41,6 +41,24 @@
 		<description><!-- TODO --></description>
 		<servlet-class>servlets.DashboardServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LoadAddPiadinaServlet</servlet-name>
+		<display-name>LoadAddPiadinaServlet</display-name>
+		<description><!-- TODO --></description>
+		<servlet-class>servlets.LoadAddPiadinaServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddPiadinaServlet</servlet-name>
+		<display-name>AddPiadinaServlet</display-name>
+		<description><!-- TODO --></description>
+		<servlet-class>servlets.AddPiadinaServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddPiadinaActionServlet</servlet-name>
+		<display-name>AddPiadinaActionServlet</display-name>
+		<description><!-- TODO --></description>
+		<servlet-class>servlets.AddPiadinaActionServlet</servlet-class>
+	</servlet>
 	<!-- *************************************************************************************** -->
 	<servlet-mapping>
 		<servlet-name>LoadLoginServlet</servlet-name>
@@ -57,5 +75,17 @@
 	<servlet-mapping>
 		<servlet-name>DashboardServlet</servlet-name>
 		<url-pattern>/DashboardServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadAddPiadinaServlet</servlet-name>
+		<url-pattern>/LoadAddPiadinaServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddPiadinaServlet</servlet-name>
+		<url-pattern>/AddPiadinaServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddPiadinaActionServlet</servlet-name>
+		<url-pattern>/AddPiadinaActionServlet</url-pattern>
 	</servlet-mapping>
 </web-app>
