@@ -21,19 +21,6 @@ public class DashboardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession(false);
 		
-		if(httpSession != null) {
-			Object piadinas = request.getSession().getAttribute("piadinas");
-			
-			if(piadinas != null) {
-				ConsoleUtils.print("S", "Dashboard opening successful.");
-				response.sendRedirect(request.getContextPath() + "/dashboard.jsp");
-			} else {
-				ConsoleUtils.print("W", "Dashboard opening failed.");
-				request.getRequestDispatcher("/LoadDashboardServlet").forward(request, response);
-			}
-		} else {
-			ConsoleUtils.print("E", "Dashboard session not found.");
-			request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
-		}
+		
 	}
 }

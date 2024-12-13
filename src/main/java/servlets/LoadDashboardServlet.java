@@ -15,12 +15,12 @@ import model.utils.ConsoleUtils;
  */
 public class LoadDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Piadina[] piadinasTemp = Piadina.randomList(4);
+	private Piadina[] piadinasTemp = Piadina.hardCodedList();
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession != null) {
@@ -29,15 +29,12 @@ public class LoadDashboardServlet extends HttpServlet {
 			if(user != null) {
 				httpSession.setAttribute("piadinas", piadinasTemp);
 				ConsoleUtils.print("S", "Load dashboard successful.");
-		        request.getRequestDispatcher("/DashboardServlet").forward(request, response);
-		    } else {
-		    	httpSession.invalidate();
-		    	ConsoleUtils.print("W", "Load dashboard failed.");
-		    	request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
+		        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+		        return;
 		    }
-		} else {
-			ConsoleUtils.print("E", "Load dashboard session not found.");
-			request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
+			httpSession.invalidate();
 		}
+		ConsoleUtils.print("E", "Load dashboard session not found.");
+		response.sendRedirect(request.getContextPath() + "/LoadLoginServlet");
 	}
 }

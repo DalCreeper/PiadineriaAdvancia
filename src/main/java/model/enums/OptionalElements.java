@@ -1,79 +1,61 @@
 package model.enums;
 
-import java.util.Random;
+import java.io.Serializable;
 
-public enum OptionalElements {
-	MOZZARELLA("Mozzarella", 0.50),
-	GHERKINS("Gherkins", 0.30),
-	TOMATO("Tomato", 0.40),
-	BUFFALO_MOZZARELLA("Buffalo mozzarella", 0.80),
-	CRISPY_ONION("Crispy onion", 0.50),
-	GREEN_SALAD("Green salad", 0.30),
-	RADICCHIO("Radicchio", 0.40),
-	ROBIOLA("Robiola", 0.70),
-	GALBANINO("Galbanino", 0.60),
-	FETA("Feta", 0.80),
-	MUSHROOMS("Mushrooms", 0.50),
-	GRILLED_AUBERGINES("Grilled aubergines", 0.70),
-	GRILLED_COURGETTES("Grilled courgettes", 0.60),
-	STEAMED_CARROTS("Steamed carrots", 0.40),
-	PHILADELPHIA("Philadelphia", 0.70);
+public class OptionalElements implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
-	private final String raw;
-	private final double price;
+	private String type;
+	private String description;
+	private double price;
 	
-	OptionalElements(String raw, double price) {
-        this.raw = raw;
+	public OptionalElements(String type, String description, double price) {
+        this.type = type;
+        this.description = description;
         this.price = price;
     }
 	
-	public String getRaw() {
-		return raw;
+	public String getType() {
+		return type;
 	}
-	
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public double getPrice() {
 		return price;
 	}
-	
-	public static OptionalElements random() {
-		Random rand = new Random();
-		return OptionalElements.values()[rand.nextInt(OptionalElements.values().length)];
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public static OptionalElements getEnumText(String text) {
-    	switch(text) {
-	    	case "Mozzarella" :
-	    		return MOZZARELLA;
-	    	case "Gherkins" :
-	    		return GHERKINS;
-	    	case "Tomato" :
-	    		return TOMATO;
-	    	case "Buffalo mozzarella" :
-	    		return BUFFALO_MOZZARELLA;
-	    	case "Crispy onion" :
-	    		return CRISPY_ONION;
-	    	case "Green salad" :
-	    		return GREEN_SALAD;
-	    	case "Radicchio" :
-	    		return RADICCHIO;
-	    	case "Robiola" :
-	    		return ROBIOLA;
-	    	case "Galbanino" :
-	    		return GALBANINO;
-	    	case "Feta" :
-	    		return FETA;
-	    	case "Mushrooms" :
-	    		return MUSHROOMS;
-	    	case "Grilled aubergines" :
-	    		return GRILLED_AUBERGINES;
-	    	case "Grilled courgettes" :
-	    		return GRILLED_COURGETTES;
-	    	case "Steamed carrots" :
-	    		return STEAMED_CARROTS;
-	    	case "Philadelphia" :
-	    		return PHILADELPHIA;
-			default :
-				return MOZZARELLA;
-    	}
-    }
+	public static OptionalElements[] hardCodedList() {
+		return new OptionalElements[] {
+            new OptionalElements("Mozzarella", "Description", 0.50),
+            new OptionalElements("Gherkins", "Description", 0.30),
+            new OptionalElements("Tomato", "Description", 0.40),
+            new OptionalElements("Buffalo mozzarella", "Description", 0.80),
+            new OptionalElements("Crispy onion", "Description", 0.50),
+            new OptionalElements("Green salad", "Description", 0.30),
+            new OptionalElements("Radicchio", "Description", 0.40),
+            new OptionalElements("Robiola", "Description", 0.70),
+            new OptionalElements("Galbanino", "Description", 0.60),
+            new OptionalElements("Feta", "Description", 0.80),
+            new OptionalElements("Mushrooms", "Description", 0.50),
+            new OptionalElements("Grilled aubergines", "Description", 0.70),
+            new OptionalElements("Grilled courgettes", "Description", 0.60),
+            new OptionalElements("Steamed carrots", "Description", 0.40),
+            new OptionalElements("Philadelphia", "Description", 0.70)
+        };
+	}
 }

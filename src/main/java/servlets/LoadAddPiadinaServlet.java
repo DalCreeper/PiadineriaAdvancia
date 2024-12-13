@@ -18,15 +18,15 @@ import model.utils.ConsoleUtils;
  */
 public class LoadAddPiadinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Dough[] doughs = Dough.values();
-	private static final MeatBase[] mBases = MeatBase.values();
-	private static final Sauces[] sauces = Sauces.values();
-	private static final OptionalElements[] oElements = OptionalElements.values();
+	private static final Dough[] doughs = Dough.hardCodedList();
+	private static final MeatBase[] mBases = MeatBase.hardCodedList();
+	private static final Sauces[] sauces = Sauces.hardCodedList();
+	private static final OptionalElements[] oElements = OptionalElements.hardCodedList();
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession != null) {
@@ -35,10 +35,10 @@ public class LoadAddPiadinaServlet extends HttpServlet {
 			httpSession.setAttribute("sauces", sauces);
 			httpSession.setAttribute("oElements", oElements);
 			ConsoleUtils.print("S", "Load AddPiadina successful.");
-			request.getRequestDispatcher("/AddPiadinaServlet").forward(request, response);
+			request.getRequestDispatcher("addForm.jsp").forward(request, response);
 		} else {
 			ConsoleUtils.print("E", "Load AddPiadina session not found.");
-			request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
+			request.getRequestDispatcher("LoadLoginServlet").forward(request, response);
 		}
 	}
 }

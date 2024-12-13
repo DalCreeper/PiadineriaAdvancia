@@ -63,9 +63,7 @@
 										<td class="col"><%=Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getRaw).collect(Collectors.joining(", "))%></td>
 										<td class="col text-nowrap"><%=String.format("&euro; %.2f", piadina.getPrice())%></td>
 										<td class="col"><%=piadina.getEmployee().getName() + " " + piadina.getEmployee().getSurname()%></td>
-										<td class="col"><div class="d-flex justify-content-center">
-												<button class="deleteBtn">Remove</button>
-											</div></td>
+										<td class="col"><div class="d-flex justify-content-center"><button class="deleteBtn">Remove</button></div></td>
 									</tr>
 						<%
 								}
@@ -80,14 +78,13 @@
 					</tbody>
 				</table>
 			</div>
-			<form action="LoadAddPiadinaServlet" method="post">
-				<button class="align-middle" id="addPiadinaBtn">Add Piadina</button>
-			</form>
+			<a href="LoadAddPiadinaServlet"><button class="align-middle" id="addPiadinaBtn">Add Piadina</button></a>
 		</section>
 	</main>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
 </body>
 </html>

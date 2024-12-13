@@ -8,21 +8,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PiadineriaAdvancia AddPiadina</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/stylesAdd.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<script type="importmap">
-    	{
-      		"imports": {
-        		"@material/web/": "https://esm.run/@material/web/"
-      		}
-    	}
-</script>
-<script type="module">
-    	import '@material/web/all.js';
-    	import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-
-    	document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-</script>
 </head>
 <body>
 	<header>
@@ -33,24 +24,15 @@
 			<label for="name">Name:</label>
 			<input class="textBox" type="text" id="name" name="name" placeholder="name" required>
 			<label>Dough:</label>
-			<div class="chips-container">
+			<div class="chips-container" id="doughContainer">
 			<%
 				Dough[] doughs = (Dough[]) session.getAttribute("doughs");
 			 	if(doughs != null) {
 					for(Dough dough : doughs) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('dough', this, 1)" id="dough">
-					        <span class="chip-label"><%=dough.getRaw()%></span>
+						<div class="chip" onclick="toggleChipSelection('dough', this, 1)" data-price="<%= dough.getPrice() %>">
+					        <span class="chip-label prevent-select"><%= dough.getRaw() %></span>
 					    </div>
-						<!--
-						<md-chip-set class="chip-set" id="dough" name="dough" required>
-							<md-filter-chip
-								label="<%=dough.getRaw()%>"
-								onclick="toggleChipSelection(this), 1">
-								<span class="mdc-chip__icon" style="display: none;"></span>
-							</md-filter-chip>
-						</md-chip-set>
-						-->
 			<%
 					}
 				}
@@ -58,23 +40,15 @@
 			</div>
 			<p class="errorDough">A dough must be selected.</p>
 			<label>Meat Base (max 2):</label>
-			<div class="chips-container">
+			<div class="chips-container" id="meatBaseContainer">
 			<%
 				MeatBase[] mBases = (MeatBase[]) session.getAttribute("mBases");
 				if(mBases != null) {
 					for(MeatBase mBase : mBases) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)" id="mBase">
-					        <span class="chip-label"><%=mBase.getRaw()%></span>
+						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)" data-price="<%= mBase.getPrice() %>">
+					        <span class="chip-label prevent-select"><%= mBase.getRaw() %></span>
 					    </div>
-					    <!--
-						<md-chip-set class="chip-set" id="mBase" name="mBase" required>
-							<md-filter-chip
-								label="<%=mBase.getRaw()%>"
-								onclick="toggleChipSelection(this), 2">
-							</md-filter-chip>
-						</md-chip-set>
-						-->
 			<%
 					}
 				}
@@ -82,23 +56,15 @@
 			</div>
 			<p class="errorMeatBase">At least one meat base must be selected.</p>
 			<label>Sauces (max 2):</label>
-			<div class="chips-container">
+			<div class="chips-container" id="saucesContainer">
 			<%
 				Sauces[] sauces = (Sauces[]) session.getAttribute("sauces");
 				if(sauces != null) {
 					for(Sauces sauce : sauces) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)" id="sauce">
-					        <span class="chip-label"><%=sauce.getRaw()%></span>
+						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)" data-price="<%= sauce.getPrice() %>">
+					        <span class="chip-label prevent-select"><%= sauce.getRaw() %></span>
 					    </div>
-						<!--
-						<md-chip-set class="chip-set" id="sauce" name="sauce" required>
-							<md-filter-chip
-								label="<%=sauce.getRaw()%>"
-								onclick="toggleChipSelection(this), 2">
-							</md-filter-chip>
-						</md-chip-set>
-						-->
 			<%
 					}
 				}
@@ -106,36 +72,38 @@
 			</div>
 			<p class="errorSauces">At least one sauce must be selected.</p>
 			<label>Optional Elements (max 3):</label>
-			<div class="chips-container">
+			<div class="chips-container" id="optionalElementsContainer">
 			<%
 				OptionalElements[] oElements = (OptionalElements[]) session.getAttribute("oElements");
 				if(oElements != null) {
 					for(OptionalElements oElement : oElements) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)" id="oElement">
-					        <span class="chip-label"><%=oElement.getRaw()%></span>
+						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)" data-price="<%= oElement.getPrice() %>">
+					        <span class="chip-label prevent-select"><%= oElement.getRaw() %></span>
 					    </div>
-						<!--
-						<md-chip-set class="chip-set" id="oElement" name="oElement" required>
-							<md-filter-chip
-								label="<%=oElement.getRaw()%>"
-								onclick="toggleChipSelection(this), 3">
-							</md-filter-chip>
-						</md-chip-set>
-						-->
 			<%
 					}
 				}
 			%>
 			</div>
 			<p class="errorOptionalElements">At least one optional element must be selected.</p>
-			<label for="price">Price:</label>
-			<input type="number" id="price" name="price" step="0.01" required>
+			<label>Price:</label>
+			<div class="mb-3">
+				<span id="price">0.00</span><span> &euro;</span>
+			</div>
 			<label for="addedBy">Added By:</label>
-			<input type="text" id="addedBy" name="addedBy" placeholder="employee name" required>
+			<%
+				String user = (String) session.getAttribute("user");
+			%>
+			<span class="mb-3"><% user %></span>
 			<button type="submit">Add Piadina</button>
 		</form>
 	</main>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous">
+	</script>
 	<script src="resources/js/scriptAdd.js"></script>
 </body>
 </html>

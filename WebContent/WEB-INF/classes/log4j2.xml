@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <!-- Appender per la tua applicazione -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p [%c] - %m%n"/>
+        </Console>
+
+        <!-- Appender per Tomcat -->
+        <Console name="TomcatConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p [%c] - %m%n"/>
+        </Console>
+    </Appenders>
+
+    <!-- Logger -->
+    <Loggers>
+        <!-- Logger personalizzato per la tua applicazione -->
+        <Logger name="com.advancia" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Logger per Tomcat (se desideri personalizzare i log di Tomcat) -->
+        <Logger name="org.apache.catalina" level="info" additivity="false">
+            <AppenderRef ref="TomcatConsole"/>
+        </Logger>
+
+        <!-- Logger root -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

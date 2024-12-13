@@ -1,49 +1,51 @@
 package model.enums;
 
-import java.util.Random;
+import java.io.Serializable;
 
-public enum Sauces {
-	KETCHUP("Ketchup", 0.20),
-	MAYONNAISE("Mayonnaise", 0.20),
-	BBQ("BBQ", 0.30),
-	YOGURT("Yogurt", 0.30),
-	TERIYAKI("Teriyaki", 0.40);
+public class Sauces implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
-	private final String raw;
-	private final double price;
+	private String type;
+	private String description;
+	private double price;
 	
-	Sauces(String raw, double price) {
-        this.raw = raw;
+	public Sauces(String type, String description, double price) {
+        this.type = type;
+        this.description = description;
         this.price = price;
     }
 	
-	public String getRaw() {
-		return raw;
+	public String getType() {
+		return type;
 	}
-	
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public double getPrice() {
 		return price;
 	}
-	
-	public static Sauces random() {
-		Random rand = new Random();
-		return Sauces.values()[rand.nextInt(Sauces.values().length)];
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public static Sauces getEnumText(String text) {
-    	switch(text) {
-	    	case "Ketchup" :
-	    		return KETCHUP;
-	    	case "Mayonnaise" :
-	    		return MAYONNAISE;
-	    	case "BBQ" :
-	    		return BBQ;
-	    	case "Yogurt" :
-	    		return YOGURT;
-	    	case "Teriyaki" :
-	    		return TERIYAKI;
-			default :
-				return KETCHUP;
-    	}
-    }
+	public static Sauces[] hardCodedList() {
+		return new Sauces[] {
+            new Sauces("Ketchup", "Description", 0.20),
+            new Sauces("Mayonnaise", "Description", 0.20),
+            new Sauces("BBQ", "Description", 0.30),
+            new Sauces("Yogurt", "Description", 0.30),
+            new Sauces("Teriyaki", "Description", 0.40)
+        };
+	}
 }

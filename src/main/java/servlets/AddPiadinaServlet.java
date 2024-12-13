@@ -21,22 +21,6 @@ public class AddPiadinaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession(false);
 		
-		if(httpSession != null) {
-			Object doughs = httpSession.getAttribute("doughs");
-			Object mBases = httpSession.getAttribute("mBases");
-			Object sauces = httpSession.getAttribute("sauces");
-			Object oElements = httpSession.getAttribute("oElements");
-			
-			if(doughs != null && mBases != null && sauces != null && oElements != null) {
-				ConsoleUtils.print("S", "AddPiadina opening successful.");
-				response.sendRedirect(request.getContextPath() + "/addForm.jsp");
-			} else {
-				ConsoleUtils.print("W", "AddPiadina opening failed.");
-				request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
-			}
-		} else {
-			ConsoleUtils.print("E", "AddPiadina session not found.");
-			request.getRequestDispatcher("/LoadLoginServlet").forward(request, response);
-		}
+		
 	}
 }

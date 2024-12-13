@@ -1,64 +1,56 @@
 package model.enums;
 
-import java.util.Random;
+import java.io.Serializable;
 
-public enum MeatBase {
-	COOKED_HAM("Cooked ham", 0.90),
-	RAW_HAM("Raw ham", 1.20),
-	SALAMI("Salami", 1.00),
-	SPECK("Speck", 1.10),
-	LARD("Lard", 0.80),
-	BEEF("Beef", 1.50),
-	TURKEY("Turkey", 1.00),
-	CHICKEN("Chicken", 0.90),
-	BACON("Bacon", 1.10),
-	PORK("Pork", 1.20);
+public class MeatBase implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
-	private final String raw;
-	private final double price;
+	private String type;
+	private String description;
+	private double price;
 	
-	MeatBase(String raw, double price) {
-        this.raw = raw;
+	public MeatBase(String type, String description, double price) {
+        this.type = type;
+        this.description = description;
         this.price = price;
     }
 	
-	public String getRaw() {
-		return raw;
+	public String getType() {
+		return type;
 	}
-	
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public double getPrice() {
 		return price;
 	}
-	
-	public static MeatBase random() {
-		Random rand = new Random();
-		return MeatBase.values()[rand.nextInt(MeatBase.values().length)];
-	}
 
-	public static MeatBase getEnumText(String text) {
-    	switch(text) {
-	    	case "Cooked ham" :
-	    		return COOKED_HAM;
-	    	case "Raw ham" :
-	    		return RAW_HAM;
-	    	case "Salami" :
-	    		return SALAMI;
-	    	case "Speck" :
-	    		return SPECK;
-	    	case "Lard" :
-	    		return LARD;
-	    	case "Beef" :
-	    		return BEEF;
-	    	case "Turkey" :
-	    		return TURKEY;
-	    	case "Chicken" :
-	    		return CHICKEN;
-	    	case "Bacon" :
-	    		return BACON;
-	    	case "Pork" :
-	    		return PORK;
-			default :
-				return COOKED_HAM;
-    	}
-    }
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	public static MeatBase[] hardCodedList() {
+		return new MeatBase[] {
+            new MeatBase("Cooked ham", "Description", 0.90),
+            new MeatBase("Raw ham", "Description", 1.20),
+            new MeatBase("Salami", "Description", 1.00),
+            new MeatBase("Speck", "Description", 1.10),
+            new MeatBase("Lard", "Description", 0.80),
+            new MeatBase("Beef", "Description", 1.50),
+            new MeatBase("Turkey", "Description", 1.00),
+            new MeatBase("Chicken", "Description", 0.90),
+            new MeatBase("Bacon", "Description", 1.10),
+            new MeatBase("Pork", "Description", 1.20)
+        };
+	}
 }

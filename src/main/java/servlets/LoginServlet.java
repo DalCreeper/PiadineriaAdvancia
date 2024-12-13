@@ -1,20 +1,24 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.logging.Logger;
+import java.util.UUID;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import model.utils.ConsoleUtils;
-import model.utils.TokenUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import model.classes.Employee;
+import model.enums.Role;
 
 /**
  * Servlet implementation class LoginServlet
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = Logger.getLogger(LoginServlet.class.getName());
+	private Logger log = LogManager.getLogger(LoginServlet.class);
+	private static final Employee user = new Employee(UUID.randomUUID().toString(), "Mike", "Sullivan", "Mike", 1997, Role.COUNTER_STAFF);
 	private static final String VALID_USERNAME = "Mike";
     private static final String VALID_PASSWORD = "Prova.1";
 
@@ -28,25 +32,15 @@ public class LoginServlet extends HttpServlet {
         String rememberMe = request.getParameter("rememberMe");
         
         if(VALID_USERNAME.equals(username) && VALID_PASSWORD.equals(password)) {
-			String token = TokenUtil.generateToken();
-			
-			httpSession.setAttribute("user", username);
-            httpSession.setAttribute("token", token);
+			httpSession.setAttribute("user", user);
+			httpSession.setAttribute("rememberMe", rememberMe);
             
-            if("on".equals(rememberMe)) {
-                Cookie tokenCookie = new Cookie("auth_token", token);
-                tokenCookie.setHttpOnly(true);
-                tokenCookie.setMaxAge(60 * 60 * 24 * 14);
-                response.addCookie(tokenCookie);
-            }
-        	//log.info("Login successful for user = " + username);
-    		//log("prova test");
-        	ConsoleUtils.print("S", "Login successful for user", username);
-        	request.getRequestDispatcher("/LoadDashboardServlet").forward(request, response);
+        	log.info("Login successful for user = {}", username);
+        	response.sendRedirect(request.getContextPath() + "/LoadDashboardServlet");
         } else {
-        	ConsoleUtils.print("W", "Login failed for user", username);
+        	log.info("Login failed for user = {}", username);
             httpSession.setAttribute("errorMessage", "Invalid username or password!");
-            response.sendRedirect(request.getContextPath() + "/loginForm.jsp");
+            response.sendRedirect(request.getContextPath() + "/LoadLoginServlet");
         }
 	}
 }
