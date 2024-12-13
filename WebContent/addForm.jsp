@@ -31,8 +31,7 @@
 	<main>
 		<form id="addPiadinaForm" action="AddPiadinaActionServlet" method="post">
 			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" required>
-			
+			<input class="textBox" type="text" id="name" name="name" placeholder="name" required>
 			<label>Dough:</label>
 			<div class="chips-container">
 			<%
@@ -40,7 +39,7 @@
 			 	if(doughs != null) {
 					for(Dough dough : doughs) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('dough', this, 1)">
+						<div class="chip" onclick="toggleChipSelection('dough', this, 1)" id="dough">
 					        <span class="chip-label"><%=dough.getRaw()%></span>
 					    </div>
 						<!--
@@ -57,6 +56,7 @@
 				}
 			%>
 			</div>
+			<p class="errorDough">A dough must be selected.</p>
 			<label>Meat Base (max 2):</label>
 			<div class="chips-container">
 			<%
@@ -64,7 +64,7 @@
 				if(mBases != null) {
 					for(MeatBase mBase : mBases) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)">
+						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)" id="mBase">
 					        <span class="chip-label"><%=mBase.getRaw()%></span>
 					    </div>
 					    <!--
@@ -80,6 +80,7 @@
 				}
 			%>
 			</div>
+			<p class="errorMeatBase">At least one meat base must be selected.</p>
 			<label>Sauces (max 2):</label>
 			<div class="chips-container">
 			<%
@@ -87,7 +88,7 @@
 				if(sauces != null) {
 					for(Sauces sauce : sauces) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)">
+						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)" id="sauce">
 					        <span class="chip-label"><%=sauce.getRaw()%></span>
 					    </div>
 						<!--
@@ -103,6 +104,7 @@
 				}
 			%>
 			</div>
+			<p class="errorSauces">At least one sauce must be selected.</p>
 			<label>Optional Elements (max 3):</label>
 			<div class="chips-container">
 			<%
@@ -110,7 +112,7 @@
 				if(oElements != null) {
 					for(OptionalElements oElement : oElements) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)">
+						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)" id="oElement">
 					        <span class="chip-label"><%=oElement.getRaw()%></span>
 					    </div>
 						<!--
@@ -126,10 +128,11 @@
 				}
 			%>
 			</div>
+			<p class="errorOptionalElements">At least one optional element must be selected.</p>
 			<label for="price">Price:</label>
 			<input type="number" id="price" name="price" step="0.01" required>
 			<label for="addedBy">Added By:</label>
-			<input type="text" id="addedBy" name="addedBy" required>
+			<input type="text" id="addedBy" name="addedBy" placeholder="employee name" required>
 			<button type="submit">Add Piadina</button>
 		</form>
 	</main>

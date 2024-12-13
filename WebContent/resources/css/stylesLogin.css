@@ -8,6 +8,7 @@
     --light-gray: #FCFFF5;
     --mustard: #E0A500;
     --pure-white: #FFFFFF;
+    --error: #8E090B;
     --shadow-black: rgba(0, 0, 0, 0.2);
 }
 
@@ -67,7 +68,7 @@ body {
 	margin-bottom: 20px;
 	color: var(--pure-white);
 	text-decoration: underline;
-	text-decoration-color: #8E090B;
+	text-decoration-color: var(--error);
 	font-size: 14px;
 }
 

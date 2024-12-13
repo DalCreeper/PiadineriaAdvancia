@@ -16,12 +16,12 @@
 		<h2>Login</h2>
 		<form action="LoginServlet" method="post">
 			<div class="form-group">
-				<label for="username">Username</label> <input name="username"
-					type="text" id="username" placeholder="username" required>
+				<label for="username">Username</label>
+				<input name="username" type="text" id="username" placeholder="username" required>
 			</div>
 			<div class="form-group">
-				<label for="password">Password</label> <input name="password"
-					type="password" id="password" placeholder="password" required>
+				<label for="password">Password</label>
+				<input name="password" type="password" id="password" placeholder="password" required>
 			</div>
 			<%
 				String errorMessage = (session != null) ? (String) session.getAttribute("errorMessage") : null;
@@ -32,8 +32,8 @@
 				}
 			%>
 			<div class="form-group checkbox">
-				<label for="rememberMe"> <input name="rememberMe"
-					class="align-middle" type="checkbox" id="rememberMe" /> Remember me
+				<label for="rememberMe">
+				<input name="rememberMe" class="align-middle" type="checkbox" id="rememberMe" /> Remember me
 				</label>
 			</div>
 			<button type="submit" class="login-btn">Login</button>
