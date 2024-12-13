@@ -3,20 +3,26 @@ package model.enums;
 import java.util.Random;
 
 public enum Sauces {
-	KETCHUP("Ketchup"),
-	MAYONNAISE("Mayonnaise"),
-	BBQ("BBQ"),
-	YOGURT("Yogurt"),
-	TERIYAKI("Teriyaki");
+	KETCHUP("Ketchup", 0.20),
+	MAYONNAISE("Mayonnaise", 0.20),
+	BBQ("BBQ", 0.30),
+	YOGURT("Yogurt", 0.30),
+	TERIYAKI("Teriyaki", 0.40);
 	
 	private final String raw;
+	private final double price;
 	
-	Sauces(String raw) {
+	Sauces(String raw, double price) {
         this.raw = raw;
+        this.price = price;
     }
 	
 	public String getRaw() {
 		return raw;
+	}
+	
+	public double getPrice() {
+		return price;
 	}
 	
 	public static Sauces random() {

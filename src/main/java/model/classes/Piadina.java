@@ -23,7 +23,7 @@ public class Piadina implements Serializable {
 	private MeatBase[] meatBase;
 	private Sauces[] sauces;
 	private OptionalElements[] optionalElements;
-	private float price;
+	private double price;
 	private Employee employee;
 	
 	public Piadina(
@@ -32,7 +32,7 @@ public class Piadina implements Serializable {
 		MeatBase[] meatBase,
 		Sauces[] sauces,
 		OptionalElements[] optionalElements,
-		float price,
+		double price,
 		Employee employee
 	) {
         this.name = name;
@@ -82,11 +82,11 @@ public class Piadina implements Serializable {
 		this.optionalElements = optionalElements;
 	}
 
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -109,7 +109,7 @@ public class Piadina implements Serializable {
         MeatBase[] meatBase = IntStream.range(0, RANDOM.nextInt(2) + 1).mapToObj(i -> MeatBase.random()).toArray(MeatBase[]::new);
         Sauces[] sauces = IntStream.range(0, RANDOM.nextInt(2) + 1).mapToObj(i -> Sauces.random()).toArray(Sauces[]::new);
         OptionalElements[] optionalElements = IntStream.range(0, RANDOM.nextInt(3) + 1).mapToObj(i -> OptionalElements.random()).toArray(OptionalElements[]::new);
-        float price = 5 + RANDOM.nextFloat() * 15;
+        double price = 5 + RANDOM.nextDouble() * 15;
         Employee employee = Employee.random();
 
         return new Piadina(name, dough, meatBase, sauces, optionalElements, price, employee);

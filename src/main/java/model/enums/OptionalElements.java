@@ -3,30 +3,36 @@ package model.enums;
 import java.util.Random;
 
 public enum OptionalElements {
-	MOZZARELLA("Mozzarella"),
-	GHERKINS("Gherkins"),
-	TOMATO("Tomato"),
-	BUFFALO_MOZZARELLA("Buffalo mozzarella"),
-	CRISPY_ONION("Crispy onion"),
-	GREEN_SALAD("Green salad"),
-	RADICCHIO("Radicchio"),
-	ROBIOLA("Robiola"),
-	GALBANINO("Galbanino"),
-	FETA("Feta"),
-	MUSHROOMS("Mushrooms"),
-	GRILLED_AUBERGINES("Grilled aubergines"),
-	GRILLED_COURGETTES("Grilled courgettes"),
-	STEAMED_CARROTS("Steamed carrots"),
-	PHILADELPHIA("Philadelphia");
+	MOZZARELLA("Mozzarella", 0.50),
+	GHERKINS("Gherkins", 0.30),
+	TOMATO("Tomato", 0.40),
+	BUFFALO_MOZZARELLA("Buffalo mozzarella", 0.80),
+	CRISPY_ONION("Crispy onion", 0.50),
+	GREEN_SALAD("Green salad", 0.30),
+	RADICCHIO("Radicchio", 0.40),
+	ROBIOLA("Robiola", 0.70),
+	GALBANINO("Galbanino", 0.60),
+	FETA("Feta", 0.80),
+	MUSHROOMS("Mushrooms", 0.50),
+	GRILLED_AUBERGINES("Grilled aubergines", 0.70),
+	GRILLED_COURGETTES("Grilled courgettes", 0.60),
+	STEAMED_CARROTS("Steamed carrots", 0.40),
+	PHILADELPHIA("Philadelphia", 0.70);
 	
 	private final String raw;
+	private final double price;
 	
-	OptionalElements(String raw) {
+	OptionalElements(String raw, double price) {
         this.raw = raw;
+        this.price = price;
     }
 	
 	public String getRaw() {
 		return raw;
+	}
+	
+	public double getPrice() {
+		return price;
 	}
 	
 	public static OptionalElements random() {

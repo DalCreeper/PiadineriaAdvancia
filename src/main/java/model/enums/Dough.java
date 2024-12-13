@@ -3,20 +3,26 @@ package model.enums;
 import java.util.Random;
 
 public enum Dough {
-	CLASSIC("Classic"),
-	CHARCOAL("Charcoal"),
-	SAFFRON("Saffron"),
-	WHOLEMEAL("Wholemeal"),
-	GLUTEN_FREE("Gluten free");
+	CLASSIC("Classic", 1.00),
+	CHARCOAL("Charcoal", 1.50),
+	SAFFRON("Saffron", 1.80),
+	WHOLEMEAL("Wholemeal", 1.20),
+	GLUTEN_FREE("Gluten free", 1.50);
 	
 	private final String raw;
+	private final double price;
 	
-	Dough(String raw) {
+	Dough(String raw, double price) {
         this.raw = raw;
+        this.price = price;
     }
 	
 	public String getRaw() {
 		return raw;
+	}
+	
+	public double getPrice() {
+		return price;
 	}
 	
 	public static Dough random() {
