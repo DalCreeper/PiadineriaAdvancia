@@ -6,11 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import model.enums.Dough;
-import model.enums.MeatBase;
-import model.enums.OptionalElements;
-import model.enums.Sauces;
-
 public class Piadina implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final Set<String> GENERATED_NAMES = new HashSet<>();

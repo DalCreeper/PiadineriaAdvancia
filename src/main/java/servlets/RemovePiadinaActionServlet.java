@@ -7,20 +7,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import model.classes.Piadina;
 import model.utils.ConsoleUtils;
 
 /**
- * Servlet implementation class AddPiadinaServlet
+ * Servlet implementation class RemovePiadinaActionServlet
  */
-public class AddPiadinaServlet extends HttpServlet {
+public class RemovePiadinaActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private Logger log = LogManager.getLogger(LoginServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession(false);
+		Piadina piadina = null;	// TODO PASSARE LA PIADINA GIUSTA
 		
-		
+		log.info("Piadina {} successfully removed.", piadina);
 	}
 }

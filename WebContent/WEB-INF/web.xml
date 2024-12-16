@@ -36,22 +36,16 @@
 		<servlet-class>servlets.LoadDashboardServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>DashboardServlet</servlet-name>
-		<display-name>DashboardServlet</display-name>
+		<servlet-name>RemovePiadinaActionServlet</servlet-name>
+		<display-name>RemovePiadinaActionServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.DashboardServlet</servlet-class>
+		<servlet-class>servlets.RemovePiadinaActionServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LoadAddPiadinaServlet</servlet-name>
 		<display-name>LoadAddPiadinaServlet</display-name>
 		<description><!-- TODO --></description>
 		<servlet-class>servlets.LoadAddPiadinaServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>AddPiadinaServlet</servlet-name>
-		<display-name>AddPiadinaServlet</display-name>
-		<description><!-- TODO --></description>
-		<servlet-class>servlets.AddPiadinaServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AddPiadinaActionServlet</servlet-name>
@@ -62,30 +56,26 @@
 	<!-- *************************************************************************************** -->
 	<servlet-mapping>
 		<servlet-name>LoadLoginServlet</servlet-name>
-		<url-pattern>/LoadLoginServlet</url-pattern>
+		<url-pattern>/loadLogin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
-		<url-pattern>/LoginServlet</url-pattern>
+		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LoadDashboardServlet</servlet-name>
-		<url-pattern>/LoadDashboardServlet</url-pattern>
+		<url-pattern>/dashboard</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>DashboardServlet</servlet-name>
-		<url-pattern>/DashboardServlet</url-pattern>
+		<servlet-name>RemovePiadinaActionServlet</servlet-name>
+		<url-pattern>/remove</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LoadAddPiadinaServlet</servlet-name>
-		<url-pattern>/LoadAddPiadinaServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>AddPiadinaServlet</servlet-name>
-		<url-pattern>/AddPiadinaServlet</url-pattern>
+		<url-pattern>/addPiadina</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>AddPiadinaActionServlet</servlet-name>
-		<url-pattern>/AddPiadinaActionServlet</url-pattern>
+		<url-pattern>/add</url-pattern>
 	</servlet-mapping>
 </web-app>

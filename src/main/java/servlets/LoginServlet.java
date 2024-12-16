@@ -36,11 +36,11 @@ public class LoginServlet extends HttpServlet {
 			httpSession.setAttribute("rememberMe", rememberMe);
             
         	log.info("Login successful for user = {}", username);
-        	response.sendRedirect(request.getContextPath() + "/LoadDashboardServlet");
+        	response.sendRedirect(request.getContextPath() + "/dashboard");
         } else {
-        	log.info("Login failed for user = {}", username);
+        	log.warn("Login failed for user = {}", username);
             httpSession.setAttribute("errorMessage", "Invalid username or password!");
-            response.sendRedirect(request.getContextPath() + "/LoadLoginServlet");
+            response.sendRedirect(request.getContextPath() + "/loadLogin");
         }
 	}
 }

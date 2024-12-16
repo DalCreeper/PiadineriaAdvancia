@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<%@ page import="model.enums.Dough"%>
-<%@ page import="model.enums.MeatBase"%>
-<%@ page import="model.enums.Sauces"%>
-<%@ page import="model.enums.OptionalElements"%>
+<%@ page import="model.classes.Dough"%>
+<%@ page import="model.classes.MeatBase"%>
+<%@ page import="model.classes.Sauces"%>
+<%@ page import="model.classes.OptionalElements"%>
 <html lang="en">
 <head>
 <meta charset="UTF-8">

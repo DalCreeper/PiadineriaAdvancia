@@ -7,13 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.utils.ConsoleUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Servlet implementation class loadLoginServlet
  */
 public class LoadLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private Logger log = LogManager.getLogger(LoginServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,12 +27,12 @@ public class LoadLoginServlet extends HttpServlet {
 			Object rememberMe = httpSession.getAttribute("rememberMe");
 			
 			if("on".equals(rememberMe)) {
-				ConsoleUtils.print("S", "Load login successful.");
-		        response.sendRedirect(request.getContextPath() + "/LoadDashboardServlet");
+				log.info("Load login successful.");
+		        response.sendRedirect(request.getContextPath() + "/dashboard");
 		        return;
 			}
 		}
-		ConsoleUtils.print("W", "Load login session not found.");
+		log.warn("Load login session not found.");
     	request.getRequestDispatcher("loginForm.jsp").forward(request, response);
 	}
 }

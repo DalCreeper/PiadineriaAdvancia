@@ -1,15 +1,15 @@
-package model.enums;
+package model.classes;
 
 import java.io.Serializable;
 
-public class Dough implements Serializable {
+public class Sauces implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String type;
 	private String description;
 	private double price;
 	
-	public Dough(String type, String description, double price) {
+	public Sauces(String type, String description, double price) {
         this.type = type;
         this.description = description;
         this.price = price;
@@ -39,13 +39,13 @@ public class Dough implements Serializable {
 		this.price = price;
 	}
 
-	public static Dough[] hardCodedList() {
-		return new Dough[] {
-            new Dough("Classic", "Description", 1.00),
-            new Dough("Charcoal", "Description", 1.50),
-            new Dough("Saffron", "Description", 1.80),
-            new Dough("Wholemeal", "Description", 1.20),
-            new Dough("Gluten free", "Description", 1.50)
+	public static Sauces[] hardCodedList() {
+		return new Sauces[] {
+            new Sauces("Ketchup", "Description", 0.20),
+            new Sauces("Mayonnaise", "Description", 0.20),
+            new Sauces("BBQ", "Description", 0.30),
+            new Sauces("Yogurt", "Description", 0.30),
+            new Sauces("Teriyaki", "Description", 0.40)
         };
 	}
 }

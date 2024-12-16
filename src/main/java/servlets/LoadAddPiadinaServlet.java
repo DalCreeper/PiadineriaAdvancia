@@ -7,17 +7,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.enums.Dough;
-import model.enums.MeatBase;
-import model.enums.OptionalElements;
-import model.enums.Sauces;
-import model.utils.ConsoleUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import model.classes.Dough;
+import model.classes.MeatBase;
+import model.classes.OptionalElements;
+import model.classes.Sauces;
 
 /**
  * Servlet implementation class LoadAddPiadinaServlet
  */
 public class LoadAddPiadinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private Logger log = LogManager.getLogger(LoginServlet.class);
 	private static final Dough[] doughs = Dough.hardCodedList();
 	private static final MeatBase[] mBases = MeatBase.hardCodedList();
 	private static final Sauces[] sauces = Sauces.hardCodedList();
@@ -34,11 +37,11 @@ public class LoadAddPiadinaServlet extends HttpServlet {
 			httpSession.setAttribute("mBases", mBases);
 			httpSession.setAttribute("sauces", sauces);
 			httpSession.setAttribute("oElements", oElements);
-			ConsoleUtils.print("S", "Load AddPiadina successful.");
+			log.info("Load AddPiadina successful.");
 			request.getRequestDispatcher("addForm.jsp").forward(request, response);
 		} else {
-			ConsoleUtils.print("E", "Load AddPiadina session not found.");
-			request.getRequestDispatcher("LoadLoginServlet").forward(request, response);
+			log.error("Load AddPiadina session not found.");
+			response.sendRedirect(request.getContextPath() + "/login");
 		}
 	}
 }
