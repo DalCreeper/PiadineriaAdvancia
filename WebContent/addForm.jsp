@@ -28,7 +28,7 @@
 			<label>Dough:</label>
 			<div class="chips-container" id="doughContainer">
 			<%
-				Dough[] doughs = (Dough[]) session.getAttribute("doughs");
+				Dough[] doughs = (Dough[]) request.getAttribute("doughs");
 			 	if(doughs != null) {
 					for(Dough dough : doughs) {
 			%>
@@ -44,7 +44,7 @@
 			<label>Meat Base (max 2):</label>
 			<div class="chips-container" id="meatBaseContainer">
 			<%
-				MeatBase[] mBases = (MeatBase[]) session.getAttribute("mBases");
+				MeatBase[] mBases = (MeatBase[]) request.getAttribute("mBases");
 				if(mBases != null) {
 					for(MeatBase mBase : mBases) {
 			%>
@@ -60,7 +60,7 @@
 			<label>Sauces (max 2):</label>
 			<div class="chips-container" id="saucesContainer">
 			<%
-				Sauces[] sauces = (Sauces[]) session.getAttribute("sauces");
+				Sauces[] sauces = (Sauces[]) request.getAttribute("sauces");
 				if(sauces != null) {
 					for(Sauces sauce : sauces) {
 			%>
@@ -76,7 +76,7 @@
 			<label>Optional Elements (max 3):</label>
 			<div class="chips-container" id="optionalElementsContainer">
 			<%
-				OptionalElements[] oElements = (OptionalElements[]) session.getAttribute("oElements");
+				OptionalElements[] oElements = (OptionalElements[]) request.getAttribute("oElements");
 				if(oElements != null) {
 					for(OptionalElements oElement : oElements) {
 			%>
@@ -95,7 +95,7 @@
 			</div>
 			<label for="addedBy">Added By:</label>
 			<%
-				Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
+				Employee user = (session != null) ? (Employee) request.getAttribute("user") : null;
 				if(user != null) {
 			%>
 					<span id="user"><%= user.getUsername() %></span>

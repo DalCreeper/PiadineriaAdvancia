@@ -52,19 +52,19 @@
 					</thead>
 					<tbody id="menuTableBody">
 						<%
-							Piadina[] piadinas = (Piadina[]) session.getAttribute("piadinas");
+							Piadina[] piadinas = (Piadina[]) request.getAttribute("piadinas");
 							if(piadinas != null) {
 								for(Piadina piadina : piadinas) {
 						%>
 									<tr>
-										<td class="col"><%=piadina.getName()%></td>
-										<td class="col"><%=piadina.getDough().getType()%></td>
-										<td class="col"><%=Arrays.stream(piadina.getMeatBase()).map(MeatBase::getType).collect(Collectors.joining(", "))%></td>
-										<td class="col"><%=Arrays.stream(piadina.getSauces()).map(Sauces::getType).collect(Collectors.joining(", "))%></td>
-										<td class="col"><%=Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getType).collect(Collectors.joining(", "))%></td>
-										<td class="col text-nowrap"><%=String.format("&euro; %.2f", piadina.getPrice())%></td>
-										<td class="col"><%=piadina.getEmployee().getName() + " " + piadina.getEmployee().getSurname()%></td>
-										<td class="col">
+										<td class="col align-middle"><%=piadina.getName()%></td>
+										<td class="col align-middle"><%=piadina.getDough().getType()%></td>
+										<td class="col align-middle"><%=Arrays.stream(piadina.getMeatBase()).map(MeatBase::getType).collect(Collectors.joining(", "))%></td>
+										<td class="col align-middle"><%=Arrays.stream(piadina.getSauces()).map(Sauces::getType).collect(Collectors.joining(", "))%></td>
+										<td class="col align-middle"><%=Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getType).collect(Collectors.joining(", "))%></td>
+										<td class="col align-middle text-nowrap"><%=String.format("&euro; %.2f", piadina.getPrice())%></td>
+										<td class="col align-middle"><%=piadina.getEmployee().getName() + " " + piadina.getEmployee().getSurname()%></td>
+										<td class="col align-middle">
 											<div class="d-flex justify-content-center">
 												<a href="remove"><button id="removePiadinaBtn">Remove</button></a>
 											</div>

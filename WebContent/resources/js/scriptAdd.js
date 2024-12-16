@@ -180,8 +180,8 @@ function submitAjax() {
         },
         body: JSON.stringify(requestData)
     }).then(response => {
-        if (response.ok) {
-            window.location.href = "dashboard.jsp";
+        if(response.ok) {
+            window.location.href = "/PiadineriaAdvancia/dashboard";
         } else {
             alert("Error adding piadina.");
         }

@@ -33,15 +33,15 @@ public class LoadAddPiadinaServlet extends HttpServlet {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession != null) {
-			httpSession.setAttribute("doughs", doughs);
-			httpSession.setAttribute("mBases", mBases);
-			httpSession.setAttribute("sauces", sauces);
-			httpSession.setAttribute("oElements", oElements);
+			request.setAttribute("doughs", doughs);
+			request.setAttribute("mBases", mBases);
+			request.setAttribute("sauces", sauces);
+			request.setAttribute("oElements", oElements);
 			log.info("Load AddPiadina successful.");
 			request.getRequestDispatcher("addForm.jsp").forward(request, response);
-		} else {
-			log.error("Load AddPiadina session not found.");
-			response.sendRedirect(request.getContextPath() + "/login");
+			return;
 		}
+		log.error("Load AddPiadina session not found.");
+		response.sendRedirect(request.getContextPath() + "/loadLogin");
 	}
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import model.classes.Piadina;
+import services.PiadinaService;
 
 /**
  * Servlet implementation class LoadDashboardServlet
@@ -18,7 +18,6 @@ import model.classes.Piadina;
 public class LoadDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Logger log = LogManager.getLogger(LoginServlet.class);
-	private Piadina[] piadinasTemp = Piadina.hardCodedList();
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +29,7 @@ public class LoadDashboardServlet extends HttpServlet {
 			Object user = httpSession.getAttribute("user");
 			
 			if(user != null) {
-				httpSession.setAttribute("piadinas", piadinasTemp);
+				request.setAttribute("piadinas", PiadinaService.getPiadinas());
 				log.info("Load dashboard successful.");
 		        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 		        return;
@@ -38,6 +37,6 @@ public class LoadDashboardServlet extends HttpServlet {
 			httpSession.invalidate();
 		}
 		log.error("Load dashboard session not found.");
-		response.sendRedirect(request.getContextPath() + "/login");
+		response.sendRedirect(request.getContextPath() + "/loadLogin");
 	}
 }
