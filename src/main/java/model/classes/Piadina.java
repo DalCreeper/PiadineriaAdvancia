@@ -90,7 +90,7 @@ public class Piadina implements Serializable {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-
+	
     public static Piadina hardCoded(
     		String d1,
     		double d1p,
@@ -179,17 +179,17 @@ public class Piadina implements Serializable {
 
 	@Override
 	public String toString() {
-		String mBase = Arrays.stream(meatBase).map(m -> m.getType()).collect(Collectors.joining(", "));
-		String sauce = Arrays.stream(sauces).map(s -> s.getType()).collect(Collectors.joining(", "));
-		String oElements = Arrays.stream(optionalElements).map(o -> o.getType()).collect(Collectors.joining(", "));
+		String mBase = Arrays.stream(meatBase).map(MeatBase::getType).collect(Collectors.joining(", "));
+		String sauce = Arrays.stream(sauces).map(Sauces::getType).collect(Collectors.joining(", "));
+		String oElements = Arrays.stream(optionalElements).map(OptionalElements::getType).collect(Collectors.joining(", "));
 		String formattedPrice = String.format("€ %.2f", price);
 		
-		return "\tName = " + name
-			 + "\n\tDough = " + dough.getType()
-			 + "\n\tMeat base = [" + mBase + "]"
-			 + "\n\tSauces = [" + sauce + "]"
-			 + "\n\tOptional elements [" + oElements + "]"
-			 + "\n\tPrice = " + formattedPrice
-			 + "\n\tEmployee = " + employee.getName() + " " + employee.getSurname();
+		return "\n\t\tName = " + name
+			 + "\n\t\tDough = " + dough.getType()
+			 + "\n\t\tMeat base = [" + mBase + "]"
+			 + "\n\t\tSauces = [" + sauce + "]"
+			 + "\n\t\tOptional elements [" + oElements + "]"
+			 + "\n\t\tPrice = " + formattedPrice
+			 + "\n\t\tEmployee = " + employee.getName() + " " + employee.getSurname();
 	}
 }

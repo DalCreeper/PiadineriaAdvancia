@@ -110,7 +110,7 @@ button:hover {
     color: var(--pure-white);
 }
 
-.errorDough, .errorMeatBase, .errorSauces, .errorOptionalElements {
+.errorName, .errorDough, .errorMeatBase, .errorSauces, .errorOptionalElements {
 	color: var(--error);
 	text-decoration: underline;
 	font-size: 14px;
@@ -123,19 +123,3 @@ button:hover {
   -ms-user-select: none;
   user-select: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

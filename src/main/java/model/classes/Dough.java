@@ -38,7 +38,7 @@ public class Dough implements Serializable {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
+	
 	public static Dough[] hardCodedList() {
 		return new Dough[] {
             new Dough("Classic", "Description", 1.00),

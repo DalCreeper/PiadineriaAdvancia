@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page import="model.classes.Employee"%>
 <%@ page import="model.classes.Piadina"%>
 <%@ page import="model.classes.Dough"%>
 <%@ page import="model.classes.MeatBase"%>
@@ -22,11 +23,11 @@
 	<header>
 		<h1>Menu Management - Piadineria Advancia</h1>
 		<%
-			String user = (session != null) ? (String) session.getAttribute("user") : null;
+			Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
 			if(user != null) {
 		%>
 		<h3>
-			Welcome, <%=user%>!
+			Welcome, <%= user.getUsername() %>!
 		</h3>
 		<%
 			}
@@ -57,13 +58,17 @@
 						%>
 									<tr>
 										<td class="col"><%=piadina.getName()%></td>
-										<td class="col"><%=piadina.getDough().getRaw()%></td>
-										<td class="col"><%=Arrays.stream(piadina.getMeatBase()).map(MeatBase::getRaw).collect(Collectors.joining(", "))%></td>
-										<td class="col"><%=Arrays.stream(piadina.getSauces()).map(Sauces::getRaw).collect(Collectors.joining(", "))%></td>
-										<td class="col"><%=Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getRaw).collect(Collectors.joining(", "))%></td>
+										<td class="col"><%=piadina.getDough().getType()%></td>
+										<td class="col"><%=Arrays.stream(piadina.getMeatBase()).map(MeatBase::getType).collect(Collectors.joining(", "))%></td>
+										<td class="col"><%=Arrays.stream(piadina.getSauces()).map(Sauces::getType).collect(Collectors.joining(", "))%></td>
+										<td class="col"><%=Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getType).collect(Collectors.joining(", "))%></td>
 										<td class="col text-nowrap"><%=String.format("&euro; %.2f", piadina.getPrice())%></td>
 										<td class="col"><%=piadina.getEmployee().getName() + " " + piadina.getEmployee().getSurname()%></td>
-										<td class="col"><div class="d-flex justify-content-center"><button class="deleteBtn">Remove</button></div></td>
+										<td class="col">
+											<div class="d-flex justify-content-center">
+												<a href="remove"><button id="removePiadinaBtn">Remove</button></a>
+											</div>
+										</td>
 									</tr>
 						<%
 								}
@@ -78,7 +83,7 @@
 					</tbody>
 				</table>
 			</div>
-			<a href="LoadAddPiadinaServlet"><button class="align-middle" id="addPiadinaBtn">Add Piadina</button></a>
+			<a href="addPiadina"><button class="align-middle" id="addPiadinaBtn">Add Piadina</button></a>
 		</section>
 	</main>
 	<script

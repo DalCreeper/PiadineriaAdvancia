@@ -1,3 +1,4 @@
+let specifiedName = '';
 let selectedCountDough = 0;
 let selectedCountMeatBase = 0;
 let selectedCountSauces = 0;
@@ -60,11 +61,24 @@ function toggleChipSelection(type, selectedChip, maxSelections) {
         if(selectedCount < maxSelections) {
             selectedChip.classList.add('selected');
             totalPrice += price;
-
-            if(type === 'dough') selectedCountDough++; document.querySelector('.errorDough').style.display = 'none';
-            if(type === 'meatBase') selectedCountMeatBase++; document.querySelector('.errorMeatBase').style.display = 'none';
-            if(type === 'sauces') selectedCountSauces++; document.querySelector('.errorSauces').style.display = 'none';
-            if(type === 'optionalElements') selectedCountOptionalElements++; document.querySelector('.errorOptionalElements').style.display = 'none';
+			switch(type) {
+				case 'dough' :
+					selectedCountDough++;
+					document.querySelector('.errorDough').style.display = 'none';
+					break;
+				case 'meatBase' :
+					selectedCountMeatBase++;
+					document.querySelector('.errorMeatBase').style.display = 'none';
+					break;
+				case 'sauces' :
+					selectedCountSauces++;
+					document.querySelector('.errorSauces').style.display = 'none';
+					break;
+				case 'optionalElements' :
+					selectedCountOptionalElements++;
+					document.querySelector('.errorOptionalElements').style.display = 'none';
+					break;
+			}
         }
     }
 
@@ -72,12 +86,19 @@ function toggleChipSelection(type, selectedChip, maxSelections) {
 }
 
 function updatePrice() {
+	if(totalPrice === 0.00) totalPrice += 0
     document.getElementById("price").innerText = totalPrice.toFixed(2);
 }
 
 function validateForm() {
     let errorCont = 0;
     
+	specifiedName = document.getElementById('name').value;
+	if(specifiedName === "") {
+		errorCont++;
+		document.querySelector('.errorName').style.display = 'block';
+	}
+	
     if(selectedCountDough !== 1) {
         errorCont++;
         document.querySelector('.errorDough').style.display = 'block';
@@ -101,8 +122,76 @@ function validateForm() {
     return errorCont === 0;
 }
 
-document.querySelector('form').addEventListener('submit', function(event) {
+function hideErrorName() {
+    document.querySelector('.errorName').style.display = 'none';
+}
+
+function collectSelectedIngredients() {
+    const selectedIngredients = {
+        dough: null,
+        meatBase: [],
+        sauces: [],
+        optionalElements: []
+    };
+
+    document.querySelectorAll('#doughContainer .chip.selected').forEach(chip => {
+        selectedIngredients.dough = chip.querySelector('.chip-label').innerText;
+    });
+
+    document.querySelectorAll('#meatBaseContainer .chip.selected').forEach(chip => {
+        selectedIngredients.meatBase.push(chip.querySelector('.chip-label').innerText);
+    });
+
+    document.querySelectorAll('#saucesContainer .chip.selected').forEach(chip => {
+        selectedIngredients.sauces.push(chip.querySelector('.chip-label').innerText);
+    });
+
+    document.querySelectorAll('#optionalElementsContainer .chip.selected').forEach(chip => {
+        selectedIngredients.optionalElements.push(chip.querySelector('.chip-label').innerText);
+    });
+
+    return selectedIngredients;
+}
+
+function submitAjax() {
     if(!validateForm()) {
-        event.preventDefault();
+        return;
     }
+	
+	const name = document.getElementById("name").value;
+    const selectedIngredients = collectSelectedIngredients();
+    const totalPrice = parseFloat(document.getElementById("price").innerText);
+    const user = document.getElementById("user").innerText;
+    
+    const requestData = {
+        name: name,
+        dough: selectedIngredients.dough,
+        meatBase: selectedIngredients.meatBase,
+        sauces: selectedIngredients.sauces,
+        optionalElements: selectedIngredients.optionalElements,
+        price: totalPrice,
+        user: user
+    };
+
+    fetch('add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+    }).then(response => {
+        if (response.ok) {
+            window.location.href = "dashboard.jsp";
+        } else {
+            alert("Error adding piadina.");
+        }
+    }).catch(error => {
+        console.error('Error:', error);
+        alert("An unexpected error occurred.");
+    });
+}
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    submitFormWithAjax();
 });

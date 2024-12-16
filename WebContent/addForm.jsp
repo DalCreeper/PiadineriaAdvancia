@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page import="model.classes.Employee"%>
 <%@ page import="model.classes.Dough"%>
 <%@ page import="model.classes.MeatBase"%>
 <%@ page import="model.classes.Sauces"%>
@@ -20,9 +21,10 @@
 		<h1>Add a New Piadina</h1>
 	</header>
 	<main>
-		<form id="addPiadinaForm" action="AddPiadinaActionServlet" method="post">
+		<form id="add" action="add" method="post">
 			<label for="name">Name:</label>
-			<input class="textBox" type="text" id="name" name="name" placeholder="name" required>
+			<input class="textBox" type="text" id="name" name="name" placeholder="name" onclick="hideErrorName()">
+			<p class="errorName">A name must be specified.</p>
 			<label>Dough:</label>
 			<div class="chips-container" id="doughContainer">
 			<%
@@ -31,7 +33,7 @@
 					for(Dough dough : doughs) {
 			%>
 						<div class="chip" onclick="toggleChipSelection('dough', this, 1)" data-price="<%= dough.getPrice() %>">
-					        <span class="chip-label prevent-select"><%= dough.getRaw() %></span>
+					        <span class="chip-label prevent-select"><%= dough.getType() %></span>
 					    </div>
 			<%
 					}
@@ -47,7 +49,7 @@
 					for(MeatBase mBase : mBases) {
 			%>
 						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)" data-price="<%= mBase.getPrice() %>">
-					        <span class="chip-label prevent-select"><%= mBase.getRaw() %></span>
+					        <span class="chip-label prevent-select"><%= mBase.getType() %></span>
 					    </div>
 			<%
 					}
@@ -63,7 +65,7 @@
 					for(Sauces sauce : sauces) {
 			%>
 						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)" data-price="<%= sauce.getPrice() %>">
-					        <span class="chip-label prevent-select"><%= sauce.getRaw() %></span>
+					        <span class="chip-label prevent-select"><%= sauce.getType() %></span>
 					    </div>
 			<%
 					}
@@ -79,7 +81,7 @@
 					for(OptionalElements oElement : oElements) {
 			%>
 						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)" data-price="<%= oElement.getPrice() %>">
-					        <span class="chip-label prevent-select"><%= oElement.getRaw() %></span>
+					        <span class="chip-label prevent-select"><%= oElement.getType() %></span>
 					    </div>
 			<%
 					}
@@ -93,10 +95,14 @@
 			</div>
 			<label for="addedBy">Added By:</label>
 			<%
-				String user = (String) session.getAttribute("user");
+				Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
+				if(user != null) {
 			%>
-			<span class="mb-3"><% user %></span>
-			<button type="submit">Add Piadina</button>
+					<span id="user"><%= user.getUsername() %></span>
+			<%
+				}
+			%>
+			<button class="mt-3" type="button" id="addbtn" onclick="submitAjax()">Add Piadina</button>
 		</form>
 	</main>
 	<script
