@@ -53,6 +53,12 @@
 		<description><!-- TODO --></description>
 		<servlet-class>servlets.AddPiadinaActionServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<display-name>LogoutServlet</display-name>
+		<description><!-- TODO --></description>
+		<servlet-class>servlets.LogoutServlet</servlet-class>
+	</servlet>
 	<!-- *************************************************************************************** -->
 	<servlet-mapping>
 		<servlet-name>LoadLoginServlet</servlet-name>
@@ -77,5 +83,9 @@
 	<servlet-mapping>
 		<servlet-name>AddPiadinaActionServlet</servlet-name>
 		<url-pattern>/add</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 </web-app>

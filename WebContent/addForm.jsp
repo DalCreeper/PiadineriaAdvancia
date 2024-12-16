@@ -95,7 +95,7 @@
 			</div>
 			<label for="addedBy">Added By:</label>
 			<%
-				Employee user = (session != null) ? (Employee) request.getAttribute("user") : null;
+				Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
 				if(user != null) {
 			%>
 					<span id="user"><%= user.getUsername() %></span>

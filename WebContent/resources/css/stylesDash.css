@@ -8,6 +8,7 @@
     --light-gray: #FCFFF5;
     --mustard: #E0A500;
     --pure-white: #FFFFFF;
+    --error: #8E090B;
     --shadow-black: rgba(0, 0, 0, 0.2);
 }
 
@@ -22,7 +23,7 @@ body {
 header {
     background-color: var(--medium-water);
     color: var(--pure-white);
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
 }
 
@@ -68,4 +69,13 @@ button {
 
 button:hover {
     background-color: var(--dark-water);
+}
+
+button.logoutBtn {
+	background-color: var(--error);
+    font-weight:bold;
+}
+
+button:hover.logoutBtn {
+	background-color: var(--dark-water);
 }

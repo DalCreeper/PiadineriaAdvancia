@@ -183,7 +183,7 @@ function submitAjax() {
         if(response.ok) {
             window.location.href = "/PiadineriaAdvancia/dashboard";
         } else {
-            alert("Error adding piadina.");
+            alert("Error adding the piadina.");
         }
     }).catch(error => {
         console.error('Error:', error);

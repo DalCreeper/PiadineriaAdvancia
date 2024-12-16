@@ -21,17 +21,22 @@
 </head>
 <body>
 	<header>
-		<h1>Menu Management - Piadineria Advancia</h1>
-		<%
-			Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
-			if(user != null) {
-		%>
-		<h3>
-			Welcome, <%= user.getUsername() %>!
-		</h3>
-		<%
-			}
-		%>
+		<div class="d-flex">
+			<div class="flex-fill">
+				<h1>Menu Management - Piadineria Advancia</h1>
+				<%
+					Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
+					if(user != null) {
+				%>
+				<h3>
+					Welcome, <%= user.getUsername() %>!
+				</h3>
+				<%
+					}
+				%>
+			</div>
+			<form action="logout" method="post" class="align-self-center"><button class="logoutBtn align-self-center" id="logoutBtn">Logout</button></form>
+		</div>
 	</header>
 	<main>
 		<section class="menu-section">
@@ -40,14 +45,14 @@
 				<table class="menu-table table table-hover">
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Dough</th>
-							<th>Meat Base</th>
-							<th>Sauces</th>
-							<th>Optional</th>
-							<th>Price</th>
-							<th>Added By</th>
-							<th>Actions</th>
+							<th class="align-middle">Name</th>
+							<th class="align-middle">Dough</th>
+							<th class="align-middle">Meat Base</th>
+							<th class="align-middle">Sauces</th>
+							<th class="align-middle">Optional</th>
+							<th class="align-middle">Price</th>
+							<th class="align-middle">Added By</th>
+							<th class="align-middle">Actions</th>
 						</tr>
 					</thead>
 					<tbody id="menuTableBody">
@@ -91,5 +96,6 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous">
 	</script>
+	<script src="resources/js/scriptDash.js"></script>
 </body>
 </html>
