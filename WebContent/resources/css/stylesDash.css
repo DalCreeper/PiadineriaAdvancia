@@ -73,9 +73,41 @@ button:hover {
 
 button.logoutBtn {
 	background-color: var(--error);
-    font-weight:bold;
+	font-weight:bold;
 }
 
 button:hover.logoutBtn {
 	background-color: var(--dark-water);
+}
+
+.confirm-btn, cancel-btn {
+	background-color: var(--mustard);
+  	color: var(--pure-white);
+  	border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px var(--shadow-black);
+    transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+	background-color: var(--dark-water);
+}
+
+.cancel-btn {
+	background-color: var(--error);
+}
+
+.cancel-btn:hover {
+	background-color: var(--dark-water);
+}
+
+.swal2-timer-progress-bar {
+	background-color: var(--dark-water) !important;
+}
+
+.popup-progress-bar {
+  	border-radius: 10px;
+  	box-shadow: 0 0 10px var(--shadow-black);
 }
