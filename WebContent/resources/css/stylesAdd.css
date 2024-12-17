@@ -73,6 +73,16 @@ button {
     transition: background-color 0.3s;
 }
 
+button#backDashBtn {
+	background-color: var(--dark-water);
+	margin-bottom: 0rem;
+}
+
+button#backDashBtn:hover {
+    background-color: var(--cream);
+    color: black;
+}
+
 button:hover {
     background-color: var(--dark-water);
 }

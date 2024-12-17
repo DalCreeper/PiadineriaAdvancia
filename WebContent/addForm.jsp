@@ -17,8 +17,11 @@
 <link rel="stylesheet" href="resources/css/stylesAdd.css">
 </head>
 <body>
-	<header>
-		<h1>Add a New Piadina</h1>
+	<header class="d-flex align-items-center">
+		<a href="dashboard"><button id="backDashBtn">Back</button></a>
+		<div class="flex-fill">
+			<h1 class="mb-0">Add a New Piadina</h1>
+		</div>
 	</header>
 	<main>
 		<form id="add" action="add" method="post">

@@ -19,4 +19,11 @@ public class PiadinaService {
 		
 		piadinasTemp = listTemp.stream().toArray(Piadina[]::new);
 	}
+	
+	public static void removePiadina(Piadina p) {
+		List<Piadina> listTemp = new ArrayList<>(Arrays.asList(piadinasTemp));
+		listTemp.remove(p);
+		
+		piadinasTemp = listTemp.stream().toArray(Piadina[]::new);
+	}
 }

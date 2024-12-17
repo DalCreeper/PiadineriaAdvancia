@@ -20,23 +20,21 @@
 <link rel="stylesheet" href="resources/css/stylesDash.css">
 </head>
 <body>
-	<header>
-		<div class="d-flex">
-			<div class="flex-fill">
-				<h1>Menu Management - Piadineria Advancia</h1>
-				<%
-					Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
-					if(user != null) {
-				%>
-				<h3>
-					Welcome, <%= user.getUsername() %>!
-				</h3>
-				<%
-					}
-				%>
-			</div>
-			<form action="logout" method="post" class="align-self-center"><button class="logoutBtn align-self-center" id="logoutBtn">Logout</button></form>
+	<header class="d-flex">
+		<div class="flex-fill">
+			<h1>Menu Management - Piadineria Advancia</h1>
+			<%
+				Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
+				if(user != null) {
+			%>
+			<h3>
+				Welcome, <%= user.getUsername() %>!
+			</h3>
+			<%
+				}
+			%>
 		</div>
+		<form action="logout" method="post" class="align-self-center"><button class="logoutBtn align-self-center" id="logoutBtn">Logout</button></form>
 	</header>
 	<main>
 		<section class="menu-section">
@@ -62,16 +60,16 @@
 								for(Piadina piadina : piadinas) {
 						%>
 									<tr>
-										<td class="col align-middle"><%=piadina.getName()%></td>
-										<td class="col align-middle"><%=piadina.getDough().getType()%></td>
-										<td class="col align-middle"><%=Arrays.stream(piadina.getMeatBase()).map(MeatBase::getType).collect(Collectors.joining(", "))%></td>
-										<td class="col align-middle"><%=Arrays.stream(piadina.getSauces()).map(Sauces::getType).collect(Collectors.joining(", "))%></td>
-										<td class="col align-middle"><%=Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getType).collect(Collectors.joining(", "))%></td>
-										<td class="col align-middle text-nowrap"><%=String.format("&euro; %.2f", piadina.getPrice())%></td>
-										<td class="col align-middle"><%=piadina.getEmployee().getName() + " " + piadina.getEmployee().getSurname()%></td>
+										<td class="col align-middle" id=""><%= piadina.getName() %></td>
+										<td class="col align-middle"><%= piadina.getDough().getType() %></td>
+										<td class="col align-middle"><%= Arrays.stream(piadina.getMeatBase()).map(MeatBase::getType).collect(Collectors.joining(", ")) %></td>
+										<td class="col align-middle"><%= Arrays.stream(piadina.getSauces()).map(Sauces::getType).collect(Collectors.joining(", ")) %></td>
+										<td class="col align-middle"><%= Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getType).collect(Collectors.joining(", ")) %></td>
+										<td class="col align-middle text-nowrap"><%= String.format("&euro; %.2f", piadina.getPrice()) %></td>
+										<td class="col align-middle"><%= piadina.getEmployee().getName() + " " + piadina.getEmployee().getSurname() %></td>
 										<td class="col align-middle">
 											<div class="d-flex justify-content-center">
-												<a href="remove"><button id="removePiadinaBtn">Remove</button></a>
+												<button id="removePiadinaBtn" data-name="<%= piadina.getName() %>" onclick="remove(this)">Remove</button>
 											</div>
 										</td>
 									</tr>
@@ -88,7 +86,9 @@
 					</tbody>
 				</table>
 			</div>
-			<a href="addPiadina"><button class="align-middle" id="addPiadinaBtn">Add Piadina</button></a>
+			<div class="d-flex justify-content-center">
+				<a href="addPiadina"><button class="align-middle" id="addPiadinaBtn">Add Piadina</button></a>
+			</div>
 		</section>
 	</main>
 	<script
