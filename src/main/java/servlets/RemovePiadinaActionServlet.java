@@ -21,7 +21,7 @@ import services.PiadinaService;
  */
 public class RemovePiadinaActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoginServlet.class);
+	private Logger log = LogManager.getLogger(RemovePiadinaActionServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

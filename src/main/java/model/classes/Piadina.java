@@ -11,6 +11,7 @@ public class Piadina implements Serializable {
 	private static final Set<String> GENERATED_NAMES = new HashSet<>();
 	private static int COUNTER = 1;
 	
+	private int id;
 	private String name;
 	private Dough dough;
 	private MeatBase[] meatBase;
@@ -20,6 +21,7 @@ public class Piadina implements Serializable {
 	private Employee employee;
 	
 	public Piadina(
+		int id,
 		String name,
 		Dough dough,
 		MeatBase[] meatBase,
@@ -28,6 +30,7 @@ public class Piadina implements Serializable {
 		double price,
 		Employee employee
 	) {
+		this.id = id;
         this.name = name;
         this.dough = dough;
         this.meatBase = meatBase;
@@ -36,6 +39,14 @@ public class Piadina implements Serializable {
         this.price = price;
 		this.employee = employee;
     }
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
@@ -92,6 +103,7 @@ public class Piadina implements Serializable {
 	}
 	
     public static Piadina hardCoded(
+    		int id,
     		String d1,
     		double d1p,
     		String m1,
@@ -113,19 +125,19 @@ public class Piadina implements Serializable {
         do {
             name = "Piadina " + COUNTER++;
         } while (!GENERATED_NAMES.add(name));
-        Dough dough = new Dough(d1, "Description", d1p);
+        Dough dough = new Dough(1, d1, "Description", d1p);
         MeatBase[] meatBase = {
-    		new MeatBase(m1, "Description", m1p),
-    		new MeatBase(m2, "Description", m2p)
+    		new MeatBase(1, m1, "Description", m1p),
+    		new MeatBase(2, m2, "Description", m2p)
 		};
         Sauces[] sauces = {
-    		new Sauces(s1, "Description", s1p),
-    		new Sauces(s2, "Description", s2p)
+    		new Sauces(1, s1, "Description", s1p),
+    		new Sauces(2, s2, "Description", s2p)
         };
         OptionalElements[] optionalElements = {
-    		new OptionalElements(o1, "Description", o1p),
-    		new OptionalElements(o2, "Description", o2p),
-    		new OptionalElements(o3, "Description", o3p)
+    		new OptionalElements(1, o1, "Description", o1p),
+    		new OptionalElements(2, o2, "Description", o2p),
+    		new OptionalElements(3, o3, "Description", o3p)
         };
         double price = dough.getPrice();
         for(MeatBase meat : meatBase) {
@@ -139,11 +151,12 @@ public class Piadina implements Serializable {
         }
         Employee employee = Employee.random();
 
-        return new Piadina(name, dough, meatBase, sauces, optionalElements, price, employee);
+        return new Piadina(id, name, dough, meatBase, sauces, optionalElements, price, employee);
     }
     
     public static Piadina[] hardCodedList() {
     	Piadina p1 = hardCoded(
+			1,
 			"Classic", 1.00,
 			"Cooked ham", 0.90,
 			"Raw ham", 1.20,
@@ -154,6 +167,7 @@ public class Piadina implements Serializable {
 			"Tomato", 0.40
 		);
     	Piadina p2 = hardCoded(
+			2,
 			"Charcoal", 1.50,
 			"Salami", 1.00,
 			"Speck", 1.10,
@@ -164,6 +178,7 @@ public class Piadina implements Serializable {
 			"Green salad", 0.30
 		);
     	Piadina p3 = hardCoded(
+			3,
 			"Saffron", 1.80,
 			"Lard", 0.80,
 			"Beef", 1.50,

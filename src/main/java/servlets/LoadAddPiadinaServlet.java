@@ -20,7 +20,7 @@ import model.classes.Sauces;
  */
 public class LoadAddPiadinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoginServlet.class);
+	private Logger log = LogManager.getLogger(LoadAddPiadinaServlet.class);
 	private static final Dough[] doughs = Dough.hardCodedList();
 	private static final MeatBase[] mBases = MeatBase.hardCodedList();
 	private static final Sauces[] sauces = Sauces.hardCodedList();

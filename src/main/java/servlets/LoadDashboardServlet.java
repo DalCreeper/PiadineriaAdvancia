@@ -17,7 +17,7 @@ import services.PiadinaService;
  */
 public class LoadDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoginServlet.class);
+	private Logger log = LogManager.getLogger(LoadDashboardServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -28,7 +28,7 @@ import services.PiadinaService;
  */
 public class AddPiadinaActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoginServlet.class);
+	private Logger log = LogManager.getLogger(AddPiadinaActionServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -77,6 +77,7 @@ public class AddPiadinaActionServlet extends HttpServlet {
 	        }
 	        
 	        Piadina p = new Piadina(
+        		1,
 	            piadinaDeserialized.getName(),
 	            choosenDough,
 	            choosenMeatBases.toArray(new MeatBase[0]),
