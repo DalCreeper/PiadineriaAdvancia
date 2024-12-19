@@ -10,10 +10,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import model.classes.Dough;
-import model.classes.MeatBase;
-import model.classes.OptionalElements;
-import model.classes.Sauces;
+import services.DoughService;
+import services.MeatBaseService;
+import services.OptionalElementsService;
+import services.SaucesService;
 
 /**
  * Servlet implementation class LoadAddPiadinaServlet
@@ -21,10 +21,6 @@ import model.classes.Sauces;
 public class LoadAddPiadinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Logger log = LogManager.getLogger(LoadAddPiadinaServlet.class);
-	private static final Dough[] doughs = Dough.hardCodedList();
-	private static final MeatBase[] mBases = MeatBase.hardCodedList();
-	private static final Sauces[] sauces = Sauces.hardCodedList();
-	private static final OptionalElements[] oElements = OptionalElements.hardCodedList();
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -33,10 +29,14 @@ public class LoadAddPiadinaServlet extends HttpServlet {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession != null) {
-			request.setAttribute("doughs", doughs);
-			request.setAttribute("mBases", mBases);
-			request.setAttribute("sauces", sauces);
-			request.setAttribute("oElements", oElements);
+			DoughService doughService = new DoughService();
+			MeatBaseService meatBaseService = new MeatBaseService();
+			SaucesService saucesService = new SaucesService();
+			OptionalElementsService optionalElementsService = new OptionalElementsService();
+			request.setAttribute("doughs", doughService.getDoughs());
+			request.setAttribute("mBases", meatBaseService.getMeatBases());
+			request.setAttribute("sauces", saucesService.getSauces());
+			request.setAttribute("oElements", optionalElementsService.getOptionalElements());
 			log.info("Load AddPiadina successful.");
 			request.getRequestDispatcher("addForm.jsp").forward(request, response);
 			return;

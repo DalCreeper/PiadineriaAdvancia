@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ page import="model.classes.Employee"%>
+<%@ page import="java.util.List"%>
 <%@ page import="model.classes.Dough"%>
 <%@ page import="model.classes.MeatBase"%>
 <%@ page import="model.classes.Sauces"%>
@@ -31,7 +32,7 @@
 			<label>Dough:</label>
 			<div class="chips-container" id="doughContainer">
 			<%
-				Dough[] doughs = (Dough[]) request.getAttribute("doughs");
+				List<Dough> doughs = (List<Dough>) request.getAttribute("doughs");
 			 	if(doughs != null) {
 					for(Dough dough : doughs) {
 			%>
@@ -47,7 +48,7 @@
 			<label>Meat Base (max 2):</label>
 			<div class="chips-container" id="meatBaseContainer">
 			<%
-				MeatBase[] mBases = (MeatBase[]) request.getAttribute("mBases");
+				List<MeatBase> mBases = (List<MeatBase>) request.getAttribute("mBases");
 				if(mBases != null) {
 					for(MeatBase mBase : mBases) {
 			%>
@@ -63,7 +64,7 @@
 			<label>Sauces (max 2):</label>
 			<div class="chips-container" id="saucesContainer">
 			<%
-				Sauces[] sauces = (Sauces[]) request.getAttribute("sauces");
+				List<Sauces> sauces = (List<Sauces>) request.getAttribute("sauces");
 				if(sauces != null) {
 					for(Sauces sauce : sauces) {
 			%>
@@ -79,7 +80,7 @@
 			<label>Optional Elements (max 3):</label>
 			<div class="chips-container" id="optionalElementsContainer">
 			<%
-				OptionalElements[] oElements = (OptionalElements[]) request.getAttribute("oElements");
+				List<OptionalElements> oElements = (List<OptionalElements>) request.getAttribute("oElements");
 				if(oElements != null) {
 					for(OptionalElements oElement : oElements) {
 			%>
