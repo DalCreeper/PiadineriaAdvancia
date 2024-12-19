@@ -29,7 +29,8 @@ public class LoadDashboardServlet extends HttpServlet {
 			Object user = httpSession.getAttribute("user");
 			
 			if(user != null) {
-				request.setAttribute("piadinas", PiadinaService.getPiadinas());
+				PiadinaService piadinaService = new PiadinaService();
+				request.setAttribute("piadinas", piadinaService.getPiadinas());
 				log.info("Load dashboard successful.");
 		        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 		        return;

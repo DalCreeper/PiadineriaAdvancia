@@ -5,7 +5,6 @@ import java.time.Year;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 import model.enums.Role;
@@ -19,7 +18,7 @@ public class Employee implements Serializable {
 	private static int COUNTER_SURNAMES = 1;
 	private static int COUNTER_USENAMES = 1;
 	
-	private String UID;
+	private int UID;
 	private String name;
 	private String surname;
 	private String username;
@@ -27,7 +26,7 @@ public class Employee implements Serializable {
 	private Role role;
 	
 	public Employee(
-		String UID,
+		int UID,
 		String name,
 		String surname,
 		String username,
@@ -42,11 +41,11 @@ public class Employee implements Serializable {
         this.role = role;
     }
 	
-	public String getUID() {
+	public int getUID() {
 		return UID;
 	}
 
-	public void setUID(String uID) {
+	public void setUID(int uID) {
 		UID = uID;
 	}
 
@@ -89,7 +88,8 @@ public class Employee implements Serializable {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
+	
+	@Deprecated
 	public static Employee random() {
 		Random rand = new Random();
 		String name;
@@ -108,7 +108,7 @@ public class Employee implements Serializable {
         int minYear = currentYear - 100;
         int year = ThreadLocalRandom.current().nextInt(minYear, currentYear + 1);
         Role role = Role.values()[rand.nextInt(Role.values().length)];
-		return new Employee(UUID.randomUUID().toString(), name, surname, username, year, role);
+		return new Employee(1, name, surname, username, year, role);
 	}
 	
 	@Override

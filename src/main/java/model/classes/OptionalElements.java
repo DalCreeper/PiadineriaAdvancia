@@ -1,6 +1,7 @@
 package model.classes;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class OptionalElements implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -47,6 +48,19 @@ public class OptionalElements implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+	    if(this == o) return true;
+	    if(o == null || getClass() != o.getClass()) return false;
+	    OptionalElements optionalElements = (OptionalElements) o;
+	    return id == optionalElements.id;
+	}
+
+	@Override
+	public int hashCode() {
+	    return Objects.hash(id);
 	}
 
 	public static OptionalElements[] hardCodedList() {

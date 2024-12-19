@@ -19,9 +19,6 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Logger log = LogManager.getLogger(LoginServlet.class);
 	private UserService userService = new UserService();
-	//private static final Employee user = new Employee(UUID.randomUUID().toString(), "Mike", "Sullivan", "Mike", 1997, Role.COUNTER_STAFF);
-	//private static final String VALID_USERNAME = "Mike";
-    //private static final String VALID_PASSWORD = "Prova.1";
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -36,18 +33,6 @@ public class LoginServlet extends HttpServlet {
     		httpSession.setAttribute("rememberMe", rememberMe);
         	response.sendRedirect(request.getContextPath() + "/dashboard");
         }
-        
-        /*
-        // Hard-coded validation
-        if(VALID_USERNAME.equals(username) && VALID_PASSWORD.equals(password)) {
-			httpSession.setAttribute("user", user);
-			httpSession.setAttribute("rememberMe", rememberMe);
-        	log.info("Login successful for user = {}", username);
-        	response.sendRedirect(request.getContextPath() + "/dashboard");
-        	DBService.disconnect();
-        	return;
-        }
-        */
 	}
 
 	private Optional<Employee> getEmployeeOrFail(HttpServletRequest request, HttpServletResponse response) throws IOException {

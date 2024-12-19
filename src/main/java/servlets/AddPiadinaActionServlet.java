@@ -80,13 +80,14 @@ public class AddPiadinaActionServlet extends HttpServlet {
         		1,
 	            piadinaDeserialized.getName(),
 	            choosenDough,
-	            choosenMeatBases.toArray(new MeatBase[0]),
-	            choosenSauces.toArray(new Sauces[0]),
-	            choosenOptionalElements.toArray(new OptionalElements[0]),
+	            choosenMeatBases,
+	            choosenSauces,
+	            choosenOptionalElements,
 	            piadinaDeserialized.getPrice(),
 	            (Employee) httpSession.getAttribute("user")
 	        );
-	        PiadinaService.addPiadina(p);
+	        PiadinaService piadinaService = new PiadinaService();
+	        piadinaService.addPiadina(p);
 	        
 	        log.info("Piadina {}\n\tSuccessfully added.", p.toString());
 	        response.setStatus(HttpServletResponse.SC_OK);

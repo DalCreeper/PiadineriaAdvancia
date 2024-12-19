@@ -1,29 +1,25 @@
 package services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import dao.services.PiadinaServiceDao;
 import model.classes.Piadina;
 
 public class PiadinaService {
-	private static Piadina[] piadinasTemp = Piadina.hardCodedList();
+	private PiadinaServiceDao piadinaServiceDao = new PiadinaServiceDao();
 	
-	public static Piadina[] getPiadinas() {
-		return piadinasTemp;
+	public List<Piadina> getPiadinas() {
+		return piadinaServiceDao.getPiadinas();
 	}
 	
-	public static void addPiadina(Piadina p) {
-		List<Piadina> listTemp = new ArrayList<>(Arrays.asList(piadinasTemp));
+	public void addPiadina(Piadina p) {
+		List<Piadina> listTemp = new ArrayList<>(getPiadinas());
 		listTemp.add(p);
-		
-		piadinasTemp = listTemp.stream().toArray(Piadina[]::new);
 	}
 	
-	public static void removePiadina(Piadina p) {
-		List<Piadina> listTemp = new ArrayList<>(Arrays.asList(piadinasTemp));
+	public void removePiadina(Piadina p) {
+		List<Piadina> listTemp = new ArrayList<>(getPiadinas());
 		listTemp.remove(p);
-		
-		piadinasTemp = listTemp.stream().toArray(Piadina[]::new);
 	}
 }

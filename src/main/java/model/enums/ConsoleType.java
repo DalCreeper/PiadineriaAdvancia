@@ -1,5 +1,6 @@
 package model.enums;
 
+@Deprecated
 public enum ConsoleType {
 	SYSTEM("S"),
 	ERROR("E"),

@@ -1,8 +1,9 @@
 package model.classes;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,9 +15,9 @@ public class Piadina implements Serializable {
 	private int id;
 	private String name;
 	private Dough dough;
-	private MeatBase[] meatBase;
-	private Sauces[] sauces;
-	private OptionalElements[] optionalElements;
+	private List<MeatBase> meatBase;
+	private List<Sauces> sauces;
+	private List<OptionalElements> optionalElements;
 	private double price;
 	private Employee employee;
 	
@@ -24,18 +25,18 @@ public class Piadina implements Serializable {
 		int id,
 		String name,
 		Dough dough,
-		MeatBase[] meatBase,
-		Sauces[] sauces,
-		OptionalElements[] optionalElements,
+		List<MeatBase> meatBase,
+		List<Sauces> sauces,
+		List<OptionalElements> optionalElements,
 		double price,
 		Employee employee
 	) {
 		this.id = id;
         this.name = name;
         this.dough = dough;
-        this.meatBase = meatBase;
-        this.sauces = sauces;
-        this.optionalElements = optionalElements;
+        this.meatBase = meatBase != null ? meatBase : new ArrayList<>();
+        this.sauces = sauces != null ? sauces : new ArrayList<>();
+        this.optionalElements = optionalElements != null ? optionalElements : new ArrayList<>();
         this.price = price;
 		this.employee = employee;
     }
@@ -59,30 +60,32 @@ public class Piadina implements Serializable {
 	public Dough getDough() {
 		return dough;
 	}
+	
 	public void setDough(Dough dough) {
 		this.dough = dough;
 	}
-	public MeatBase[] getMeatBase() {
+	
+	public List<MeatBase> getMeatBase() {
 		return meatBase;
 	}
 
-	public void setMeatBase(MeatBase[] meatBase) {
+	public void setMeatBase(List<MeatBase> meatBase) {
 		this.meatBase = meatBase;
 	}
 
-	public Sauces[] getSauces() {
+	public List<Sauces> getSauces() {
 		return sauces;
 	}
 
-	public void setSauces(Sauces[] sauces) {
+	public void setSauces(List<Sauces> sauces) {
 		this.sauces = sauces;
 	}
 
-	public OptionalElements[] getOptionalElements() {
+	public List<OptionalElements> getOptionalElements() {
 		return optionalElements;
 	}
 
-	public void setOptionalElements(OptionalElements[] optionalElements) {
+	public void setOptionalElements(List<OptionalElements> optionalElements) {
 		this.optionalElements = optionalElements;
 	}
 
@@ -102,6 +105,31 @@ public class Piadina implements Serializable {
 		this.employee = employee;
 	}
 	
+	public List<MeatBase> addMeatBase(MeatBase meatBase) {
+	    if(this.meatBase == null) {
+	        this.meatBase = new ArrayList<>();
+	    }
+	    this.meatBase.add(meatBase);
+	    return this.meatBase;
+	}
+
+	public List<Sauces> addSauces(Sauces sauces) {
+	    if(this.sauces == null) {
+	    	this.sauces = new ArrayList<>();
+	    }
+	    this.sauces.add(sauces);
+	    return this.sauces;
+	}
+	
+	public List<OptionalElements> addOptionalElement(OptionalElements optionalElements) {
+	    if(this.optionalElements == null) {
+	        this.optionalElements = new ArrayList<>();
+	    }
+	    this.optionalElements.add(optionalElements);
+	    return this.optionalElements;
+	}
+	
+	@Deprecated
     public static Piadina hardCoded(
     		int id,
     		String d1,
@@ -126,34 +154,26 @@ public class Piadina implements Serializable {
             name = "Piadina " + COUNTER++;
         } while (!GENERATED_NAMES.add(name));
         Dough dough = new Dough(1, d1, "Description", d1p);
-        MeatBase[] meatBase = {
-    		new MeatBase(1, m1, "Description", m1p),
-    		new MeatBase(2, m2, "Description", m2p)
-		};
-        Sauces[] sauces = {
-    		new Sauces(1, s1, "Description", s1p),
-    		new Sauces(2, s2, "Description", s2p)
-        };
-        OptionalElements[] optionalElements = {
-    		new OptionalElements(1, o1, "Description", o1p),
-    		new OptionalElements(2, o2, "Description", o2p),
-    		new OptionalElements(3, o3, "Description", o3p)
-        };
-        double price = dough.getPrice();
-        for(MeatBase meat : meatBase) {
-            price += meat.getPrice();
-        }
-        for(Sauces sauce : sauces) {
-            price += sauce.getPrice();
-        }
-        for(OptionalElements optional : optionalElements) {
-            price += optional.getPrice();
-        }
+        List<MeatBase> meatBase = new ArrayList<>();
+        meatBase.add(new MeatBase(1, m1, "Description", m1p));
+        meatBase.add(new MeatBase(2, m2, "Description", m2p));
+        List<Sauces> sauces = new ArrayList<>();
+        sauces.add(new Sauces(1, s1, "Description", s1p));
+        sauces.add(new Sauces(2, s2, "Description", s2p));
+        List<OptionalElements> optionalElements = new ArrayList<>();
+        optionalElements.add(new OptionalElements(1, o1, "Description", o1p));
+        optionalElements.add(new OptionalElements(2, o2, "Description", o2p));
+        optionalElements.add(new OptionalElements(3, o3, "Description", o3p));
+        double price = dough.getPrice()
+        	    + meatBase.stream().mapToDouble(MeatBase::getPrice).sum()
+        	    + sauces.stream().mapToDouble(Sauces::getPrice).sum()
+        	    + optionalElements.stream().mapToDouble(OptionalElements::getPrice).sum();
         Employee employee = Employee.random();
 
         return new Piadina(id, name, dough, meatBase, sauces, optionalElements, price, employee);
     }
     
+	@Deprecated
     public static Piadina[] hardCodedList() {
     	Piadina p1 = hardCoded(
 			1,
@@ -192,19 +212,18 @@ public class Piadina implements Serializable {
     	return new Piadina[] {p1, p2, p3};
     }
 
+	private String formatList(List<?> list) {
+	    return list.stream().map(Object::toString).collect(Collectors.joining(", "));
+	}
+
 	@Override
 	public String toString() {
-		String mBase = Arrays.stream(meatBase).map(MeatBase::getType).collect(Collectors.joining(", "));
-		String sauce = Arrays.stream(sauces).map(Sauces::getType).collect(Collectors.joining(", "));
-		String oElements = Arrays.stream(optionalElements).map(OptionalElements::getType).collect(Collectors.joining(", "));
-		String formattedPrice = String.format("€ %.2f", price);
-		
-		return "\n\t\tName = " + name
-			 + "\n\t\tDough = " + dough.getType()
-			 + "\n\t\tMeat base = [" + mBase + "]"
-			 + "\n\t\tSauces = [" + sauce + "]"
-			 + "\n\t\tOptional elements [" + oElements + "]"
-			 + "\n\t\tPrice = " + formattedPrice
-			 + "\n\t\tEmployee = " + employee.getName() + " " + employee.getSurname();
+	    return "\n\t\tName = " + name
+	        + "\n\t\tDough = " + dough.getType()
+	        + "\n\t\tMeat base = [" + formatList(meatBase) + "]"
+	        + "\n\t\tSauces = [" + formatList(sauces) + "]"
+	        + "\n\t\tOptional elements = [" + formatList(optionalElements) + "]"
+	        + "\n\t\tPrice = " + String.format("€ %.2f", price)
+	        + "\n\t\tEmployee = " + employee.getName() + " " + employee.getSurname();
 	}
 }

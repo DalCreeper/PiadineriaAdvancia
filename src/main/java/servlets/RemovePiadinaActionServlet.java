@@ -2,6 +2,8 @@ package servlets;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,9 +43,11 @@ public class RemovePiadinaActionServlet extends HttpServlet {
 	        
 	        ObjectMapper objectMapper = new ObjectMapper();
 	        String piadinaName = objectMapper.readValue(jsonBuffer.toString(), String.class);
-
+	        PiadinaService piadinaService = new PiadinaService();
+	        
 			if(piadinaName != null && !piadinaName.isEmpty()) {
-				Piadina[] piadinas = PiadinaService.getPiadinas();
+				
+				List<Piadina> piadinas = piadinaService.getPiadinas();
 				Piadina piadinaToRemove = null;
 				
 				for(Piadina p : piadinas) {
@@ -54,7 +58,7 @@ public class RemovePiadinaActionServlet extends HttpServlet {
 				}
 				
 				if(piadinaToRemove != null) {
-					PiadinaService.removePiadina(piadinaToRemove);
+					piadinaService.removePiadina(piadinaToRemove);
 					log.info("Piadina '{}' successfully removed.", piadinaName);
 					response.setStatus(HttpServletResponse.SC_OK);
 				} else {

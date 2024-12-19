@@ -2,6 +2,7 @@ package model.utils;
 
 import model.enums.ConsoleType;
 
+@Deprecated
 public class ConsoleUtils {
 	private static String sys() {
 		return "[SYSTEM] ";

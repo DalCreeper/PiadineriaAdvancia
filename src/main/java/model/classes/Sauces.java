@@ -1,6 +1,7 @@
 package model.classes;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Sauces implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -48,7 +49,20 @@ public class Sauces implements Serializable {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+	    if(this == o) return true;
+	    if(o == null || getClass() != o.getClass()) return false;
+	    Sauces sauces = (Sauces) o;
+	    return id == sauces.id;
+	}
 
+	@Override
+	public int hashCode() {
+	    return Objects.hash(id);
+	}
+	
 	public static Sauces[] hardCodedList() {
 		return new Sauces[] {
             new Sauces(1, "Ketchup", "Description", 0.20),

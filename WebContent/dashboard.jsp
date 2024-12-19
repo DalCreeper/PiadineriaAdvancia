@@ -5,6 +5,7 @@
 <%@ page import="model.classes.MeatBase"%>
 <%@ page import="model.classes.Sauces"%>
 <%@ page import="model.classes.OptionalElements"%>
+<%@ page import="java.util.List"%>
 <%@ page import="java.util.Arrays"%>
 <%@ page import="java.util.stream.Collectors"%>
 <html lang="en">
@@ -55,16 +56,16 @@
 					</thead>
 					<tbody id="menuTableBody">
 						<%
-							Piadina[] piadinas = (Piadina[]) request.getAttribute("piadinas");
+							List<Piadina> piadinas = (List<Piadina>) request.getAttribute("piadinas");
 							if(piadinas != null) {
 								for(Piadina piadina : piadinas) {
 						%>
 									<tr>
 										<td class="col align-middle" id=""><%= piadina.getName() %></td>
 										<td class="col align-middle"><%= piadina.getDough().getType() %></td>
-										<td class="col align-middle"><%= Arrays.stream(piadina.getMeatBase()).map(MeatBase::getType).collect(Collectors.joining(", ")) %></td>
-										<td class="col align-middle"><%= Arrays.stream(piadina.getSauces()).map(Sauces::getType).collect(Collectors.joining(", ")) %></td>
-										<td class="col align-middle"><%= Arrays.stream(piadina.getOptionalElements()).map(OptionalElements::getType).collect(Collectors.joining(", ")) %></td>
+										<td class="col align-middle"><%= piadina.getMeatBase().stream().map(MeatBase::getType).collect(Collectors.joining(", ")) %></td>
+										<td class="col align-middle"><%= piadina.getSauces().stream().map(Sauces::getType).collect(Collectors.joining(", ")) %></td>
+										<td class="col align-middle"><%= piadina.getOptionalElements().stream().map(OptionalElements::getType).collect(Collectors.joining(", ")) %></td>
 										<td class="col align-middle text-nowrap"><%= String.format("&euro; %.2f", piadina.getPrice()) %></td>
 										<td class="col align-middle"><%= piadina.getEmployee().getName() + " " + piadina.getEmployee().getSurname() %></td>
 										<td class="col align-middle">
