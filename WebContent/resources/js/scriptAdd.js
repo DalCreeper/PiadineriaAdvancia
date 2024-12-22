@@ -127,27 +127,27 @@ function hideErrorName() {
 }
 
 function collectSelectedIngredients() {
-    const selectedIngredients = {
+	const selectedIngredients = {
         dough: null,
         meatBase: [],
         sauces: [],
         optionalElements: []
     };
-
+	
     document.querySelectorAll('#doughContainer .chip.selected').forEach(chip => {
-        selectedIngredients.dough = chip.querySelector('.chip-label').innerText;
+        selectedIngredients.dough = parseInt(chip.getAttribute('data-id'));
     });
 
     document.querySelectorAll('#meatBaseContainer .chip.selected').forEach(chip => {
-        selectedIngredients.meatBase.push(chip.querySelector('.chip-label').innerText);
+        selectedIngredients.meatBase.push(parseInt(chip.getAttribute('data-id')));
     });
 
     document.querySelectorAll('#saucesContainer .chip.selected').forEach(chip => {
-        selectedIngredients.sauces.push(chip.querySelector('.chip-label').innerText);
+        selectedIngredients.sauces.push(parseInt(chip.getAttribute('data-id')));
     });
 
     document.querySelectorAll('#optionalElementsContainer .chip.selected').forEach(chip => {
-        selectedIngredients.optionalElements.push(chip.querySelector('.chip-label').innerText);
+        selectedIngredients.optionalElements.push(parseInt(chip.getAttribute('data-id')));
     });
 
     return selectedIngredients;

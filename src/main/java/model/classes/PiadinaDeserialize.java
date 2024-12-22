@@ -4,10 +4,10 @@ import java.util.List;
 
 public class PiadinaDeserialize {
 	private String name;
-	private String dough;
-	private List<String> meatBase;
-	private List<String> sauces;
-	private List<String> optionalElements;
+	private int dough;
+	private List<Integer> meatBase;
+	private List<Integer> sauces;
+	private List<Integer> optionalElements;
 	private double price;
 	private String user;
 	
@@ -19,35 +19,35 @@ public class PiadinaDeserialize {
 		this.name = name;
 	}
 
-	public String getDough() {
+	public int getDough() {
 		return dough;
 	}
 
-	public void setDough(String dough) {
+	public void setDough(int dough) {
 		this.dough = dough;
 	}
 
-	public List<String> getMeatBase() {
+	public List<Integer> getMeatBase() {
 		return meatBase;
 	}
 
-	public void setMeatBase(List<String> meatBase) {
+	public void setMeatBase(List<Integer> meatBase) {
 		this.meatBase = meatBase;
 	}
 
-	public List<String> getSauces() {
+	public List<Integer> getSauces() {
 		return sauces;
 	}
 
-	public void setSauces(List<String> sauces) {
+	public void setSauces(List<Integer> sauces) {
 		this.sauces = sauces;
 	}
 
-	public List<String> getOptionalElements() {
+	public List<Integer> getOptionalElements() {
 		return optionalElements;
 	}
 
-	public void setOptionalElements(List<String> optionalElements) {
+	public void setOptionalElements(List<Integer> optionalElements) {
 		this.optionalElements = optionalElements;
 	}
 

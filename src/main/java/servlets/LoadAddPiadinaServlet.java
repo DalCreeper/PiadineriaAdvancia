@@ -1,6 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,10 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import services.DoughService;
-import services.MeatBaseService;
-import services.OptionalElementsService;
-import services.SaucesService;
+import services.PiadinaComponentsService;
 
 /**
  * Servlet implementation class LoadAddPiadinaServlet
@@ -29,14 +29,13 @@ public class LoadAddPiadinaServlet extends HttpServlet {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession != null) {
-			DoughService doughService = new DoughService();
-			MeatBaseService meatBaseService = new MeatBaseService();
-			SaucesService saucesService = new SaucesService();
-			OptionalElementsService optionalElementsService = new OptionalElementsService();
-			request.setAttribute("doughs", doughService.getDoughs());
-			request.setAttribute("mBases", meatBaseService.getMeatBases());
-			request.setAttribute("sauces", saucesService.getSauces());
-			request.setAttribute("oElements", optionalElementsService.getOptionalElements());
+			PiadinaComponentsService componentsService = new PiadinaComponentsService();
+
+			Map<String, List<Object>> components = componentsService.getPiadinaComponents();
+			request.setAttribute("doughs", components.get("DOUGH"));
+			request.setAttribute("mBases", components.get("MEATBASE"));
+			request.setAttribute("sauces", components.get("SAUCES"));
+			request.setAttribute("oElements", components.get("OPTIONALELEMENTS"));
 			log.info("Load AddPiadina successful.");
 			request.getRequestDispatcher("addForm.jsp").forward(request, response);
 			return;

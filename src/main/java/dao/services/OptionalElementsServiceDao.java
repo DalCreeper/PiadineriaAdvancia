@@ -5,19 +5,25 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dao.OptionalElementsDao;
-import dao.PiadinaDao;
 import dao.utils.OracleDBUtil;
 import exceptions.DBException;
 import model.classes.OptionalElements;
 
 public class OptionalElementsServiceDao {
-private OptionalElementsDao optionalElementsDao = new OptionalElementsDao();
+	private final OptionalElementsDao optionalElementsDao = new OptionalElementsDao();
 	
 	public List<OptionalElements> getOptionalElements() {
 		try(Connection conn = OracleDBUtil.getConnection()) {
-        	return optionalElementsDao.getOptionalElements(conn);
-		} catch(SQLException ex) {
-			throw new DBException("Error while getting optional elements from DB.", ex);
-		}
+            try {
+                List<OptionalElements> optionalElements = optionalElementsDao.getOptionalElements(conn);
+                conn.commit();
+                return optionalElements;
+            } catch(SQLException ex) {
+                conn.rollback();
+                throw new DBException("Error while getting optional elements from DB.", ex);
+            }
+        } catch(SQLException ex) {
+            throw new DBException("Error while establishing DB connection for getting optional elements.", ex);
+        }
 	}
 }

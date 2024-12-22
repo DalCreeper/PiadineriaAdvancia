@@ -1,6 +1,5 @@
 package services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import dao.services.PiadinaServiceDao;
@@ -13,13 +12,11 @@ public class PiadinaService {
 		return piadinaServiceDao.getPiadinas();
 	}
 	
-	public void addPiadina(Piadina p) {
-		List<Piadina> listTemp = new ArrayList<>(getPiadinas());
-		listTemp.add(p);
+	public void addPiadina(Piadina piadina) {
+		piadinaServiceDao.addPiadina(piadina);
 	}
 	
-	public void removePiadina(Piadina p) {
-		List<Piadina> listTemp = new ArrayList<>(getPiadinas());
-		listTemp.remove(p);
+	public void removePiadina(int piadinaId) {
+		piadinaServiceDao.removePiadina(piadinaId);
 	}
 }

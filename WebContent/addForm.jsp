@@ -36,7 +36,7 @@
 			 	if(doughs != null) {
 					for(Dough dough : doughs) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('dough', this, 1)" data-price="<%= dough.getPrice() %>">
+						<div class="chip" onclick="toggleChipSelection('dough', this, 1)" data-id="<%= dough.getId() %>" data-price="<%= dough.getPrice() %>">
 					        <span class="chip-label prevent-select"><%= dough.getType() %></span>
 					    </div>
 			<%
@@ -52,7 +52,7 @@
 				if(mBases != null) {
 					for(MeatBase mBase : mBases) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)" data-price="<%= mBase.getPrice() %>">
+						<div class="chip" onclick="toggleChipSelection('meatBase', this, 2)" data-id="<%= mBase.getId() %>" data-price="<%= mBase.getPrice() %>">
 					        <span class="chip-label prevent-select"><%= mBase.getType() %></span>
 					    </div>
 			<%
@@ -68,7 +68,7 @@
 				if(sauces != null) {
 					for(Sauces sauce : sauces) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)" data-price="<%= sauce.getPrice() %>">
+						<div class="chip" onclick="toggleChipSelection('sauces', this, 2)" data-id="<%= sauce.getId() %>" data-price="<%= sauce.getPrice() %>">
 					        <span class="chip-label prevent-select"><%= sauce.getType() %></span>
 					    </div>
 			<%
@@ -84,7 +84,7 @@
 				if(oElements != null) {
 					for(OptionalElements oElement : oElements) {
 			%>
-						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)" data-price="<%= oElement.getPrice() %>">
+						<div class="chip" onclick="toggleChipSelection('optionalElements', this, 3)" data-id="<%= oElement.getId() %>" data-price="<%= oElement.getPrice() %>">
 					        <span class="chip-label prevent-select"><%= oElement.getType() %></span>
 					    </div>
 			<%

@@ -21,6 +21,7 @@ public class OracleDBUtil {
             Context initContext = new InitialContext();
             DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/OracleDataSource");
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             log.info("Connection to DB extabilished.");
         } catch(NamingException | SQLException e) {
         	throw new DBException("DataSource extraction failed.", e);

@@ -18,7 +18,7 @@ import model.classes.Piadina;
 import model.classes.Sauces;
 import model.enums.Role;
 
-public class PiadinaDao {
+public class GetPiadinasDao {
 	private final String GET_PIADINAS= ""
 		+ "SELECT "
 			+ "P.ID, "
@@ -154,5 +154,4 @@ public class PiadinaDao {
 	        throw new DBException("Error while getting piadinas from DB.", e);
 	    }
 	}
-
 }

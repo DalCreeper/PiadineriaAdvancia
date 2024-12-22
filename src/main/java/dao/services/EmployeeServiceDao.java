@@ -9,13 +9,20 @@ import exceptions.DBException;
 import model.classes.Employee;
 
 public class EmployeeServiceDao {
-private EmployeeDao employeeDao = new EmployeeDao();
+	private final EmployeeDao employeeDao = new EmployeeDao();
 	
 	public Employee getUser(String username, String password) {
 		try(Connection conn = OracleDBUtil.getConnection()) {
-        	return employeeDao.getEmployee(username, password, conn);
-		} catch(SQLException ex) {
-			throw new DBException("Error while getting user from DB with username: " + username, ex);
-		}
+            try {
+                Employee employee = employeeDao.getEmployee(username, password, conn);
+                conn.commit();
+                return employee;
+            } catch(SQLException ex) {
+                conn.rollback();
+                throw new DBException("Error while getting user from DB with username: " + username, ex);
+            }
+        } catch(SQLException ex) {
+            throw new DBException("Error while establishing DB connection for getting user.", ex);
+        }
 	}
 }

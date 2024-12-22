@@ -10,13 +10,20 @@ import exceptions.DBException;
 import model.classes.Dough;
 
 public class DoughServiceDao {
-private DoughDao doughDao = new DoughDao();
+	private final DoughDao doughDao = new DoughDao();
 	
 	public List<Dough> getDoughs() {
 		try(Connection conn = OracleDBUtil.getConnection()) {
-        	return doughDao.getDoughs(conn);
-		} catch(SQLException ex) {
-			throw new DBException("Error while getting doughs from DB.", ex);
-		}
+            try {
+                List<Dough> doughs = doughDao.getDoughs(conn);
+                conn.commit();
+                return doughs;
+            } catch(SQLException ex) {
+                conn.rollback();
+                throw new DBException("Error while getting doughs from DB.", ex);
+            }
+        } catch(SQLException ex) {
+            throw new DBException("Error while establishing DB connection for getting doughs.", ex);
+        }
 	}
 }

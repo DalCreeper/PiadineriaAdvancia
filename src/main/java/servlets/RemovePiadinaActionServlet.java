@@ -58,7 +58,7 @@ public class RemovePiadinaActionServlet extends HttpServlet {
 				}
 				
 				if(piadinaToRemove != null) {
-					piadinaService.removePiadina(piadinaToRemove);
+					piadinaService.removePiadina(piadinaToRemove.getId());
 					log.info("Piadina '{}' successfully removed.", piadinaName);
 					response.setStatus(HttpServletResponse.SC_OK);
 				} else {
