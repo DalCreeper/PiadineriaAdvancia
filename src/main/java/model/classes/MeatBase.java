@@ -3,13 +3,28 @@ package model.classes;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "MEATBASE")
 public class MeatBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
 	private int id;
+	
+	@Column(name = "TYPE")
 	private String type;
+	
+	@Column(name = "DESCRIPTION")
 	private String description;
+	
+	@Column(name = "PRICE")
 	private double price;
+	
+	public MeatBase() {}
 	
 	public MeatBase(int id, String type, String description, double price) {
 		this.id = id;
@@ -63,6 +78,7 @@ public class MeatBase implements Serializable {
 	    return Objects.hash(id);
 	}
 	
+	@Deprecated
 	public static MeatBase[] hardCodedList() {
 		return new MeatBase[] {
             new MeatBase(1, "Cooked ham", "Description", 0.90),

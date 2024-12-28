@@ -1,18 +1,9 @@
 package dao.utils;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import exceptions.DBException;
+import org.hibernate.Session;
 
 public class OracleDBUtil {
+	/*
 	private static Logger log = LogManager.getLogger(OracleDBUtil.class);
 	
     public static Connection getConnection() {
@@ -27,5 +18,9 @@ public class OracleDBUtil {
         	throw new DBException("DataSource extraction failed.", e);
         }
         return connection;
+    }
+    */
+	public static Session getSession() {
+        return HibernateUtil.getSessionFactory().openSession();
     }
 }

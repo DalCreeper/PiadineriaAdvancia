@@ -1,14 +1,14 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import dao.utils.HibernateUtil;
 import exceptions.DBException;
 import model.classes.Dough;
 import model.classes.MeatBase;
@@ -16,81 +16,28 @@ import model.classes.OptionalElements;
 import model.classes.Sauces;
 
 public class PiadinaComponentsDao {
-    private static final String GET_ALL_COMPONENTS = ""
-        + "SELECT "
-        	+ "'DOUGH' AS COMPONENT_TYPE, "
-	        + "ID, "
-	        + "TYPE, "
-	        + "DESCRIPTION, "
-	        + "PRICE "
-        + "FROM "
-        	+ "DOUGH "
-        + "UNION "
-        	+ "ALL "
-        + "SELECT "
-	        + "'MEATBASE' AS COMPONENT_TYPE, "
-	        + "ID, "
-	        + "TYPE, "
-	        + "DESCRIPTION, "
-	        + "PRICE "
-        + "FROM "
-        	+ "MEATBASE "
-        + "UNION "
-        	+ "ALL "
-        + "SELECT "
-	        + "'SAUCES' AS COMPONENT_TYPE, "
-	        + "ID, "
-	        + "TYPE, "
-	        + "DESCRIPTION, "
-	        + "PRICE "
-        + "FROM "
-        	+ "SAUCES "
-        + "UNION "
-        	+ "ALL "
-        + "SELECT "
-	        + "'OPTIONALELEMENTS' AS COMPONENT_TYPE, "
-	        + "ID, "
-	        + "TYPE, "
-	        + "DESCRIPTION, "
-	        + "PRICE "
-        + "FROM "
-        	+ "OPTIONAL_ELEMENTS"
-        ;
+	public Map<String, List<Object>> getAllComponents() {
+        Map<String, List<Object>> components = new HashMap<>();
+        components.put("DOUGH", new ArrayList<>());
+        components.put("MEATBASE", new ArrayList<>());
+        components.put("SAUCES", new ArrayList<>());
+        components.put("OPTIONALELEMENTS", new ArrayList<>());
 
-    public Map<String, List<Object>> getAllComponents(Connection conn) throws SQLException {
-        try(PreparedStatement stmt = conn.prepareStatement(GET_ALL_COMPONENTS);
-             ResultSet rs = stmt.executeQuery()) {
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Dough> doughQuery = session.createQuery("FROM Dough", Dough.class);
+            components.get("DOUGH").addAll(doughQuery.list());
+            
+            Query<MeatBase> meatBaseQuery = session.createQuery("FROM MeatBase", MeatBase.class);
+            components.get("MEATBASE").addAll(meatBaseQuery.list());
 
-            Map<String, List<Object>> components = new HashMap<>();
-            components.put("DOUGH", new ArrayList<>());
-            components.put("MEATBASE", new ArrayList<>());
-            components.put("SAUCES", new ArrayList<>());
-            components.put("OPTIONALELEMENTS", new ArrayList<>());
+            Query<Sauces> saucesQuery = session.createQuery("FROM Sauces", Sauces.class);
+            components.get("SAUCES").addAll(saucesQuery.list());
 
-            while(rs.next()) {
-                String type = rs.getString("COMPONENT_TYPE");
-                int id = rs.getInt("ID");
-                String componentType = rs.getString("TYPE");
-                String description = rs.getString("DESCRIPTION");
-                double price = rs.getDouble("PRICE");
+            Query<OptionalElements> optionalElementsQuery = session.createQuery("FROM OptionalElements", OptionalElements.class);
+            components.get("OPTIONALELEMENTS").addAll(optionalElementsQuery.list());
 
-                switch(type) {
-                    case "DOUGH" :
-                        components.get("DOUGH").add(new Dough(id, componentType, description, price));
-                        break;
-                    case "MEATBASE" :
-                        components.get("MEATBASE").add(new MeatBase(id, componentType, description, price));
-                        break;
-                    case "SAUCES" :
-                        components.get("SAUCES").add(new Sauces(id, componentType, description, price));
-                        break;
-                    case "OPTIONALELEMENTS" :
-                        components.get("OPTIONALELEMENTS").add(new OptionalElements(id, componentType, description, price));
-                        break;
-                }
-            }
             return components;
-        } catch(SQLException e) {
+        } catch(Exception e) {
             throw new DBException("Error while getting piadina components from DB.", e);
         }
     }

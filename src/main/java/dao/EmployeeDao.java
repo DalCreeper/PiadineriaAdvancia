@@ -1,50 +1,32 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import dao.utils.HibernateUtil;
 import exceptions.DBException;
 import model.classes.Employee;
-import model.enums.Role;
 
 public class EmployeeDao {
-	private final String GET_USER_BY_USERNAME_PASSWORD = ""
-		+ "SELECT "
-			+ "ID, "
-			+ "NAME, "
-			+ "SURNAME, "
-			+ "USERNAME, "
-			+ "PASSWORD, "
-			+ "YOB, "
-			+ "ROLE "
-		+ "FROM "
-			+ "EMPLOYEE "
-		+ "WHERE "
-			+ "USERNAME = ? "
-			+ "AND "
-			+ "PASSWORD = ?"
-		;
-	
-	public Employee getEmployee(String username, String password, Connection conn) throws SQLException {
-        try(PreparedStatement stmt = conn.prepareStatement(GET_USER_BY_USERNAME_PASSWORD)) {
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+	private final String GET_USER_BY_USERNAME_PASSWORD = "FROM Employee WHERE username = :username AND password = :password";
+    
+    public Employee getEmployee(String username, String password) {
+        Transaction transaction = null;
+        Employee employee = null;
+
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
             
-            try(ResultSet rs = stmt.executeQuery()) {
-                if(rs.next()) {
-                	return new Employee(
-                        rs.getInt("ID"),
-                        rs.getString("NAME"),
-                        rs.getString("SURNAME"),
-                        rs.getString("USERNAME"),
-                        rs.getInt("YOB"),
-                        Role.getEnumText(rs.getString("ROLE"))
-                    );
-                }
-            }
+            Query<Employee> query = session.createQuery(GET_USER_BY_USERNAME_PASSWORD, Employee.class);
+            query.setParameter("username", username);
+            query.setParameter("password", password);
+            employee = query.uniqueResult();
+            transaction.commit();
+        } catch(Exception e) {
+            if(transaction != null) transaction.rollback();
+            throw new DBException("Error while getting user with username: " + username, e);
         }
-        throw new DBException("Error while getting user with username: " + username);
+        return employee;
     }
 }

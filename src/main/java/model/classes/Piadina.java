@@ -7,19 +7,59 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "PIADINA")
 public class Piadina implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final Set<String> GENERATED_NAMES = new HashSet<>();
 	private static int COUNTER = 1;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
 	private int id;
+	
+	@Column(name = "NAME")
 	private String name;
+	
+	@ManyToOne
+    @JoinColumn(name = "DOUGH_ID")
 	private Dough dough;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "PIADINA_MEATBASE",
+        joinColumns = @JoinColumn(name = "PIADINA_ID"),
+        inverseJoinColumns = @JoinColumn(name = "MEATBASE_ID")
+    )
 	private List<MeatBase> meatBase;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "PIADINA_SAUCES",
+        joinColumns = @JoinColumn(name = "PIADINA_ID"),
+        inverseJoinColumns = @JoinColumn(name = "SAUCES_ID")
+    )
 	private List<Sauces> sauces;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "PIADINA_OPTIONAL_ELEMENTS",
+        joinColumns = @JoinColumn(name = "PIADINA_ID"),
+        inverseJoinColumns = @JoinColumn(name = "OPTIONAL_ELEMENTS_ID")
+    )
 	private List<OptionalElements> optionalElements;
+	
+	@Column(name = "PRICE")
 	private double price;
+	
+	@ManyToOne
+    @JoinColumn(name = "EMPLOYEE_ID")
 	private Employee employee;
+	
+	public Piadina() {}
 	
 	public Piadina(
 		int id,

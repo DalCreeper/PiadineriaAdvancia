@@ -2,13 +2,28 @@ package model.classes;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "DOUGH")
 public class Dough implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
 	private int id;
+	
+	@Column(name = "TYPE")
 	private String type;
+	
+	@Column(name = "DESCRIPTION")
 	private String description;
+	
+	@Column(name = "PRICE")
 	private double price;
+	
+	public Dough() {}
 	
 	public Dough(int id, String type, String description, double price) {
 		this.id = id;
@@ -49,6 +64,7 @@ public class Dough implements Serializable {
 		this.price = price;
 	}
 	
+	@Deprecated
 	public static Dough[] hardCodedList() {
 		return new Dough[] {
             new Dough(1, "Classic", "Description", 1.00),

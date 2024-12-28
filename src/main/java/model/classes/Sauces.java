@@ -3,13 +3,28 @@ package model.classes;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "SAUCES")
 public class Sauces implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
 	private int id;
+	
+	@Column(name = "TYPE")
 	private String type;
+	
+	@Column(name = "DESCRIPTION")
 	private String description;
+	
+	@Column(name = "PRICE")
 	private double price;
+	
+	public Sauces() {}
 	
 	public Sauces(int id, String type, String description, double price) {
 		this.id = id;
@@ -63,6 +78,7 @@ public class Sauces implements Serializable {
 	    return Objects.hash(id);
 	}
 	
+	@Deprecated
 	public static Sauces[] hardCodedList() {
 		return new Sauces[] {
             new Sauces(1, "Ketchup", "Description", 0.20),

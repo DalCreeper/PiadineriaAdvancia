@@ -3,13 +3,28 @@ package model.classes;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "OPTIONAL_ELEMENTS")
 public class OptionalElements implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
 	private int id;
+	
+	@Column(name = "TYPE")
 	private String type;
+	
+	@Column(name = "DESCRIPTION")
 	private String description;
+	
+	@Column(name = "PRICE")
 	private double price;
+	
+	public OptionalElements() {}
 	
 	public OptionalElements(int id, String type, String description, double price) {
 		this.id = id;
@@ -62,7 +77,8 @@ public class OptionalElements implements Serializable {
 	public int hashCode() {
 	    return Objects.hash(id);
 	}
-
+	
+	@Deprecated
 	public static OptionalElements[] hardCodedList() {
 		return new OptionalElements[] {
             new OptionalElements(1, "Mozzarella", "Description", 0.50),

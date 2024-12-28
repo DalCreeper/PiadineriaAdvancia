@@ -2,21 +2,25 @@ package services;
 
 import java.util.List;
 
-import dao.services.PiadinaServiceDao;
+import dao.AddPiadinaDao;
+import dao.GetPiadinasDao;
+import dao.RemovePiadinaDao;
 import model.classes.Piadina;
 
 public class PiadinaService {
-	private PiadinaServiceDao piadinaServiceDao = new PiadinaServiceDao();
+	private final GetPiadinasDao getPiadinasDao = new GetPiadinasDao();
+	private final AddPiadinaDao addPiadinaDao = new AddPiadinaDao();
+	private final RemovePiadinaDao removePiadinaDao = new RemovePiadinaDao();
 	
 	public List<Piadina> getPiadinas() {
-		return piadinaServiceDao.getPiadinas();
+		return getPiadinasDao.getPiadinas();
 	}
 	
 	public void addPiadina(Piadina piadina) {
-		piadinaServiceDao.addPiadina(piadina);
+		addPiadinaDao.insertPiadina(piadina);
 	}
 	
 	public void removePiadina(int piadinaId) {
-		piadinaServiceDao.removePiadina(piadinaId);
+		removePiadinaDao.deletePiadina(piadinaId);
 	}
 }
