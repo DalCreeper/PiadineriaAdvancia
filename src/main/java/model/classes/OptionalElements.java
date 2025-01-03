@@ -77,25 +77,4 @@ public class OptionalElements implements Serializable {
 	public int hashCode() {
 	    return Objects.hash(id);
 	}
-	
-	@Deprecated
-	public static OptionalElements[] hardCodedList() {
-		return new OptionalElements[] {
-            new OptionalElements(1, "Mozzarella", "Description", 0.50),
-            new OptionalElements(2, "Gherkins", "Description", 0.30),
-            new OptionalElements(3, "Tomato", "Description", 0.40),
-            new OptionalElements(4, "Buffalo mozzarella", "Description", 0.80),
-            new OptionalElements(5, "Crispy onion", "Description", 0.50),
-            new OptionalElements(6, "Green salad", "Description", 0.30),
-            new OptionalElements(7, "Radicchio", "Description", 0.40),
-            new OptionalElements(8, "Robiola", "Description", 0.70),
-            new OptionalElements(9, "Galbanino", "Description", 0.60),
-            new OptionalElements(10, "Feta", "Description", 0.80),
-            new OptionalElements(11, "Mushrooms", "Description", 0.50),
-            new OptionalElements(12, "Grilled aubergines", "Description", 0.70),
-            new OptionalElements(13, "Grilled courgettes", "Description", 0.60),
-            new OptionalElements(14, "Steamed carrots", "Description", 0.40),
-            new OptionalElements(15, "Philadelphia", "Description", 0.70)
-        };
-	}
 }

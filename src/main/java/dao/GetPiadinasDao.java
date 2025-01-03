@@ -2,32 +2,35 @@ package dao;
 
 import java.util.List;
 
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
-import dao.utils.HibernateUtil;
+import dao.utils.JPAUtil;
 import exceptions.DBException;
 import model.classes.Piadina;
 
 public class GetPiadinasDao {
 	public List<Piadina> getPiadinas() {
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT p FROM Piadina p "
-                       + "JOIN FETCH p.dough "
-                       + "JOIN FETCH p.employee";
-            Query<Piadina> query = session.createQuery(hql, Piadina.class);
-            List<Piadina> piadinas = query.getResultList();
-            
-            for(Piadina piadina : piadinas) {
-                Hibernate.initialize(piadina.getMeatBase());
-                Hibernate.initialize(piadina.getSauces());
-                Hibernate.initialize(piadina.getOptionalElements());
-            }
+		EntityManager em = JPAUtil.getEntityManager();
 
-            return piadinas;
+        try {
+        	String jpqlBase = "SELECT DISTINCT p FROM Piadina p "
+		                    + "JOIN FETCH p.dough "
+		                    + "JOIN FETCH p.employee";
+
+		    TypedQuery<Piadina> queryBase = em.createQuery(jpqlBase, Piadina.class);
+		    List<Piadina> piadinas = queryBase.getResultList();
+		
+		    for(Piadina p : piadinas) {
+		        p.getMeatBase().size();
+		        p.getSauces().size();
+		        p.getOptionalElements().size();
+		    }
+            return queryBase.getResultList();
         } catch(Exception e) {
             throw new DBException("Error while getting piadinas from DB.", e);
+        } finally {
+            em.close();
         }
     }
 }

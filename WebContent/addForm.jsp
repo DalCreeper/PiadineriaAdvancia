@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ page import="model.classes.Employee"%>
-<%@ page import="java.util.List"%>
+<%@ page import="java.util.Set"%>
 <%@ page import="model.classes.Dough"%>
 <%@ page import="model.classes.MeatBase"%>
 <%@ page import="model.classes.Sauces"%>
@@ -21,7 +21,7 @@
 	<header class="d-flex align-items-center">
 		<a href="dashboard"><button id="backDashBtn">Back</button></a>
 		<div class="flex-fill">
-			<h1 class="mb-0">Add a New Piadina</h1>
+			<h1 class="mb-0 prevent-select">Add a New Piadina</h1>
 		</div>
 	</header>
 	<main>
@@ -32,7 +32,7 @@
 			<label>Dough:</label>
 			<div class="chips-container" id="doughContainer">
 			<%
-				List<Dough> doughs = (List<Dough>) request.getAttribute("doughs");
+				Set<Dough> doughs = (Set<Dough>) request.getAttribute("doughs");
 			 	if(doughs != null) {
 					for(Dough dough : doughs) {
 			%>
@@ -48,7 +48,7 @@
 			<label>Meat Base (max 2):</label>
 			<div class="chips-container" id="meatBaseContainer">
 			<%
-				List<MeatBase> mBases = (List<MeatBase>) request.getAttribute("mBases");
+				Set<MeatBase> mBases = (Set<MeatBase>) request.getAttribute("mBases");
 				if(mBases != null) {
 					for(MeatBase mBase : mBases) {
 			%>
@@ -64,7 +64,7 @@
 			<label>Sauces (max 2):</label>
 			<div class="chips-container" id="saucesContainer">
 			<%
-				List<Sauces> sauces = (List<Sauces>) request.getAttribute("sauces");
+				Set<Sauces> sauces = (Set<Sauces>) request.getAttribute("sauces");
 				if(sauces != null) {
 					for(Sauces sauce : sauces) {
 			%>
@@ -80,7 +80,7 @@
 			<label>Optional Elements (max 3):</label>
 			<div class="chips-container" id="optionalElementsContainer">
 			<%
-				List<OptionalElements> oElements = (List<OptionalElements>) request.getAttribute("oElements");
+				Set<OptionalElements> oElements = (Set<OptionalElements>) request.getAttribute("oElements");
 				if(oElements != null) {
 					for(OptionalElements oElement : oElements) {
 			%>

@@ -1,38 +1,28 @@
 package dao;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
-import dao.utils.HibernateUtil;
+import dao.utils.JPAUtil;
 import exceptions.DBException;
-import model.classes.MeatBase;
-import model.classes.OptionalElements;
 import model.classes.Piadina;
-import model.classes.Sauces;
 
 public class AddPiadinaDao {
 	public void insertPiadina(Piadina piadina) {
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
+		EntityManager em = JPAUtil.getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
 
-            try {
-                session.save(piadina);
-                for(MeatBase meatBase : piadina.getMeatBase()) {
-                    session.save(meatBase);
-                }
-                for(Sauces sauce : piadina.getSauces()) {
-                    session.save(sauce);
-                }
-                for(OptionalElements optionalElement : piadina.getOptionalElements()) {
-                    session.save(optionalElement);
-                }
-                transaction.commit();
-            } catch(Exception e) {
-                transaction.rollback();
-                throw new DBException("Error while inserting piadina into DB.", e);
-            }
+        try {
+            transaction.begin();
+            piadina = em.merge(piadina);
+            transaction.commit();
         } catch(Exception e) {
-            throw new DBException("Error while starting session for inserting piadina.", e);
+            if(transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw new DBException("Error while inserting piadina into DB.", e);
+        } finally {
+            em.close();
         }
     }
 }

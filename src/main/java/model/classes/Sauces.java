@@ -77,15 +77,4 @@ public class Sauces implements Serializable {
 	public int hashCode() {
 	    return Objects.hash(id);
 	}
-	
-	@Deprecated
-	public static Sauces[] hardCodedList() {
-		return new Sauces[] {
-            new Sauces(1, "Ketchup", "Description", 0.20),
-            new Sauces(2, "Mayonnaise", "Description", 0.20),
-            new Sauces(3, "BBQ", "Description", 0.30),
-            new Sauces(4, "Yogurt", "Description", 0.30),
-            new Sauces(5, "Teriyaki", "Description", 0.40)
-        };
-	}
 }

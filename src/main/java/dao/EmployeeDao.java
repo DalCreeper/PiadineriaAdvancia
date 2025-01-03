@@ -1,31 +1,36 @@
 package dao;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
-import dao.utils.HibernateUtil;
+import dao.utils.JPAUtil;
 import exceptions.DBException;
 import model.classes.Employee;
 
 public class EmployeeDao {
-	private final String GET_USER_BY_USERNAME_PASSWORD = "FROM Employee WHERE username = :username AND password = :password";
-    
+	private final String GET_USER_BY_USERNAME_PASSWORD = "SELECT e FROM Employee e WHERE e.username = :username AND e.password = :password";
+
     public Employee getEmployee(String username, String password) {
-        Transaction transaction = null;
+        EntityManager em = JPAUtil.getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         Employee employee = null;
 
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-            
-            Query<Employee> query = session.createQuery(GET_USER_BY_USERNAME_PASSWORD, Employee.class);
+        try {
+            transaction.begin();
+            TypedQuery<Employee> query = em.createQuery(GET_USER_BY_USERNAME_PASSWORD, Employee.class);
             query.setParameter("username", username);
             query.setParameter("password", password);
-            employee = query.uniqueResult();
+           
+            employee = query.getSingleResult();
             transaction.commit();
         } catch(Exception e) {
-            if(transaction != null) transaction.rollback();
+            if(transaction.isActive()) {
+                transaction.rollback();
+            }
             throw new DBException("Error while getting user with username: " + username, e);
+        } finally {
+            em.close();
         }
         return employee;
     }

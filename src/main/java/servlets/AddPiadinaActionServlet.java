@@ -1,9 +1,9 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,17 +42,17 @@ public class AddPiadinaActionServlet extends HttpServlet {
 			ObjectMapper mapper = new ObjectMapper();
 			PiadinaDeserialize piadinaDeserialized = mapper.readValue(request.getInputStream(), PiadinaDeserialize.class);
 			PiadinaComponentsService componentsService = new PiadinaComponentsService();
-			Map<String, List<Object>> components = componentsService.getPiadinaComponents();
+			Map<String, Set<Object>> components = componentsService.getPiadinaComponents();
 
-	        List<Dough> doughs = castToList(components.get("DOUGH"), Dough.class);
-	        List<MeatBase> meatBase = castToList(components.get("MEATBASE"), MeatBase.class);
-	        List<Sauces> sauces = castToList(components.get("SAUCES"), Sauces.class);
-	        List<OptionalElements> optionalElements = castToList(components.get("OPTIONALELEMENTS"), OptionalElements.class);
+			Set<Dough> doughs = castToSet(components.get("DOUGH"), Dough.class);
+			Set<MeatBase> meatBase = castToSet(components.get("MEATBASE"), MeatBase.class);
+			Set<Sauces> sauces = castToSet(components.get("SAUCES"), Sauces.class);
+			Set<OptionalElements> optionalElements = castToSet(components.get("OPTIONALELEMENTS"), OptionalElements.class);
 
 			Dough choosenDough = null;
-	        List<MeatBase> choosenMeatBases = new ArrayList<>();
-	        List<Sauces> choosenSauces = new ArrayList<>();
-	        List<OptionalElements> choosenOptionalElements = new ArrayList<>();
+			Set<MeatBase> choosenMeatBases = new HashSet<>();
+			Set<Sauces> choosenSauces = new HashSet<>();
+			Set<OptionalElements> choosenOptionalElements = new HashSet<>();
 	        
 	        for(Dough d : doughs) {
 	        	if(piadinaDeserialized.getDough() == d.getId()) {
@@ -83,7 +83,6 @@ public class AddPiadinaActionServlet extends HttpServlet {
 	        }
 	        
 	        Piadina p = new Piadina(
-        		1,
 	            piadinaDeserialized.getName(),
 	            choosenDough,
 	            choosenMeatBases,
@@ -103,10 +102,10 @@ public class AddPiadinaActionServlet extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/loadLogin");
 	}
 	
-	private static <T> List<T> castToList(Object attribute, Class<T> clazz) {
-        if(attribute instanceof List<?>) {
-            List<?> tempList = (List<?>) attribute;
-            List<T> resultList = new ArrayList<>();
+	private static <T> Set<T> castToSet(Object attribute, Class<T> clazz) {
+        if(attribute instanceof Set<?>) {
+        	Set<?> tempList = (Set<?>) attribute;
+        	Set<T> resultList = new HashSet<>();
             for(Object item : tempList) {
                 if(clazz.isInstance(item)) {
                     resultList.add(clazz.cast(item));

@@ -1,14 +1,13 @@
 package dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-import org.hibernate.Session;
-import org.hibernate.query.Query;
+import javax.persistence.EntityManager;
 
-import dao.utils.HibernateUtil;
+import dao.utils.JPAUtil;
 import exceptions.DBException;
 import model.classes.Dough;
 import model.classes.MeatBase;
@@ -16,29 +15,34 @@ import model.classes.OptionalElements;
 import model.classes.Sauces;
 
 public class PiadinaComponentsDao {
-	public Map<String, List<Object>> getAllComponents() {
-        Map<String, List<Object>> components = new HashMap<>();
-        components.put("DOUGH", new ArrayList<>());
-        components.put("MEATBASE", new ArrayList<>());
-        components.put("SAUCES", new ArrayList<>());
-        components.put("OPTIONALELEMENTS", new ArrayList<>());
+	public Map<String, Set<Object>> getAllComponents() {
+        Map<String, Set<Object>> components = new HashMap<>();
+        components.put("DOUGH", new HashSet<>());
+        components.put("MEATBASE", new HashSet<>());
+        components.put("SAUCES", new HashSet<>());
+        components.put("OPTIONALELEMENTS", new HashSet<>());
 
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Dough> doughQuery = session.createQuery("FROM Dough", Dough.class);
-            components.get("DOUGH").addAll(doughQuery.list());
-            
-            Query<MeatBase> meatBaseQuery = session.createQuery("FROM MeatBase", MeatBase.class);
-            components.get("MEATBASE").addAll(meatBaseQuery.list());
+        EntityManager em = JPAUtil.getEntityManager();
 
-            Query<Sauces> saucesQuery = session.createQuery("FROM Sauces", Sauces.class);
-            components.get("SAUCES").addAll(saucesQuery.list());
-
-            Query<OptionalElements> optionalElementsQuery = session.createQuery("FROM OptionalElements", OptionalElements.class);
-            components.get("OPTIONALELEMENTS").addAll(optionalElementsQuery.list());
+        try {
+            components.get("DOUGH").addAll(
+                em.createQuery("SELECT d FROM Dough d", Dough.class).getResultList()
+            );
+            components.get("MEATBASE").addAll(
+                em.createQuery("SELECT m FROM MeatBase m", MeatBase.class).getResultList()
+            );
+            components.get("SAUCES").addAll(
+                em.createQuery("SELECT s FROM Sauces s", Sauces.class).getResultList()
+            );
+            components.get("OPTIONALELEMENTS").addAll(
+                em.createQuery("SELECT o FROM OptionalElements o", OptionalElements.class).getResultList()
+            );
 
             return components;
         } catch(Exception e) {
             throw new DBException("Error while getting piadina components from DB.", e);
+        } finally {
+            em.close();
         }
     }
 }

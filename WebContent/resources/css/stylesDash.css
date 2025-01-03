@@ -111,3 +111,9 @@ button:hover.logoutBtn {
   	border-radius: 10px;
   	box-shadow: 0 0 10px var(--shadow-black);
 }
+
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

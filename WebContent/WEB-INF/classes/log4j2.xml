@@ -19,6 +19,10 @@
         <Logger name="com.advancia" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
+        
+        <logger name="org.hibernate" level="DEBUG">
+		    <appender-ref ref="console"/>
+		</logger>
 
         <!-- Logger per Tomcat (se desideri personalizzare i log di Tomcat) -->
         <Logger name="org.apache.catalina" level="info" additivity="false">

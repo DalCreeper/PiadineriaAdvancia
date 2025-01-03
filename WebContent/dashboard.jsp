@@ -23,12 +23,12 @@
 <body>
 	<header class="d-flex">
 		<div class="flex-fill">
-			<h1>Menu Management - Piadineria Advancia</h1>
+			<h1 class="prevent-select">Menu Management - Piadineria Advancia</h1>
 			<%
 				Employee user = (session != null) ? (Employee) session.getAttribute("user") : null;
 				if(user != null) {
 			%>
-			<h3>
+			<h3 class="prevent-select">
 				Welcome, <%= user.getUsername() %>!
 			</h3>
 			<%
@@ -39,19 +39,19 @@
 	</header>
 	<main>
 		<section class="menu-section">
-			<h2>Menu</h2>
+			<h2 class="prevent-select">Menu</h2>
 			<div class="table-responsive-xl">
 				<table class="menu-table table table-hover">
 					<thead>
 						<tr>
-							<th class="align-middle">Name</th>
-							<th class="align-middle">Dough</th>
-							<th class="align-middle">Meat Base</th>
-							<th class="align-middle">Sauces</th>
-							<th class="align-middle">Optional</th>
-							<th class="align-middle">Price</th>
-							<th class="align-middle">Added By</th>
-							<th class="align-middle">Actions</th>
+							<th class="align-middle prevent-select">Name</th>
+							<th class="align-middle prevent-select">Dough</th>
+							<th class="align-middle prevent-select">Meat Base</th>
+							<th class="align-middle prevent-select">Sauces</th>
+							<th class="align-middle prevent-select">Optional</th>
+							<th class="align-middle prevent-select">Price</th>
+							<th class="align-middle prevent-select">Added By</th>
+							<th class="align-middle prevent-select">Actions</th>
 						</tr>
 					</thead>
 					<tbody id="menuTableBody">

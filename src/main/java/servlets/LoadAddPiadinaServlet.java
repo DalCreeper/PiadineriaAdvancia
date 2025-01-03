@@ -1,8 +1,8 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +31,7 @@ public class LoadAddPiadinaServlet extends HttpServlet {
 		if(httpSession != null) {
 			PiadinaComponentsService componentsService = new PiadinaComponentsService();
 
-			Map<String, List<Object>> components = componentsService.getPiadinaComponents();
+			Map<String, Set<Object>> components = componentsService.getPiadinaComponents();
 			request.setAttribute("doughs", components.get("DOUGH"));
 			request.setAttribute("mBases", components.get("MEATBASE"));
 			request.setAttribute("sauces", components.get("SAUCES"));
