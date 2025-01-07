@@ -6,13 +6,12 @@ import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import dao.utils.HibernateUtil;
 import exceptions.DBException;
 import model.classes.Piadina;
 
 public class GetPiadinasDao {
-	public List<Piadina> getPiadinas() {
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+	public List<Piadina> getPiadinas(Session session) {
+        try {
             String hql = "SELECT p FROM Piadina p "
                        + "JOIN FETCH p.dough "
                        + "JOIN FETCH p.employee";

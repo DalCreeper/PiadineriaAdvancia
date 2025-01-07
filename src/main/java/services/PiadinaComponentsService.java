@@ -3,12 +3,12 @@ package services;
 import java.util.List;
 import java.util.Map;
 
-import dao.PiadinaComponentsDao;
+import dao.services.PiadinaComponentsDaoService;
 
 public class PiadinaComponentsService {
-	private PiadinaComponentsDao piadinaComponentsDao = new PiadinaComponentsDao();
+	private PiadinaComponentsDaoService piadinaComponentsDaoService = new PiadinaComponentsDaoService();
 	
 	public Map<String, List<Object>> getPiadinaComponents() {
-		return piadinaComponentsDao.getAllComponents();
+		return piadinaComponentsDaoService.getAllComponents();
 	}
 }

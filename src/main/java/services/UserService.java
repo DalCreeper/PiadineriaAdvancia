@@ -1,12 +1,12 @@
 package services;
 
-import dao.EmployeeDao;
+import dao.services.EmployeeDaoService;
 import model.classes.Employee;
 
 public class UserService {
-	private EmployeeDao employeeDao = new EmployeeDao();
+	private EmployeeDaoService employeeDaoService = new EmployeeDaoService();
 	
 	public Employee getUser(String username, String password) {
-		return employeeDao.getEmployee(username, password);
+		return employeeDaoService.getEmployee(username, password);
 	}
 }

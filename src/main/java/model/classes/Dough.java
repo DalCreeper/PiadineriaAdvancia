@@ -63,15 +63,4 @@ public class Dough implements Serializable {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
-	@Deprecated
-	public static Dough[] hardCodedList() {
-		return new Dough[] {
-            new Dough(1, "Classic", "Description", 1.00),
-            new Dough(2, "Charcoal", "Description", 1.50),
-            new Dough(3, "Saffron", "Description", 1.80),
-            new Dough(4, "Wholemeal", "Description", 1.20),
-            new Dough(5, "Gluten free", "Description", 1.50)
-        };
-	}
 }

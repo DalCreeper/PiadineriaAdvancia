@@ -2,9 +2,7 @@ package model.classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.persistence.*;
@@ -13,8 +11,6 @@ import javax.persistence.*;
 @Table(name = "PIADINA")
 public class Piadina implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private static final Set<String> GENERATED_NAMES = new HashSet<>();
-	private static int COUNTER = 1;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +24,7 @@ public class Piadina implements Serializable {
     @JoinColumn(name = "DOUGH_ID")
 	private Dough dough;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
     @JoinTable(
         name = "PIADINA_MEATBASE",
         joinColumns = @JoinColumn(name = "PIADINA_ID"),
@@ -36,7 +32,7 @@ public class Piadina implements Serializable {
     )
 	private List<MeatBase> meatBase;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
     @JoinTable(
         name = "PIADINA_SAUCES",
         joinColumns = @JoinColumn(name = "PIADINA_ID"),
@@ -44,7 +40,7 @@ public class Piadina implements Serializable {
     )
 	private List<Sauces> sauces;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
     @JoinTable(
         name = "PIADINA_OPTIONAL_ELEMENTS",
         joinColumns = @JoinColumn(name = "PIADINA_ID"),
@@ -168,89 +164,6 @@ public class Piadina implements Serializable {
 	    this.optionalElements.add(optionalElements);
 	    return this.optionalElements;
 	}
-	
-	@Deprecated
-    public static Piadina hardCoded(
-    		int id,
-    		String d1,
-    		double d1p,
-    		String m1,
-    		double m1p,
-    		String m2,
-    		double m2p,
-    		String s1,
-    		double s1p,
-    		String s2,
-    		double s2p,
-    		String o1,
-    		double o1p,
-    		String o2,
-    		double o2p,
-    		String o3,
-    		double o3p
-	) {
-    	String name;
-        do {
-            name = "Piadina " + COUNTER++;
-        } while (!GENERATED_NAMES.add(name));
-        Dough dough = new Dough(1, d1, "Description", d1p);
-        List<MeatBase> meatBase = new ArrayList<>();
-        meatBase.add(new MeatBase(1, m1, "Description", m1p));
-        meatBase.add(new MeatBase(2, m2, "Description", m2p));
-        List<Sauces> sauces = new ArrayList<>();
-        sauces.add(new Sauces(1, s1, "Description", s1p));
-        sauces.add(new Sauces(2, s2, "Description", s2p));
-        List<OptionalElements> optionalElements = new ArrayList<>();
-        optionalElements.add(new OptionalElements(1, o1, "Description", o1p));
-        optionalElements.add(new OptionalElements(2, o2, "Description", o2p));
-        optionalElements.add(new OptionalElements(3, o3, "Description", o3p));
-        double price = dough.getPrice()
-        	    + meatBase.stream().mapToDouble(MeatBase::getPrice).sum()
-        	    + sauces.stream().mapToDouble(Sauces::getPrice).sum()
-        	    + optionalElements.stream().mapToDouble(OptionalElements::getPrice).sum();
-        Employee employee = Employee.random();
-
-        return new Piadina(id, name, dough, meatBase, sauces, optionalElements, price, employee);
-    }
-    
-	@Deprecated
-    public static Piadina[] hardCodedList() {
-    	Piadina p1 = hardCoded(
-			1,
-			"Classic", 1.00,
-			"Cooked ham", 0.90,
-			"Raw ham", 1.20,
-			"Ketchup", 0.20,
-			"Mayonnaise", 0.20,
-			"Mozzarella", 0.50,
-			"Gherkins", 0.30,
-			"Tomato", 0.40
-		);
-    	Piadina p2 = hardCoded(
-			2,
-			"Charcoal", 1.50,
-			"Salami", 1.00,
-			"Speck", 1.10,
-			"BBQ", 0.30,
-			"Yogurt", 0.30,
-			"Buffalo mozzarella", 0.80,
-			"Crispy onion", 0.50,
-			"Green salad", 0.30
-		);
-    	Piadina p3 = hardCoded(
-			3,
-			"Saffron", 1.80,
-			"Lard", 0.80,
-			"Beef", 1.50,
-			"Ketchup", 0.20,
-			"Teriyaki", 0.40,
-			"Radicchio", 0.40,
-			"Robiola", 0.70,
-			"Galbanino", 0.60
-		);
-    	
-    	return new Piadina[] {p1, p2, p3};
-    }
 
 	private String formatList(List<?> list) {
 	    return list.stream().map(Object::toString).collect(Collectors.joining(", "));

@@ -8,7 +8,6 @@ import java.util.Map;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import dao.utils.HibernateUtil;
 import exceptions.DBException;
 import model.classes.Dough;
 import model.classes.MeatBase;
@@ -16,14 +15,14 @@ import model.classes.OptionalElements;
 import model.classes.Sauces;
 
 public class PiadinaComponentsDao {
-	public Map<String, List<Object>> getAllComponents() {
+	public Map<String, List<Object>> getAllComponents(Session session) {
         Map<String, List<Object>> components = new HashMap<>();
         components.put("DOUGH", new ArrayList<>());
         components.put("MEATBASE", new ArrayList<>());
         components.put("SAUCES", new ArrayList<>());
         components.put("OPTIONALELEMENTS", new ArrayList<>());
 
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try {
             Query<Dough> doughQuery = session.createQuery("FROM Dough", Dough.class);
             components.get("DOUGH").addAll(doughQuery.list());
             

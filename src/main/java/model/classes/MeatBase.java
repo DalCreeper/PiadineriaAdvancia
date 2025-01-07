@@ -77,20 +77,4 @@ public class MeatBase implements Serializable {
 	public int hashCode() {
 	    return Objects.hash(id);
 	}
-	
-	@Deprecated
-	public static MeatBase[] hardCodedList() {
-		return new MeatBase[] {
-            new MeatBase(1, "Cooked ham", "Description", 0.90),
-            new MeatBase(2, "Raw ham", "Description", 1.20),
-            new MeatBase(3, "Salami", "Description", 1.00),
-            new MeatBase(4, "Speck", "Description", 1.10),
-            new MeatBase(5, "Lard", "Description", 0.80),
-            new MeatBase(6, "Beef", "Description", 1.50),
-            new MeatBase(7, "Turkey", "Description", 1.00),
-            new MeatBase(8, "Chicken", "Description", 0.90),
-            new MeatBase(9, "Bacon", "Description", 1.10),
-            new MeatBase(10, "Pork", "Description", 1.20)
-        };
-	}
 }
