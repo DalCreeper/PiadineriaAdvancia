@@ -161,8 +161,8 @@ input[type="checkbox"]:checked::after {
 
 .mover {
   background: var(--cream);
-  height: 5px;
-  width: 50px;
+  height: 10px;
+  width: 80px;
   border-radius: 10px;
   animation: mover5 2s ease-in-out infinite;
 }
@@ -170,7 +170,7 @@ input[type="checkbox"]:checked::after {
 .mover::before, .mover::after {
   content: '';
   position: absolute;
-  height: 5px;
+  height: 10px;
   border-radius: 10px;
   left: 20px;
   animation: mover5 2s ease-in-out infinite;
@@ -178,14 +178,14 @@ input[type="checkbox"]:checked::after {
 
 .mover::before {
   background: var(--medium-water);
-  top: 10px;
-  width: 30px;
+  top: 20px;
+  width: 50px;
 }
 
 .mover::after {
   background: var(--light-water);
-  top: -10px;
-  width: 40px;
+  top: -20px;
+  width: 60px;
 }
 
 #overlay {
