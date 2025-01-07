@@ -24,7 +24,7 @@ public class Piadina implements Serializable {
     @JoinColumn(name = "DOUGH_ID")
 	private Dough dough;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
     @JoinTable(
         name = "PIADINA_MEATBASE",
         joinColumns = @JoinColumn(name = "PIADINA_ID"),
@@ -32,7 +32,7 @@ public class Piadina implements Serializable {
     )
 	private Set<MeatBase> meatBase;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
     @JoinTable(
         name = "PIADINA_SAUCES",
         joinColumns = @JoinColumn(name = "PIADINA_ID"),
@@ -40,7 +40,7 @@ public class Piadina implements Serializable {
     )
 	private Set<Sauces> sauces;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
     @JoinTable(
         name = "PIADINA_OPTIONAL_ELEMENTS",
         joinColumns = @JoinColumn(name = "PIADINA_ID"),

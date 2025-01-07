@@ -5,6 +5,7 @@
              version="2.2">
     <persistence-unit name="myPersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <non-jta-data-source>java:comp/env/jdbc/OracleDataSource</non-jta-data-source>
         <class>model.classes.Dough</class>
 		<class>model.classes.Employee</class>
 		<class>model.classes.MeatBase</class>
@@ -12,13 +13,6 @@
 		<class>model.classes.Piadina</class>
 		<class>model.classes.Sauces</class>
         <properties>
-            <!-- JDBC Database Connection Settings -->
-			<!-- <property name="javax.persistence.jtaDataSource" value="java:comp/env/jdbc/OracleDataSource"/> -->
-			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-			<property name="javax.persistence.jdbc.user" value="Loris"/>
-			<property name="javax.persistence.jdbc.password" value="Password98"/>
-			
 			<!-- Hibernate Properties -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

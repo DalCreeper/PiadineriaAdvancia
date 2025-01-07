@@ -7,7 +7,6 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 
-import dao.utils.JPAUtil;
 import exceptions.DBException;
 import model.classes.Dough;
 import model.classes.MeatBase;
@@ -15,14 +14,12 @@ import model.classes.OptionalElements;
 import model.classes.Sauces;
 
 public class PiadinaComponentsDao {
-	public Map<String, Set<Object>> getAllComponents() {
+	public Map<String, Set<Object>> getAllComponents(EntityManager em) {
         Map<String, Set<Object>> components = new HashMap<>();
         components.put("DOUGH", new HashSet<>());
         components.put("MEATBASE", new HashSet<>());
         components.put("SAUCES", new HashSet<>());
         components.put("OPTIONALELEMENTS", new HashSet<>());
-
-        EntityManager em = JPAUtil.getEntityManager();
 
         try {
             components.get("DOUGH").addAll(
@@ -41,8 +38,6 @@ public class PiadinaComponentsDao {
             return components;
         } catch(Exception e) {
             throw new DBException("Error while getting piadina components from DB.", e);
-        } finally {
-            em.close();
         }
     }
 }

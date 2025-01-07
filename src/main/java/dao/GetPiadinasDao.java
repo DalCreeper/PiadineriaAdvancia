@@ -5,14 +5,11 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import dao.utils.JPAUtil;
 import exceptions.DBException;
 import model.classes.Piadina;
 
 public class GetPiadinasDao {
-	public List<Piadina> getPiadinas() {
-		EntityManager em = JPAUtil.getEntityManager();
-
+	public List<Piadina> getPiadinas(EntityManager em) {
         try {
         	String jpqlBase = "SELECT DISTINCT p FROM Piadina p "
 		                    + "JOIN FETCH p.dough "
@@ -26,11 +23,9 @@ public class GetPiadinasDao {
 		        p.getSauces().size();
 		        p.getOptionalElements().size();
 		    }
-            return queryBase.getResultList();
+            return piadinas;
         } catch(Exception e) {
             throw new DBException("Error while getting piadinas from DB.", e);
-        } finally {
-            em.close();
         }
     }
 }
