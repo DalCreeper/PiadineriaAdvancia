@@ -11,3 +11,4 @@ public class DBException extends RuntimeException {
 		super(msg);
 	}
 }
+
