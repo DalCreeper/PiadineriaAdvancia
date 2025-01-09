@@ -158,3 +158,56 @@ input[type="checkbox"]:checked::after {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+
+.mover {
+  background: var(--cream);
+  height: 10px;
+  width: 80px;
+  border-radius: 10px;
+  animation: mover5 2s ease-in-out infinite;
+}
+
+.mover::before, .mover::after {
+  content: '';
+  position: absolute;
+  height: 10px;
+  border-radius: 10px;
+  left: 20px;
+  animation: mover5 2s ease-in-out infinite;
+}
+
+.mover::before {
+  background: var(--medium-water);
+  top: 20px;
+  width: 50px;
+}
+
+.mover::after {
+  background: var(--light-water);
+  top: -20px;
+  width: 60px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+@keyframes mover5 {
+  0% {
+    transform: translateX(30px) scale(1);
+  }
+
+  50% {
+    transform: translateX(-30px) scale(1.1);
+  }
+}

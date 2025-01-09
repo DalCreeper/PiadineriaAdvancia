@@ -2,11 +2,13 @@ package com.advancia.PiadineriaAdvancia.model.classes;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.advancia.PiadineriaAdvancia.model.enums.Role;
 
 @Entity
 @Table(name = "EMPLOYEE")
+@XmlRootElement
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -39,14 +41,12 @@ public class Employee implements Serializable {
 	public Employee() {}
 	
 	public Employee(
-		int UID,
 		String name,
 		String surname,
 		String username,
 		int yob,
 		Role role
 	) {
-		this.UID = UID;
         this.name = name;
         this.surname = surname;
         this.username = username;

@@ -36,12 +36,17 @@
 				<input name="rememberMe" class="align-middle" type="checkbox" id="rememberMe" /> Remember me
 				</label>
 			</div>
-			<button type="submit" class="login-btn">Login</button>
+			<div id="overlay" style="display: none;">
+ 				<div class="mover"></div>
+			</div>
+			<button type="submit" id="login-btn" class="login-btn">Login</button>
 		</form>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
+	<script src="resources/js/scriptLogin.js"></script>
 </body>
 </html>

@@ -12,13 +12,12 @@ import com.advancia.PiadineriaAdvancia.model.api.LoginRequest;
 import com.advancia.PiadineriaAdvancia.model.classes.Employee;
 import com.advancia.PiadineriaAdvancia.services.UserService;
 
-@Path("/users")
-public class UserApiServlet {
+@Path("/login")
+public class UserLoginApiRest {
 	private UserService userService = new UserService();
     
     @POST
-    @Path("/login")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(LoginRequest request) {
         Employee employee = userService.getUser(request.getUsername(), request.getPassword());
@@ -29,10 +28,11 @@ public class UserApiServlet {
         
         return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid credentials").build();
     }
-	
+    
     @GET
     @Path("/test")
+    @Produces(MediaType.TEXT_PLAIN)
     public Response test() {
-		return Response.status(409).build();
+    	return Response.status(Response.Status.ACCEPTED).entity("Test login success").build();
     }
 }
