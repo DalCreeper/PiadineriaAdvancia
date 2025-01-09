@@ -18,7 +18,7 @@
 		<servlet-name>LoadLoginServlet</servlet-name>
 		<display-name>LoadLoginServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.LoadLoginServlet</servlet-class>
+		<servlet-class>com.advancia.PiadineriaAdvancia.servlets.LoadLoginServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
@@ -27,37 +27,37 @@
 			Login form to access the dashboard of the web application dedicated
 			to the employees of Piadineria Advancia.
 		</description>
-		<servlet-class>servlets.LoginServlet</servlet-class>
+		<servlet-class>com.advancia.PiadineriaAdvancia.servlets.LoginServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LoadDashboardServlet</servlet-name>
 		<display-name>LoadDashboardServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.LoadDashboardServlet</servlet-class>
+		<servlet-class>com.advancia.PiadineriaAdvancia.servlets.LoadDashboardServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemovePiadinaActionServlet</servlet-name>
 		<display-name>RemovePiadinaActionServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.RemovePiadinaActionServlet</servlet-class>
+		<servlet-class>com.advancia.PiadineriaAdvancia.servlets.RemovePiadinaActionServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LoadAddPiadinaServlet</servlet-name>
 		<display-name>LoadAddPiadinaServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.LoadAddPiadinaServlet</servlet-class>
+		<servlet-class>com.advancia.PiadineriaAdvancia.servlets.LoadAddPiadinaServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AddPiadinaActionServlet</servlet-name>
 		<display-name>AddPiadinaActionServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.AddPiadinaActionServlet</servlet-class>
+		<servlet-class>com.advancia.PiadineriaAdvancia.servlets.AddPiadinaActionServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LogoutServlet</servlet-name>
 		<display-name>LogoutServlet</display-name>
 		<description><!-- TODO --></description>
-		<servlet-class>servlets.LogoutServlet</servlet-class>
+		<servlet-class>com.advancia.PiadineriaAdvancia.servlets.LogoutServlet</servlet-class>
 	</servlet>
 	<servlet>
 	    <servlet-name>JerseyServlet</servlet-name>
