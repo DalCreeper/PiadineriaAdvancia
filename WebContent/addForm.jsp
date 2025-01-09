@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<%@ page import="model.classes.Employee"%>
+<%@ page import="com.advancia.PiadineriaAdvancia.model.classes.Employee"%>
 <%@ page import="java.util.Set"%>
-<%@ page import="model.classes.Dough"%>
-<%@ page import="model.classes.MeatBase"%>
-<%@ page import="model.classes.Sauces"%>
-<%@ page import="model.classes.OptionalElements"%>
+<%@ page import="com.advancia.PiadineriaAdvancia.model.classes.Dough"%>
+<%@ page import="com.advancia.PiadineriaAdvancia.model.classes.MeatBase"%>
+<%@ page import="com.advancia.PiadineriaAdvancia.model.classes.Sauces"%>
+<%@ page import="com.advancia.PiadineriaAdvancia.model.classes.OptionalElements"%>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
