@@ -21,11 +21,9 @@ public class UserLoginApiRest {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(LoginRequest request) {
         Employee employee = userService.getUser(request.getUsername(), request.getPassword());
-        
         if(employee != null) {
             return Response.ok(employee).build();
         }
-        
         return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid credentials").build();
     }
     

@@ -44,12 +44,14 @@ public class Employee implements Serializable {
 		String name,
 		String surname,
 		String username,
+		String password,
 		int yob,
 		Role role
 	) {
         this.name = name;
         this.surname = surname;
         this.username = username;
+        this.password = password;
         this.yob = yob;
         this.role = role;
     }
@@ -84,6 +86,14 @@ public class Employee implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public int getYob() {
