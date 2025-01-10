@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityTransaction;
 
-import com.advancia.PiadineriaAdvancia.dao.CreateEmployeeDao;
-import com.advancia.PiadineriaAdvancia.dao.DeleteEmployeeDao;
-import com.advancia.PiadineriaAdvancia.dao.EmployeeByIDDao;
-import com.advancia.PiadineriaAdvancia.dao.EmployeeDao;
-import com.advancia.PiadineriaAdvancia.dao.EmployeesDao;
-import com.advancia.PiadineriaAdvancia.dao.UpdateEmployeeDao;
+import com.advancia.PiadineriaAdvancia.dao.user.CreateEmployeeDao;
+import com.advancia.PiadineriaAdvancia.dao.user.DeleteEmployeeDao;
+import com.advancia.PiadineriaAdvancia.dao.user.EmployeeByIDDao;
+import com.advancia.PiadineriaAdvancia.dao.user.EmployeeDao;
+import com.advancia.PiadineriaAdvancia.dao.user.EmployeesDao;
+import com.advancia.PiadineriaAdvancia.dao.user.UpdateEmployeeDao;
 import com.advancia.PiadineriaAdvancia.dao.utils.CloseableEntityManager;
 import com.advancia.PiadineriaAdvancia.exceptions.DBException;
 import com.advancia.PiadineriaAdvancia.model.classes.Employee;

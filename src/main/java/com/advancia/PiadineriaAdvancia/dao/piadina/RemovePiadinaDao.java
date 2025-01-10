@@ -1,4 +1,4 @@
-package com.advancia.PiadineriaAdvancia.dao;
+package com.advancia.PiadineriaAdvancia.dao.piadina;
 
 import javax.persistence.EntityManager;
 import com.advancia.PiadineriaAdvancia.exceptions.DBException;

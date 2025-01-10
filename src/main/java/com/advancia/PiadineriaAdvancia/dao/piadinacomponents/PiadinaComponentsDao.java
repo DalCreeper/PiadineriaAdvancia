@@ -1,4 +1,4 @@
-package com.advancia.PiadineriaAdvancia.dao;
+package com.advancia.PiadineriaAdvancia.dao.piadinacomponents;
 
 import java.util.HashMap;
 import java.util.HashSet;

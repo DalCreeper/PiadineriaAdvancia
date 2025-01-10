@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityTransaction;
 
-import com.advancia.PiadineriaAdvancia.dao.AddPiadinaDao;
-import com.advancia.PiadineriaAdvancia.dao.GetPiadinasDao;
-import com.advancia.PiadineriaAdvancia.dao.RemovePiadinaDao;
+import com.advancia.PiadineriaAdvancia.dao.piadina.AddPiadinaDao;
+import com.advancia.PiadineriaAdvancia.dao.piadina.GetPiadinasDao;
+import com.advancia.PiadineriaAdvancia.dao.piadina.RemovePiadinaDao;
 import com.advancia.PiadineriaAdvancia.dao.utils.CloseableEntityManager;
 import com.advancia.PiadineriaAdvancia.exceptions.DBException;
 import com.advancia.PiadineriaAdvancia.model.classes.Piadina;

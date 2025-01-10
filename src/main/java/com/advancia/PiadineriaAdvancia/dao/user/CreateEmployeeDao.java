@@ -1,4 +1,4 @@
-package com.advancia.PiadineriaAdvancia.dao;
+package com.advancia.PiadineriaAdvancia.dao.user;
 
 import javax.persistence.EntityManager;
 

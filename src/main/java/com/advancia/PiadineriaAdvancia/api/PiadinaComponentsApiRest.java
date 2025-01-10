@@ -3,13 +3,21 @@ package com.advancia.PiadineriaAdvancia.api;
 import java.util.Map;
 import java.util.Set;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.advancia.PiadineriaAdvancia.model.classes.Dough;
+import com.advancia.PiadineriaAdvancia.model.classes.MeatBase;
+import com.advancia.PiadineriaAdvancia.model.classes.OptionalElements;
+import com.advancia.PiadineriaAdvancia.model.classes.Sauces;
 import com.advancia.PiadineriaAdvancia.services.PiadinaComponentsService;
 
 @Path("/piadina")
@@ -17,7 +25,7 @@ public class PiadinaComponentsApiRest {
 	private PiadinaComponentsService piadinaComponentsService = new PiadinaComponentsService();
 	
 	@POST
-    @Path("/load-components")
+    @Path("/components")
 	@Produces(MediaType.APPLICATION_JSON)
     public Response loadComponents() {
 		try {
@@ -30,6 +38,226 @@ public class PiadinaComponentsApiRest {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while loading components").build();
         }
 	}
+	
+	@POST
+    @Path("/dough")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addDough(Dough newDough) {
+        try {
+            piadinaComponentsService.addDough(newDough);
+            return Response.status(Response.Status.CREATED).entity(newDough).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while adding dough").build();
+        }
+    }
+
+    @POST
+    @Path("/meat-base")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addMeatBase(MeatBase newMeatBase) {
+        try {
+            piadinaComponentsService.addMeatBase(newMeatBase);
+            return Response.status(Response.Status.CREATED).entity(newMeatBase).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while adding meat base").build();
+        }
+    }
+
+    @POST
+    @Path("/sauces")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addSauces(Sauces newSauces) {
+        try {
+            piadinaComponentsService.addSauces(newSauces);
+            return Response.status(Response.Status.CREATED).entity(newSauces).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while adding sauces").build();
+        }
+    }
+
+    @POST
+    @Path("/optional-elements")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addOptionalElements(OptionalElements newOptionalElement) {
+        try {
+            piadinaComponentsService.addOptionalElements(newOptionalElement);
+            return Response.status(Response.Status.CREATED).entity(newOptionalElement).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while adding optional elements").build();
+        }
+    }
+
+    @GET
+    @Path("/dough/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getDoughById(@PathParam("id") Integer id) {
+        if(id == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("ID must be an integer").build();
+        }
+        Dough dough = piadinaComponentsService.getDoughById(id);
+        if(dough != null) {
+            return Response.ok(dough).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).entity("Dough not found").build();
+        }
+    }
+
+    @GET
+    @Path("/meat-base/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getMeatBaseById(@PathParam("id") Integer id) {
+        if(id == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("ID must be an integer").build();
+        }
+        MeatBase meatBase = piadinaComponentsService.getMeatBaseById(id);
+        if(meatBase != null) {
+            return Response.ok(meatBase).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).entity("MeatBase not found").build();
+        }
+    }
+
+    @GET
+    @Path("/sauces/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getSaucesById(@PathParam("id") Integer id) {
+        if(id == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("ID must be an integer").build();
+        }
+        Sauces sauces = piadinaComponentsService.getSaucesById(id);
+        if(sauces != null) {
+            return Response.ok(sauces).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).entity("Sauces not found").build();
+        }
+    }
+
+    @GET
+    @Path("/optional-elements/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getOptionalElementsById(@PathParam("id") Integer id) {
+        if(id == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("ID must be an integer").build();
+        }
+        OptionalElements optionalElements = piadinaComponentsService.getOptionalElementsById(id);
+        if(optionalElements != null) {
+            return Response.ok(optionalElements).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).entity("Optional Elements not found").build();
+        }
+    }
+
+    @PUT
+    @Path("/dough/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateDough(@PathParam("id") Integer id, Dough updatedDough) {
+        if(id == null || updatedDough == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid input").build();
+        }
+        try {
+            piadinaComponentsService.updateDough(id, updatedDough);
+            return Response.ok(updatedDough).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while updating dough").build();
+        }
+    }
+
+    @PUT
+    @Path("/meat-base/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateMeatBase(@PathParam("id") Integer id, MeatBase updatedMeatBase) {
+        if(id == null || updatedMeatBase == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid input").build();
+        }
+        try {
+            piadinaComponentsService.updateMeatBase(id, updatedMeatBase);
+            return Response.ok(updatedMeatBase).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while updating meat base").build();
+        }
+    }
+
+    @PUT
+    @Path("/sauces/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateSauces(@PathParam("id") Integer id, Sauces updatedSauces) {
+        if(id == null || updatedSauces == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid input").build();
+        }
+        try {
+            piadinaComponentsService.updateSauces(id, updatedSauces);
+            return Response.ok(updatedSauces).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while updating sauces").build();
+        }
+    }
+
+    @PUT
+    @Path("/optional-elements/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateOptionalElements(@PathParam("id") Integer id, OptionalElements updatedOptionalElements) {
+        if(id == null || updatedOptionalElements == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid input").build();
+        }
+        try {
+            piadinaComponentsService.updateOptionalElements(id, updatedOptionalElements);
+            return Response.ok(updatedOptionalElements).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while updating optional elements").build();
+        }
+    }
+
+    @DELETE
+    @Path("/dough/{id}")
+    public Response deleteDough(@PathParam("id") Integer id) {
+        try {
+            piadinaComponentsService.deleteDough(id);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while deleting dough").build();
+        }
+    }
+
+    @DELETE
+    @Path("/meat-base/{id}")
+    public Response deleteMeatBase(@PathParam("id") Integer id) {
+        try {
+            piadinaComponentsService.deleteMeatBase(id);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while deleting meat base").build();
+        }
+    }
+
+    @DELETE
+    @Path("/sauces/{id}")
+    public Response deleteSauces(@PathParam("id") Integer id) {
+        try {
+            piadinaComponentsService.deleteSauces(id);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while deleting sauces").build();
+        }
+    }
+
+    @DELETE
+    @Path("/optional-elements/{id}")
+    public Response deleteOptionalElements(@PathParam("id") Integer id) {
+        try {
+            piadinaComponentsService.deleteOptionalElements(id);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while deleting optional elements").build();
+        }
+    }
 	
 	@GET
     @Path("/test")
