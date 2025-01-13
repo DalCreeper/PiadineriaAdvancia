@@ -18,7 +18,7 @@ public class UserLoginApiRest {
     
     @POST
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response login(LoginRequest request) {
         Employee employee = userService.getUser(request.getUsername(), request.getPassword());
         if(employee != null) {
