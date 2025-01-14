@@ -1,0 +1,15 @@
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+           version="2.0">
+    <endpoint
+            name="UserLoginServiceApi"
+            implementation="com.advancia.PiadineriaAdvancia.api.soap.UserLoginApiSoap"
+            url-pattern="/api/soap/login"/>
+    <endpoint
+            name="UsersServiceApi"
+            implementation="com.advancia.PiadineriaAdvancia.api.soap.UsersApiSoap"
+            url-pattern="/api/soap/users"/>
+    <endpoint
+            name="PiadinaComponentsServiceApi"
+            implementation="com.advancia.PiadineriaAdvancia.api.soap.PiadinaComponentsApiSoap"
+            url-pattern="/api/soap/piadina"/>
+</endpoints>

@@ -1,4 +1,4 @@
-package com.advancia.PiadineriaAdvancia.api;
+package com.advancia.PiadineriaAdvancia.api.rest;
 
 import java.util.Map;
 import java.util.Set;
