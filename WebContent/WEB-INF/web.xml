@@ -91,6 +91,13 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>PiadinaServiceApi</servlet-name>
+        <display-name>PiadinaServiceApi</display-name>
+		<description><!-- TODO --></description>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 	<!-- *************************************************************************************** -->
 	<servlet-mapping>
 		<servlet-name>LoadLoginServlet</servlet-name>
@@ -133,8 +140,8 @@
         <url-pattern>/api/soap/users</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PiadinaComponentsServiceApi</servlet-name>
-        <url-pattern>/api/soap/piadina</url-pattern>
+        <servlet-name>PiadinaServiceApi</servlet-name>
+        <url-pattern>/api/soap/piadinas</url-pattern>
     </servlet-mapping>
     <!-- *************************************************************************************** -->
     <listener>

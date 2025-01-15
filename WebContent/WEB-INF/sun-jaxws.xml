@@ -12,4 +12,8 @@
             name="PiadinaComponentsServiceApi"
             implementation="com.advancia.PiadineriaAdvancia.api.soap.PiadinaComponentsApiSoap"
             url-pattern="/api/soap/piadina"/>
+    <endpoint
+            name="PiadinaServiceApi"
+            implementation="com.advancia.PiadineriaAdvancia.api.soap.PiadinaApiSoap"
+            url-pattern="/api/soap/piadinas"/>
 </endpoints>
