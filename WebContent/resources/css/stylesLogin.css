@@ -203,11 +203,11 @@ input[type="checkbox"]:checked::after {
 }
 
 @keyframes mover5 {
-  0% {
-    transform: translateX(30px) scale(1);
+  75% {
+    transform: translateX(40px) scale(1.1);
   }
 
-  50% {
-    transform: translateX(-30px) scale(1.1);
+  25% {
+    transform: translateX(-40px) scale(1);
   }
 }
