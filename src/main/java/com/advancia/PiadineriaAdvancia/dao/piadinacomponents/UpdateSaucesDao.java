@@ -21,4 +21,22 @@ public class UpdateSaucesDao {
             throw new DBException("Error while updating sauces with ID: " + id, e);
         }
     }
+    
+    public void updateByType(String type, Sauces s, EntityManager em) {
+        try {
+        	Sauces existingSauces = em.createQuery("SELECT s FROM Sauces s WHERE s.type = :type", Sauces.class)
+                                      .setParameter("type", type)
+                                      .getSingleResult();
+            if(existingSauces != null) {
+            	existingSauces.setType(s.getType());
+            	existingSauces.setDescription(s.getDescription());
+            	existingSauces.setPrice(s.getPrice());
+                em.merge(existingSauces);
+            } else {
+                throw new DBException("Sauces with type " + type + " not found.");
+            }
+        } catch(Exception e) {
+            throw new DBException("Error while updating sauces with type: " + type, e);
+        }
+    }
 }

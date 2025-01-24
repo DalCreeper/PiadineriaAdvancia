@@ -7,12 +7,21 @@ import com.advancia.PiadineriaAdvancia.exceptions.DBException;
 
 public class GetDoughDao {
     private final String GET_DOUGH_BY_ID = "SELECT d FROM Dough d WHERE d.id = :id";
+    private final String GET_DOUGH_BY_TYPE = "SELECT d FROM Dough d WHERE d.type = :type";
 
     public Dough get(int id, EntityManager em) {
         try {
             return em.createQuery(GET_DOUGH_BY_ID, Dough.class).setParameter("id", id).getSingleResult();
         } catch(Exception e) {
             throw new DBException("Error while retrieving dough with ID: " + id, e);
+        }
+    }
+    
+    public Dough getByType(String type, EntityManager em) {
+        try {
+            return em.createQuery(GET_DOUGH_BY_TYPE, Dough.class).setParameter("type", type).getSingleResult();
+        } catch(Exception e) {
+            throw new DBException("Error while retrieving dough with type: " + type, e);
         }
     }
 }

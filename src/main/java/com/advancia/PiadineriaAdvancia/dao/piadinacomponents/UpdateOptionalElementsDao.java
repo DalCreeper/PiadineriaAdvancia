@@ -21,4 +21,22 @@ public class UpdateOptionalElementsDao {
             throw new DBException("Error while updating optional elements with ID: " + id, e);
         }
     }
+    
+    public void updateByType(String type, OptionalElements oe, EntityManager em) {
+        try {
+        	OptionalElements existingOptionalElements = em.createQuery("SELECT oe FROM OptionalElements oe WHERE oe.type = :type", OptionalElements.class)
+				                                          .setParameter("type", type)
+			                                              .getSingleResult();
+            if(existingOptionalElements != null) {
+            	existingOptionalElements.setType(oe.getType());
+            	existingOptionalElements.setDescription(oe.getDescription());
+            	existingOptionalElements.setPrice(oe.getPrice());
+                em.merge(existingOptionalElements);
+            } else {
+                throw new DBException("OptionalElements with type " + type + " not found.");
+            }
+        } catch(Exception e) {
+            throw new DBException("Error while updating optional elements with type: " + type, e);
+        }
+    }
 }

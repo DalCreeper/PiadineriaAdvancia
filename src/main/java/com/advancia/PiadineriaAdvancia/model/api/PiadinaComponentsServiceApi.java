@@ -67,5 +67,41 @@ public interface PiadinaComponentsServiceApi {
 	void deleteOptionalElements(Integer id);
 	
 	@WebMethod
+	Dough getDoughByType(String type);
+	
+	@WebMethod
+	MeatBase getMeatBaseByType(String type);
+	
+	@WebMethod
+	Sauces getSaucesByType(String type);
+	
+	@WebMethod
+	OptionalElements getOptionalElementsByType(String type);
+	
+	@WebMethod
+	Dough updateDoughByType(String type, Dough updatedDough);
+	
+	@WebMethod
+	MeatBase updateMeatBaseByType(String type, MeatBase updatedMeatBase);
+	
+	@WebMethod
+	Sauces updateSaucesByType(String type, Sauces updatedSauces);
+	
+	@WebMethod
+	OptionalElements updateOptionalElementsByType(String type, OptionalElements updatedOptionalElements);
+	
+	@WebMethod
+	void deleteDoughByType(String type);
+	
+	@WebMethod
+	void deleteMeatBaseByType(String type);
+	
+	@WebMethod
+	void deleteSaucesByType(String type);
+	
+	@WebMethod
+	void deleteOptionalElementsByType(String type);
+	
+	@WebMethod
     String test(String name);
 }

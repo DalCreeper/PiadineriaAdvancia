@@ -21,4 +21,22 @@ public class UpdateDoughDao {
             throw new DBException("Error while updating dough with ID: " + id, e);
         }
     }
+    
+    public void updateByType(String type, Dough d, EntityManager em) {
+        try {
+            Dough existingDough = em.createQuery("SELECT d FROM Dough d WHERE d.type = :type", Dough.class)
+                                    .setParameter("type", type)
+                                    .getSingleResult();
+            if(existingDough != null) {
+                existingDough.setType(d.getType());
+                existingDough.setDescription(d.getDescription());
+                existingDough.setPrice(d.getPrice());
+                em.merge(existingDough);
+            } else {
+                throw new DBException("Dough with type " + type + " not found.");
+            }
+        } catch(Exception e) {
+            throw new DBException("Error while updating dough with type: " + type, e);
+        }
+    }
 }

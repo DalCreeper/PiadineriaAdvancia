@@ -18,4 +18,19 @@ public class RemoveSaucesDao {
             throw new DBException("Error while removing sauces with ID: " + id, e);
         }
     }
+    
+    public void removeByType(String type, EntityManager em) {
+        try {
+        	Sauces sauces = em.createQuery("SELECT s FROM Sauces s WHERE s.type = :type", Sauces.class)
+                              .setParameter("type", type)
+                              .getSingleResult();
+            if(sauces != null) {
+                em.remove(sauces);
+            } else {
+                throw new DBException("Sauces with type " + type + " not found.");
+            }
+        } catch(Exception e) {
+            throw new DBException("Error while removing sauces with type: " + type, e);
+        }
+    }
 }

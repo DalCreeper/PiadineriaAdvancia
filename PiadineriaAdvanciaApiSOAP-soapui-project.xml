@@ -411,41 +411,11 @@
   <message name="testResponse">
     <part name="parameters" element="tns:testResponse"/>
   </message>
-  <message name="addDough">
-    <part name="parameters" element="tns:addDough"/>
+  <message name="addMeatBase">
+    <part name="parameters" element="tns:addMeatBase"/>
   </message>
-  <message name="addDoughResponse">
-    <part name="parameters" element="tns:addDoughResponse"/>
-  </message>
-  <message name="updateDough">
-    <part name="parameters" element="tns:updateDough"/>
-  </message>
-  <message name="updateDoughResponse">
-    <part name="parameters" element="tns:updateDoughResponse"/>
-  </message>
-  <message name="deleteSauces">
-    <part name="parameters" element="tns:deleteSauces"/>
-  </message>
-  <message name="deleteSaucesResponse">
-    <part name="parameters" element="tns:deleteSaucesResponse"/>
-  </message>
-  <message name="addSauces">
-    <part name="parameters" element="tns:addSauces"/>
-  </message>
-  <message name="addSaucesResponse">
-    <part name="parameters" element="tns:addSaucesResponse"/>
-  </message>
-  <message name="loadComponents">
-    <part name="parameters" element="tns:loadComponents"/>
-  </message>
-  <message name="loadComponentsResponse">
-    <part name="parameters" element="tns:loadComponentsResponse"/>
-  </message>
-  <message name="deleteDough">
-    <part name="parameters" element="tns:deleteDough"/>
-  </message>
-  <message name="deleteDoughResponse">
-    <part name="parameters" element="tns:deleteDoughResponse"/>
+  <message name="addMeatBaseResponse">
+    <part name="parameters" element="tns:addMeatBaseResponse"/>
   </message>
   <message name="getDoughById">
     <part name="parameters" element="tns:getDoughById"/>
@@ -453,11 +423,11 @@
   <message name="getDoughByIdResponse">
     <part name="parameters" element="tns:getDoughByIdResponse"/>
   </message>
-  <message name="updateMeatBase">
-    <part name="parameters" element="tns:updateMeatBase"/>
+  <message name="addDough">
+    <part name="parameters" element="tns:addDough"/>
   </message>
-  <message name="updateMeatBaseResponse">
-    <part name="parameters" element="tns:updateMeatBaseResponse"/>
+  <message name="addDoughResponse">
+    <part name="parameters" element="tns:addDoughResponse"/>
   </message>
   <message name="getMeatBaseById">
     <part name="parameters" element="tns:getMeatBaseById"/>
@@ -465,11 +435,35 @@
   <message name="getMeatBaseByIdResponse">
     <part name="parameters" element="tns:getMeatBaseByIdResponse"/>
   </message>
+  <message name="updateMeatBase">
+    <part name="parameters" element="tns:updateMeatBase"/>
+  </message>
+  <message name="updateMeatBaseResponse">
+    <part name="parameters" element="tns:updateMeatBaseResponse"/>
+  </message>
   <message name="updateSauces">
     <part name="parameters" element="tns:updateSauces"/>
   </message>
   <message name="updateSaucesResponse">
     <part name="parameters" element="tns:updateSaucesResponse"/>
+  </message>
+  <message name="loadComponents">
+    <part name="parameters" element="tns:loadComponents"/>
+  </message>
+  <message name="loadComponentsResponse">
+    <part name="parameters" element="tns:loadComponentsResponse"/>
+  </message>
+  <message name="addSauces">
+    <part name="parameters" element="tns:addSauces"/>
+  </message>
+  <message name="addSaucesResponse">
+    <part name="parameters" element="tns:addSaucesResponse"/>
+  </message>
+  <message name="updateDough">
+    <part name="parameters" element="tns:updateDough"/>
+  </message>
+  <message name="updateDoughResponse">
+    <part name="parameters" element="tns:updateDoughResponse"/>
   </message>
   <message name="getSaucesById">
     <part name="parameters" element="tns:getSaucesById"/>
@@ -477,11 +471,11 @@
   <message name="getSaucesByIdResponse">
     <part name="parameters" element="tns:getSaucesByIdResponse"/>
   </message>
-  <message name="addMeatBase">
-    <part name="parameters" element="tns:addMeatBase"/>
+  <message name="deleteDough">
+    <part name="parameters" element="tns:deleteDough"/>
   </message>
-  <message name="addMeatBaseResponse">
-    <part name="parameters" element="tns:addMeatBaseResponse"/>
+  <message name="deleteDoughResponse">
+    <part name="parameters" element="tns:deleteDoughResponse"/>
   </message>
   <message name="deleteMeatBase">
     <part name="parameters" element="tns:deleteMeatBase"/>
@@ -489,17 +483,59 @@
   <message name="deleteMeatBaseResponse">
     <part name="parameters" element="tns:deleteMeatBaseResponse"/>
   </message>
+  <message name="getSaucesByType">
+    <part name="parameters" element="tns:getSaucesByType"/>
+  </message>
+  <message name="getSaucesByTypeResponse">
+    <part name="parameters" element="tns:getSaucesByTypeResponse"/>
+  </message>
+  <message name="getDoughByType">
+    <part name="parameters" element="tns:getDoughByType"/>
+  </message>
+  <message name="getDoughByTypeResponse">
+    <part name="parameters" element="tns:getDoughByTypeResponse"/>
+  </message>
+  <message name="deleteSauces">
+    <part name="parameters" element="tns:deleteSauces"/>
+  </message>
+  <message name="deleteSaucesResponse">
+    <part name="parameters" element="tns:deleteSaucesResponse"/>
+  </message>
+  <message name="deleteSaucesByType">
+    <part name="parameters" element="tns:deleteSaucesByType"/>
+  </message>
+  <message name="deleteSaucesByTypeResponse">
+    <part name="parameters" element="tns:deleteSaucesByTypeResponse"/>
+  </message>
   <message name="addOptionalElements">
     <part name="parameters" element="tns:addOptionalElements"/>
   </message>
   <message name="addOptionalElementsResponse">
     <part name="parameters" element="tns:addOptionalElementsResponse"/>
   </message>
-  <message name="updateOptionalElements">
-    <part name="parameters" element="tns:updateOptionalElements"/>
+  <message name="updateSaucesByType">
+    <part name="parameters" element="tns:updateSaucesByType"/>
   </message>
-  <message name="updateOptionalElementsResponse">
-    <part name="parameters" element="tns:updateOptionalElementsResponse"/>
+  <message name="updateSaucesByTypeResponse">
+    <part name="parameters" element="tns:updateSaucesByTypeResponse"/>
+  </message>
+  <message name="deleteOptionalElementsByType">
+    <part name="parameters" element="tns:deleteOptionalElementsByType"/>
+  </message>
+  <message name="deleteOptionalElementsByTypeResponse">
+    <part name="parameters" element="tns:deleteOptionalElementsByTypeResponse"/>
+  </message>
+  <message name="deleteMeatBaseByType">
+    <part name="parameters" element="tns:deleteMeatBaseByType"/>
+  </message>
+  <message name="deleteMeatBaseByTypeResponse">
+    <part name="parameters" element="tns:deleteMeatBaseByTypeResponse"/>
+  </message>
+  <message name="updateOptionalElementsByType">
+    <part name="parameters" element="tns:updateOptionalElementsByType"/>
+  </message>
+  <message name="updateOptionalElementsByTypeResponse">
+    <part name="parameters" element="tns:updateOptionalElementsByTypeResponse"/>
   </message>
   <message name="deleteOptionalElements">
     <part name="parameters" element="tns:deleteOptionalElements"/>
@@ -507,84 +543,168 @@
   <message name="deleteOptionalElementsResponse">
     <part name="parameters" element="tns:deleteOptionalElementsResponse"/>
   </message>
+  <message name="updateOptionalElements">
+    <part name="parameters" element="tns:updateOptionalElements"/>
+  </message>
+  <message name="updateOptionalElementsResponse">
+    <part name="parameters" element="tns:updateOptionalElementsResponse"/>
+  </message>
   <message name="getOptionalElementsById">
     <part name="parameters" element="tns:getOptionalElementsById"/>
   </message>
   <message name="getOptionalElementsByIdResponse">
     <part name="parameters" element="tns:getOptionalElementsByIdResponse"/>
   </message>
+  <message name="getMeatBaseByType">
+    <part name="parameters" element="tns:getMeatBaseByType"/>
+  </message>
+  <message name="getMeatBaseByTypeResponse">
+    <part name="parameters" element="tns:getMeatBaseByTypeResponse"/>
+  </message>
+  <message name="getOptionalElementsByType">
+    <part name="parameters" element="tns:getOptionalElementsByType"/>
+  </message>
+  <message name="getOptionalElementsByTypeResponse">
+    <part name="parameters" element="tns:getOptionalElementsByTypeResponse"/>
+  </message>
+  <message name="updateDoughByType">
+    <part name="parameters" element="tns:updateDoughByType"/>
+  </message>
+  <message name="updateDoughByTypeResponse">
+    <part name="parameters" element="tns:updateDoughByTypeResponse"/>
+  </message>
+  <message name="updateMeatBaseByType">
+    <part name="parameters" element="tns:updateMeatBaseByType"/>
+  </message>
+  <message name="updateMeatBaseByTypeResponse">
+    <part name="parameters" element="tns:updateMeatBaseByTypeResponse"/>
+  </message>
+  <message name="deleteDoughByType">
+    <part name="parameters" element="tns:deleteDoughByType"/>
+  </message>
+  <message name="deleteDoughByTypeResponse">
+    <part name="parameters" element="tns:deleteDoughByTypeResponse"/>
+  </message>
   <portType name="PiadinaComponentsApiSoap">
     <operation name="test">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/testRequest" message="tns:test"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/testResponse" message="tns:testResponse"/>
     </operation>
-    <operation name="addDough">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addDoughRequest" message="tns:addDough"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addDoughResponse" message="tns:addDoughResponse"/>
-    </operation>
-    <operation name="updateDough">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateDoughRequest" message="tns:updateDough"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateDoughResponse" message="tns:updateDoughResponse"/>
-    </operation>
-    <operation name="deleteSauces">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteSaucesRequest" message="tns:deleteSauces"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteSaucesResponse" message="tns:deleteSaucesResponse"/>
-    </operation>
-    <operation name="addSauces">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addSaucesRequest" message="tns:addSauces"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addSaucesResponse" message="tns:addSaucesResponse"/>
-    </operation>
-    <operation name="loadComponents">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/loadComponentsRequest" message="tns:loadComponents"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/loadComponentsResponse" message="tns:loadComponentsResponse"/>
-    </operation>
-    <operation name="deleteDough">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteDoughRequest" message="tns:deleteDough"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteDoughResponse" message="tns:deleteDoughResponse"/>
+    <operation name="addMeatBase">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addMeatBaseRequest" message="tns:addMeatBase"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addMeatBaseResponse" message="tns:addMeatBaseResponse"/>
     </operation>
     <operation name="getDoughById">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getDoughByIdRequest" message="tns:getDoughById"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getDoughByIdResponse" message="tns:getDoughByIdResponse"/>
     </operation>
-    <operation name="updateMeatBase">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateMeatBaseRequest" message="tns:updateMeatBase"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateMeatBaseResponse" message="tns:updateMeatBaseResponse"/>
+    <operation name="addDough">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addDoughRequest" message="tns:addDough"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addDoughResponse" message="tns:addDoughResponse"/>
     </operation>
     <operation name="getMeatBaseById">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getMeatBaseByIdRequest" message="tns:getMeatBaseById"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getMeatBaseByIdResponse" message="tns:getMeatBaseByIdResponse"/>
     </operation>
+    <operation name="updateMeatBase">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateMeatBaseRequest" message="tns:updateMeatBase"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateMeatBaseResponse" message="tns:updateMeatBaseResponse"/>
+    </operation>
     <operation name="updateSauces">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateSaucesRequest" message="tns:updateSauces"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateSaucesResponse" message="tns:updateSaucesResponse"/>
+    </operation>
+    <operation name="loadComponents">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/loadComponentsRequest" message="tns:loadComponents"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/loadComponentsResponse" message="tns:loadComponentsResponse"/>
+    </operation>
+    <operation name="addSauces">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addSaucesRequest" message="tns:addSauces"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addSaucesResponse" message="tns:addSaucesResponse"/>
+    </operation>
+    <operation name="updateDough">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateDoughRequest" message="tns:updateDough"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateDoughResponse" message="tns:updateDoughResponse"/>
     </operation>
     <operation name="getSaucesById">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getSaucesByIdRequest" message="tns:getSaucesById"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getSaucesByIdResponse" message="tns:getSaucesByIdResponse"/>
     </operation>
-    <operation name="addMeatBase">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addMeatBaseRequest" message="tns:addMeatBase"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addMeatBaseResponse" message="tns:addMeatBaseResponse"/>
+    <operation name="deleteDough">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteDoughRequest" message="tns:deleteDough"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteDoughResponse" message="tns:deleteDoughResponse"/>
     </operation>
     <operation name="deleteMeatBase">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteMeatBaseRequest" message="tns:deleteMeatBase"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteMeatBaseResponse" message="tns:deleteMeatBaseResponse"/>
     </operation>
+    <operation name="getSaucesByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getSaucesByTypeRequest" message="tns:getSaucesByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getSaucesByTypeResponse" message="tns:getSaucesByTypeResponse"/>
+    </operation>
+    <operation name="getDoughByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getDoughByTypeRequest" message="tns:getDoughByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getDoughByTypeResponse" message="tns:getDoughByTypeResponse"/>
+    </operation>
+    <operation name="deleteSauces">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteSaucesRequest" message="tns:deleteSauces"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteSaucesResponse" message="tns:deleteSaucesResponse"/>
+    </operation>
+    <operation name="deleteSaucesByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteSaucesByTypeRequest" message="tns:deleteSaucesByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteSaucesByTypeResponse" message="tns:deleteSaucesByTypeResponse"/>
+    </operation>
     <operation name="addOptionalElements">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addOptionalElementsRequest" message="tns:addOptionalElements"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/addOptionalElementsResponse" message="tns:addOptionalElementsResponse"/>
     </operation>
-    <operation name="updateOptionalElements">
-      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateOptionalElementsRequest" message="tns:updateOptionalElements"/>
-      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateOptionalElementsResponse" message="tns:updateOptionalElementsResponse"/>
+    <operation name="updateSaucesByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateSaucesByTypeRequest" message="tns:updateSaucesByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateSaucesByTypeResponse" message="tns:updateSaucesByTypeResponse"/>
+    </operation>
+    <operation name="deleteOptionalElementsByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteOptionalElementsByTypeRequest" message="tns:deleteOptionalElementsByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteOptionalElementsByTypeResponse" message="tns:deleteOptionalElementsByTypeResponse"/>
+    </operation>
+    <operation name="deleteMeatBaseByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteMeatBaseByTypeRequest" message="tns:deleteMeatBaseByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteMeatBaseByTypeResponse" message="tns:deleteMeatBaseByTypeResponse"/>
+    </operation>
+    <operation name="updateOptionalElementsByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateOptionalElementsByTypeRequest" message="tns:updateOptionalElementsByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateOptionalElementsByTypeResponse" message="tns:updateOptionalElementsByTypeResponse"/>
     </operation>
     <operation name="deleteOptionalElements">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteOptionalElementsRequest" message="tns:deleteOptionalElements"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteOptionalElementsResponse" message="tns:deleteOptionalElementsResponse"/>
     </operation>
+    <operation name="updateOptionalElements">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateOptionalElementsRequest" message="tns:updateOptionalElements"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateOptionalElementsResponse" message="tns:updateOptionalElementsResponse"/>
+    </operation>
     <operation name="getOptionalElementsById">
       <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getOptionalElementsByIdRequest" message="tns:getOptionalElementsById"/>
       <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getOptionalElementsByIdResponse" message="tns:getOptionalElementsByIdResponse"/>
+    </operation>
+    <operation name="getMeatBaseByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getMeatBaseByTypeRequest" message="tns:getMeatBaseByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getMeatBaseByTypeResponse" message="tns:getMeatBaseByTypeResponse"/>
+    </operation>
+    <operation name="getOptionalElementsByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getOptionalElementsByTypeRequest" message="tns:getOptionalElementsByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getOptionalElementsByTypeResponse" message="tns:getOptionalElementsByTypeResponse"/>
+    </operation>
+    <operation name="updateDoughByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateDoughByTypeRequest" message="tns:updateDoughByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateDoughByTypeResponse" message="tns:updateDoughByTypeResponse"/>
+    </operation>
+    <operation name="updateMeatBaseByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateMeatBaseByTypeRequest" message="tns:updateMeatBaseByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateMeatBaseByTypeResponse" message="tns:updateMeatBaseByTypeResponse"/>
+    </operation>
+    <operation name="deleteDoughByType">
+      <input wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteDoughByTypeRequest" message="tns:deleteDoughByType"/>
+      <output wsam:Action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteDoughByTypeResponse" message="tns:deleteDoughByTypeResponse"/>
     </operation>
   </portType>
   <binding name="PiadinaComponentsApiSoapPortBinding" type="tns:PiadinaComponentsApiSoap">
@@ -598,52 +718,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="addDough">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="updateDough">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="deleteSauces">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="addSauces">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="loadComponents">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="deleteDough">
+    <operation name="addMeatBase">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -661,7 +736,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="updateMeatBase">
+    <operation name="addDough">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -679,7 +754,43 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="updateMeatBase">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="updateSauces">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="loadComponents">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="addSauces">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateDough">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -697,7 +808,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="addMeatBase">
+    <operation name="deleteDough">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -715,6 +826,42 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="getSaucesByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getDoughByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteSauces">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteSaucesByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="addOptionalElements">
       <soap:operation soapAction=""/>
       <input>
@@ -724,7 +871,34 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="updateOptionalElements">
+    <operation name="updateSaucesByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteOptionalElementsByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteMeatBaseByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateOptionalElementsByType">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -742,7 +916,61 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="updateOptionalElements">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="getOptionalElementsById">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getMeatBaseByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOptionalElementsByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateDoughByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateMeatBaseByType">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteDoughByType">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -804,24 +1032,48 @@
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="deleteDoughByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="deleteDoughByTypeResponse"/>
   <xsd:complexType name="deleteDoughResponse"/>
   <xsd:complexType name="deleteMeatBase">
     <xsd:sequence>
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="deleteMeatBaseByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="deleteMeatBaseByTypeResponse"/>
   <xsd:complexType name="deleteMeatBaseResponse"/>
   <xsd:complexType name="deleteOptionalElements">
     <xsd:sequence>
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="deleteOptionalElementsByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="deleteOptionalElementsByTypeResponse"/>
   <xsd:complexType name="deleteOptionalElementsResponse"/>
   <xsd:complexType name="deleteSauces">
     <xsd:sequence>
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="deleteSaucesByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="deleteSaucesByTypeResponse"/>
   <xsd:complexType name="deleteSaucesResponse"/>
   <xsd:complexType name="getDoughById">
     <xsd:sequence>
@@ -829,6 +1081,16 @@
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="getDoughByIdResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:dough" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getDoughByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getDoughByTypeResponse">
     <xsd:sequence>
       <xsd:element name="return" type="ns0:dough" minOccurs="0"/>
     </xsd:sequence>
@@ -843,6 +1105,16 @@
       <xsd:element name="return" type="ns0:meatBase" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="getMeatBaseByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getMeatBaseByTypeResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:meatBase" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:complexType name="getOptionalElementsById">
     <xsd:sequence>
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
@@ -853,12 +1125,32 @@
       <xsd:element name="return" type="ns0:optionalElements" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="getOptionalElementsByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getOptionalElementsByTypeResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:optionalElements" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:complexType name="getSaucesById">
     <xsd:sequence>
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="getSaucesByIdResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:sauces" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getSaucesByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getSaucesByTypeResponse">
     <xsd:sequence>
       <xsd:element name="return" type="ns0:sauces" minOccurs="0"/>
     </xsd:sequence>
@@ -898,6 +1190,17 @@
       <xsd:element name="updatedDough" type="ns0:dough" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="updateDoughByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="updatedDough" type="ns0:dough" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updateDoughByTypeResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:dough" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:complexType name="updateDoughResponse">
     <xsd:sequence>
       <xsd:element name="return" type="ns0:dough" minOccurs="0"/>
@@ -907,6 +1210,17 @@
     <xsd:sequence>
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
       <xsd:element name="updatedMeatBase" type="ns0:meatBase" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updateMeatBaseByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="updatedMeatBase" type="ns0:meatBase" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updateMeatBaseByTypeResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:meatBase" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="updateMeatBaseResponse">
@@ -920,6 +1234,17 @@
       <xsd:element name="updatedOptionalElements" type="ns0:optionalElements" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="updateOptionalElementsByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="updatedOptionalElements" type="ns0:optionalElements" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updateOptionalElementsByTypeResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:optionalElements" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:complexType name="updateOptionalElementsResponse">
     <xsd:sequence>
       <xsd:element name="return" type="ns0:optionalElements" minOccurs="0"/>
@@ -929,6 +1254,17 @@
     <xsd:sequence>
       <xsd:element name="id" type="xsd:int" minOccurs="0"/>
       <xsd:element name="updatedSauces" type="ns0:sauces" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updateSaucesByType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="updatedSauces" type="ns0:sauces" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updateSaucesByTypeResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="ns0:sauces" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="updateSaucesResponse">
@@ -977,32 +1313,56 @@
   <xsd:element name="addSauces" type="ns0:addSauces"/>
   <xsd:element name="addSaucesResponse" type="ns0:addSaucesResponse"/>
   <xsd:element name="deleteDough" type="ns0:deleteDough"/>
+  <xsd:element name="deleteDoughByType" type="ns0:deleteDoughByType"/>
+  <xsd:element name="deleteDoughByTypeResponse" type="ns0:deleteDoughByTypeResponse"/>
   <xsd:element name="deleteDoughResponse" type="ns0:deleteDoughResponse"/>
   <xsd:element name="deleteMeatBase" type="ns0:deleteMeatBase"/>
+  <xsd:element name="deleteMeatBaseByType" type="ns0:deleteMeatBaseByType"/>
+  <xsd:element name="deleteMeatBaseByTypeResponse" type="ns0:deleteMeatBaseByTypeResponse"/>
   <xsd:element name="deleteMeatBaseResponse" type="ns0:deleteMeatBaseResponse"/>
   <xsd:element name="deleteOptionalElements" type="ns0:deleteOptionalElements"/>
+  <xsd:element name="deleteOptionalElementsByType" type="ns0:deleteOptionalElementsByType"/>
+  <xsd:element name="deleteOptionalElementsByTypeResponse" type="ns0:deleteOptionalElementsByTypeResponse"/>
   <xsd:element name="deleteOptionalElementsResponse" type="ns0:deleteOptionalElementsResponse"/>
   <xsd:element name="deleteSauces" type="ns0:deleteSauces"/>
+  <xsd:element name="deleteSaucesByType" type="ns0:deleteSaucesByType"/>
+  <xsd:element name="deleteSaucesByTypeResponse" type="ns0:deleteSaucesByTypeResponse"/>
   <xsd:element name="deleteSaucesResponse" type="ns0:deleteSaucesResponse"/>
   <xsd:element name="getDoughById" type="ns0:getDoughById"/>
   <xsd:element name="getDoughByIdResponse" type="ns0:getDoughByIdResponse"/>
+  <xsd:element name="getDoughByType" type="ns0:getDoughByType"/>
+  <xsd:element name="getDoughByTypeResponse" type="ns0:getDoughByTypeResponse"/>
   <xsd:element name="getMeatBaseById" type="ns0:getMeatBaseById"/>
   <xsd:element name="getMeatBaseByIdResponse" type="ns0:getMeatBaseByIdResponse"/>
+  <xsd:element name="getMeatBaseByType" type="ns0:getMeatBaseByType"/>
+  <xsd:element name="getMeatBaseByTypeResponse" type="ns0:getMeatBaseByTypeResponse"/>
   <xsd:element name="getOptionalElementsById" type="ns0:getOptionalElementsById"/>
   <xsd:element name="getOptionalElementsByIdResponse" type="ns0:getOptionalElementsByIdResponse"/>
+  <xsd:element name="getOptionalElementsByType" type="ns0:getOptionalElementsByType"/>
+  <xsd:element name="getOptionalElementsByTypeResponse" type="ns0:getOptionalElementsByTypeResponse"/>
   <xsd:element name="getSaucesById" type="ns0:getSaucesById"/>
   <xsd:element name="getSaucesByIdResponse" type="ns0:getSaucesByIdResponse"/>
+  <xsd:element name="getSaucesByType" type="ns0:getSaucesByType"/>
+  <xsd:element name="getSaucesByTypeResponse" type="ns0:getSaucesByTypeResponse"/>
   <xsd:element name="loadComponents" type="ns0:loadComponents"/>
   <xsd:element name="loadComponentsResponse" type="ns0:loadComponentsResponse"/>
   <xsd:element name="test" type="ns0:test"/>
   <xsd:element name="testResponse" type="ns0:testResponse"/>
   <xsd:element name="updateDough" type="ns0:updateDough"/>
+  <xsd:element name="updateDoughByType" type="ns0:updateDoughByType"/>
+  <xsd:element name="updateDoughByTypeResponse" type="ns0:updateDoughByTypeResponse"/>
   <xsd:element name="updateDoughResponse" type="ns0:updateDoughResponse"/>
   <xsd:element name="updateMeatBase" type="ns0:updateMeatBase"/>
+  <xsd:element name="updateMeatBaseByType" type="ns0:updateMeatBaseByType"/>
+  <xsd:element name="updateMeatBaseByTypeResponse" type="ns0:updateMeatBaseByTypeResponse"/>
   <xsd:element name="updateMeatBaseResponse" type="ns0:updateMeatBaseResponse"/>
   <xsd:element name="updateOptionalElements" type="ns0:updateOptionalElements"/>
+  <xsd:element name="updateOptionalElementsByType" type="ns0:updateOptionalElementsByType"/>
+  <xsd:element name="updateOptionalElementsByTypeResponse" type="ns0:updateOptionalElementsByTypeResponse"/>
   <xsd:element name="updateOptionalElementsResponse" type="ns0:updateOptionalElementsResponse"/>
   <xsd:element name="updateSauces" type="ns0:updateSauces"/>
+  <xsd:element name="updateSaucesByType" type="ns0:updateSaucesByType"/>
+  <xsd:element name="updateSaucesByTypeResponse" type="ns0:updateSaucesByTypeResponse"/>
   <xsd:element name="updateSaucesResponse" type="ns0:updateSaucesResponse"/>
 </xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint></con:endpoints><con:operation id="b6b2a2a6-59cb-4407-aaf5-52b703660ee2" isOneWay="false" action="" name="addDough" bindingOperationName="addDough" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="387f0bd7-ba35-4492-bd97-bdb3b2e5247c" name="Test add dough"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
    <soapenv:Header/>\r
@@ -1172,7 +1532,115 @@
          </updatedSauces>\r
       </soap:updateSauces>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateSaucesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="a033f7a9-5a4c-4e20-a156-1e69b4c168b6" wsaVersion="NONE" name="PiadinaApiSoapPortBinding" type="wsdl" bindingName="{http://soap.api.PiadineriaAdvancia.advancia.com/}PiadinaApiSoapPortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/PiadineriaAdvancia/api/soap/piadinas?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/PiadineriaAdvancia/api/soap/piadinas?wsdl"><con:part><con:url>http://localhost:8080/PiadineriaAdvancia/api/soap/piadinas?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.1 svn-revision#6ef5f7eb9a938dbc4562f25f8fa0b67cc4ff2dbb.-->
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateSaucesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="de014bcd-022d-44cc-8820-09bf35112719" isOneWay="false" action="" name="getSaucesByType" bindingOperationName="getSaucesByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f18bedc8-c21f-4da1-98c7-c09fffdd8357" name="Test get sauces by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getSaucesByType>\r
+         <type>Ketchup</type>\r
+      </soap:getSaucesByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getSaucesByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1c49791f-92e8-47e1-9428-2893316278f9" isOneWay="false" action="" name="getDoughByType" bindingOperationName="getDoughByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bf46c649-d0ea-4994-aac7-a8dc45d14173" name="Test get dough by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getDoughByType>\r
+         <type>Classic</type>\r
+      </soap:getDoughByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getDoughByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c2823241-a529-442f-9d64-734cf544daee" isOneWay="false" action="" name="deleteSaucesByType" bindingOperationName="deleteSaucesByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6e621b20-586f-49c5-ae6a-136ba4d8a33f" name="Test delete sauces by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:deleteSaucesByType>\r
+         <type>ProvaType</type>\r
+      </soap:deleteSaucesByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteSaucesByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="524ea2ee-615e-4cf8-a562-ad6a3b3005ed" isOneWay="false" action="" name="updateSaucesByType" bindingOperationName="updateSaucesByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="64335536-b389-49d1-920a-bbf43ddfe351" name="Test update sauces by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:updateSaucesByType>\r
+         <type>Yogurt</type>\r
+         <updatedSauces>\r
+            <description>Modified</description>\r
+            <id>4</id>\r
+            <price>0.3</price>\r
+            <type>Yogurt</type>\r
+         </updatedSauces>\r
+      </soap:updateSaucesByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateSaucesByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="57a160b8-496a-471a-8bf7-df3f036ab1a0" isOneWay="false" action="" name="deleteOptionalElementsByType" bindingOperationName="deleteOptionalElementsByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ba92b915-57cf-48da-bed8-7555f318ef20" name="Test delete optionalElements by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:deleteOptionalElementsByType>\r
+         <type>ProvaType</type>\r
+      </soap:deleteOptionalElementsByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteOptionalElementsByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6176ea6a-42e2-4612-9361-1c67413442bc" isOneWay="false" action="" name="deleteMeatBaseByType" bindingOperationName="deleteMeatBaseByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="50c2be8b-a8d6-4848-9fa8-0fa9fd21378a" name="Test delete meatBase by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:deleteMeatBaseByType>\r
+         <type>ProvaType</type>\r
+      </soap:deleteMeatBaseByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteMeatBaseByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="703eef1d-f6b7-4a11-a4fb-e64898de178b" isOneWay="false" action="" name="updateOptionalElementsByType" bindingOperationName="updateOptionalElementsByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d895ffe4-2eb5-4134-9586-e1d66ba01668" name="Test update optionalElements by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:updateOptionalElementsByType>\r
+         <type>Tomato</type>\r
+         <updatedOptionalElements>\r
+            <description>Modified</description>\r
+            <id>3</id>\r
+            <price>0.4</price>\r
+            <type>Tomato</type>\r
+         </updatedOptionalElements>\r
+      </soap:updateOptionalElementsByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateOptionalElementsByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3af1b748-1f83-4f79-b434-e19b701a0a30" isOneWay="false" action="" name="getMeatBaseByType" bindingOperationName="getMeatBaseByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="73ba0282-5e4e-4f1b-8c3b-c8516dce9936" name="Test get meatBase by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getMeatBaseByType>\r
+         <type>Bacon</type>\r
+      </soap:getMeatBaseByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getMeatBaseByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b441d87d-dc19-4176-8b1f-08631317f037" isOneWay="false" action="" name="getOptionalElementsByType" bindingOperationName="getOptionalElementsByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="004b9e21-5eee-4d9a-b6c1-d3fd043c78f5" name="Test get optionalElements by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getOptionalElementsByType>\r
+         <type>Feta</type>\r
+      </soap:getOptionalElementsByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/getOptionalElementsByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="619d1a6b-cd14-4269-b9dd-8a43f1cd4388" isOneWay="false" action="" name="updateDoughByType" bindingOperationName="updateDoughByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="296b44ab-5201-4a8d-925e-274f43f8834e" name="Test update dough by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:updateDoughByType>\r
+         <type>Classic</type>\r
+         <updatedDough>\r
+            <description>Modificato</description>\r
+            <id>8</id>\r
+            <price>1</price>\r
+            <type>Classic</type>\r
+         </updatedDough>\r
+      </soap:updateDoughByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateDoughByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="bceb8539-a824-49fa-8fd6-c0b9a468f411" isOneWay="false" action="" name="updateMeatBaseByType" bindingOperationName="updateMeatBaseByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4a570d9b-c649-4a6b-9906-520f98997ab2" name="Test update meatBase by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:updateMeatBaseByType>\r
+         <type>Salami</type>\r
+         <updatedMeatBase>\r
+            <description>Description</description>\r
+            <id>3</id>\r
+            <price>1</price>\r
+            <type>Salami</type>\r
+         </updatedMeatBase>\r
+      </soap:updateMeatBaseByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/updateMeatBaseByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="49455f0f-40c4-40a0-8287-33d15462842f" isOneWay="false" action="" name="deleteDoughByType" bindingOperationName="deleteDoughByType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5fe89e0d-be9e-40df-88db-4df081d02aab" name="Test delete dough by Type"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PiadineriaAdvancia/api/soap/piadina</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.api.PiadineriaAdvancia.advancia.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:deleteDoughByType>\r
+         <type>ProvaType</type>\r
+      </soap:deleteDoughByType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.api.PiadineriaAdvancia.advancia.com/PiadinaComponentsApiSoap/deleteDoughByTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="a033f7a9-5a4c-4e20-a156-1e69b4c168b6" wsaVersion="NONE" name="PiadinaApiSoapPortBinding" type="wsdl" bindingName="{http://soap.api.PiadineriaAdvancia.advancia.com/}PiadinaApiSoapPortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/PiadineriaAdvancia/api/soap/piadinas?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/PiadineriaAdvancia/api/soap/piadinas?wsdl"><con:part><con:url>http://localhost:8080/PiadineriaAdvancia/api/soap/piadinas?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.1 svn-revision#6ef5f7eb9a938dbc4562f25f8fa0b67cc4ff2dbb.-->
 <!--Generated by JAX-WS RI (http://javaee.github.io/metro-jax-ws). RI's version is JAX-WS RI 2.3.1 svn-revision#6ef5f7eb9a938dbc4562f25f8fa0b67cc4ff2dbb.-->
 <definitions targetNamespace="http://soap.api.PiadineriaAdvancia.advancia.com/" name="PiadinaApiSoapService" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.api.PiadineriaAdvancia.advancia.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>

@@ -79,4 +79,52 @@ public class PiadinaComponentsService {
 	public void deleteOptionalElements(int id) {
 		piadinaComponentsDaoService.deleteOptionalElements(id);
 	}
+	
+	public Dough getDoughByType(String type) {
+		return piadinaComponentsDaoService.getDoughByType(type);
+	}
+	
+	public MeatBase getMeatBaseByType(String type) {
+		return piadinaComponentsDaoService.getMeatBaseByType(type);
+	}
+	
+	public Sauces getSaucesByType(String type) {
+		return piadinaComponentsDaoService.getSaucesByType(type);
+	}
+	
+	public OptionalElements getOptionalElementsByType(String type) {
+		return piadinaComponentsDaoService.getOptionalElementsByType(type);
+	}
+	
+	public void updateDoughByType(String type, Dough d) {
+		piadinaComponentsDaoService.updateDoughByType(type, d);
+	}
+	
+	public void updateMeatBaseByType(String type, MeatBase mt) {
+		piadinaComponentsDaoService.updateMeatBaseByType(type, mt);
+	}
+	
+	public void updateSaucesByType(String type, Sauces s) {
+		piadinaComponentsDaoService.updateSaucesByType(type, s);
+	}
+	
+	public void updateOptionalElementsByType(String type, OptionalElements oe) {
+		piadinaComponentsDaoService.updateOptionalElementsByType(type, oe);
+	}
+	
+	public void deleteDoughByType(String type) {
+		piadinaComponentsDaoService.deleteDoughByType(type);
+	}
+	
+	public void deleteMeatBaseByType(String type) {
+		piadinaComponentsDaoService.deleteMeatBaseByType(type);
+	}
+	
+	public void deleteSaucesByType(String type) {
+		piadinaComponentsDaoService.deleteSaucesByType(type);
+	}
+	
+	public void deleteOptionalElementsByType(String type) {
+		piadinaComponentsDaoService.deleteOptionalElementsByType(type);
+	}
 }

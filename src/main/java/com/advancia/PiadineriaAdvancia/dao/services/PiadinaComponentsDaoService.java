@@ -253,4 +253,176 @@ public class PiadinaComponentsDaoService {
 	        throw new DBException("Error while deleting optional elements.", e);
 	    }
 	}
+	
+	public Dough getDoughByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        return getDoughDao.getByType(type, em.getManager());
+	    } catch(Exception e) {
+	        throw new DBException("Error while retrieving dough by type.", e);
+	    }
+	}
+	
+	public MeatBase getMeatBaseByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        return getMeatBaseDao.getByType(type, em.getManager());
+	    } catch(Exception e) {
+	        throw new DBException("Error while retrieving meat base by type.", e);
+	    }
+	}
+	
+	public Sauces getSaucesByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        return getSaucesDao.getByType(type, em.getManager());
+	    } catch(Exception e) {
+	        throw new DBException("Error while retrieving sauces by type.", e);
+	    }
+	}
+	
+	public OptionalElements getOptionalElementsByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        return getOptionalElementsDao.getByType(type, em.getManager());
+	    } catch(Exception e) {
+	        throw new DBException("Error while retrieving optional elements by type.", e);
+	    }
+	}
+	
+	public void updateDoughByType(String type, Dough d) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        updateDoughDao.updateByType(type, d, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while updating dough by type.", e);
+	    }
+	}
+	
+	public void updateMeatBaseByType(String type, MeatBase mt) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        updateMeatBaseDao.updateByType(type, mt, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while updating meat base by type.", e);
+	    }
+	}
+	
+	public void updateSaucesByType(String type, Sauces s) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        updateSaucesDao.updateByType(type, s, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while updating sauces by type.", e);
+	    }
+	}
+	
+	public void updateOptionalElementsByType(String type, OptionalElements oe) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        updateOptionalElementsDao.updateByType(type, oe, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while updating optional elements by type.", e);
+	    }
+	}
+	
+	public void deleteDoughByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        removeDoughDao.removeByType(type, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while deleting dough by type.", e);
+	    }
+	}
+	
+	public void deleteMeatBaseByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        removeMeatBaseDao.removeByType(type, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while deleting meat base by type.", e);
+	    }
+	}
+	
+	public void deleteSaucesByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        removeSaucesDao.removeByType(type, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while deleting sauces by type.", e);
+	    }
+	}
+	
+	public void deleteOptionalElementsByType(String type) {
+	    if(type == null || type.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Type must be a non-empty string");
+	    }
+	    try(CloseableEntityManager em = new CloseableEntityManager()) {
+	        EntityTransaction transaction = em.getManager().getTransaction();
+	        transaction.begin();
+
+	        removeOptionalElementsDao.removeByType(type, em.getManager());
+
+	        transaction.commit();
+	    } catch(Exception e) {
+	        throw new DBException("Error while deleting optional elements by type.", e);
+	    }
+	}
 }
