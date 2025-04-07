@@ -15,7 +15,7 @@ import com.advancia.PiadineriaAdvancia.services.PiadinaComponentsService;
 
 @WebService
 public class PiadinaComponentsApiSoap implements PiadinaComponentsServiceApi {
-	private PiadinaComponentsService piadinaComponentsService = new PiadinaComponentsService();
+	private final PiadinaComponentsService piadinaComponentsService = new PiadinaComponentsService();
 
 	@Override
 	public Map<String, Set<Object>> loadComponents() {

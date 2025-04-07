@@ -14,7 +14,7 @@ import com.advancia.PiadineriaAdvancia.services.UserService;
 
 @Path("/login")
 public class UserLoginApiRest {
-	private UserService userService = new UserService();
+	private final UserService userService = new UserService();
     
     @POST
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})

@@ -11,7 +11,7 @@ import com.advancia.PiadineriaAdvancia.services.UserService;
 
 @WebService
 public class UserLoginApiSoap implements UserLoginServiceApi {
-	private UserService userService = new UserService();
+	private final UserService userService = new UserService();
 	
 	@Override
 	@WebMethod

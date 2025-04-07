@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class AddPiadinaActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(AddPiadinaActionServlet.class);
+	private final Logger log = LogManager.getLogger(AddPiadinaActionServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class LoadLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoadLoginServlet.class);
+	private final Logger log = LogManager.getLogger(LoadLoginServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -27,7 +27,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class PiadinaComponentsApiRest {
-	private PiadinaComponentsService piadinaComponentsService = new PiadinaComponentsService();
+	private final PiadinaComponentsService piadinaComponentsService = new PiadinaComponentsService();
 	
 	@Context
     private HttpHeaders headers;

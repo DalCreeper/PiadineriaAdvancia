@@ -10,7 +10,7 @@ import com.advancia.PiadineriaAdvancia.services.PiadinaService;
 
 @WebService
 public class PiadinaApiSoap implements PiadinaServiceApi {
-	private PiadinaService piadinaService = new PiadinaService();
+	private final PiadinaService piadinaService = new PiadinaService();
 
 	@Override
 	public List<Piadina> getPiadinas() {

@@ -16,7 +16,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class UsersApiRest {
-    private UserService userService = new UserService();
+    private final UserService userService = new UserService();
     
     @Context
     private HttpHeaders headers;

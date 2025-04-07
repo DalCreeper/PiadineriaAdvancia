@@ -17,8 +17,8 @@ import com.advancia.PiadineriaAdvancia.services.UserService;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoginServlet.class);
-	private UserService userService = new UserService();
+	private final Logger log = LogManager.getLogger(LoginServlet.class);
+	private final UserService userService = new UserService();
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

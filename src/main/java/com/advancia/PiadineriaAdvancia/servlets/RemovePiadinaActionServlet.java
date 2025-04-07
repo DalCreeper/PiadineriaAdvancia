@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class RemovePiadinaActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(RemovePiadinaActionServlet.class);
+	private final Logger log = LogManager.getLogger(RemovePiadinaActionServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

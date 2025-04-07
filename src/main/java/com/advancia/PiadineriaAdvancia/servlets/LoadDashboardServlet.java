@@ -17,7 +17,7 @@ import com.advancia.PiadineriaAdvancia.services.PiadinaService;
  */
 public class LoadDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoadDashboardServlet.class);
+	private final Logger log = LogManager.getLogger(LoadDashboardServlet.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

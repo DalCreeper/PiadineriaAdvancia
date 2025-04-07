@@ -20,7 +20,7 @@ import com.advancia.PiadineriaAdvancia.services.PiadinaComponentsService;
  */
 public class LoadAddPiadinaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Logger log = LogManager.getLogger(LoadAddPiadinaServlet.class);
+	private final Logger log = LogManager.getLogger(LoadAddPiadinaServlet.class);
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
